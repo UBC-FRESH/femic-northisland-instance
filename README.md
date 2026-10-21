@@ -64,16 +64,12 @@ TIPSY output before release.
 ## Web UI
 
 ```bash
-python -m ws4.cli serve \
-  --dataset runtime/matrix \
-  --runs runtime \
-  --geometry runtime/fragments.geojson \
-  --targets config/targets.yaml \
-  --crs EPSG:3005 \
-  --allow-runs \
-  --allow-agent \
-  --port 8014
+./serve_northisland.sh
 ```
+
+`PORT=...` overrides the default `8014`. The script passes `--crs EPSG:3005`,
+`--allow-runs`, and `--allow-agent`, with the agent working directory set to the
+instance root.
 
 The service binds loopback only. ws4 has no authentication; do not expose it
 without a trusted proxy. The geometry is EPSG:3005 and MapLibre projects it to
