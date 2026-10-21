@@ -15,7 +15,7 @@ after its parent issue exists and the maintainer approves it.
 | P0 Bootstrap | #1 | `feature/p0-bootstrap` | complete |
 | P1 AOI and public data | #7 | `feature/p1-aoi-public-data` | complete |
 | P2 FEMIC upstream build | #12 | `feature/p2-femic-upstream` | complete |
-| P3 ws4 model build | #18 | `feature/p3-ws4-model` | active |
+| P3 ws4 model build | #18 | `feature/p3-ws4-model` | pr-open |
 | P4 Baseline, targets, and web UI | TBD | `feature/p4-baseline-ui` | planned |
 | P5 Verify and release | TBD | `feature/p5-verify-release` | planned |
 | P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
@@ -103,13 +103,13 @@ Acceptance criteria:
 
 Parent issue: #18
 Branch: `feature/p3-ws4-model`
-Status: active
+Status: pr-open
 
 Goal: compile the FEMIC export into a canonical ws4 dataset and validate it.
 
-- [ ] P3.1 Build the ws4 matrix from the exported XML and fragments (#19)
-- [ ] P3.2 Validate the dataset manifest and schema invariants (#20)
-- [ ] P3.3 Inspect block, curve, treatment, and account coverage (#21)
+- [x] P3.1 Build the ws4 matrix from the exported XML and fragments (#19)
+- [x] P3.2 Validate the dataset manifest and schema invariants (#20)
+- [x] P3.3 Inspect block, curve, treatment, and account coverage (#21)
 
 Acceptance criteria:
 

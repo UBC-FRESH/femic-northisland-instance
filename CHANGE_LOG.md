@@ -43,3 +43,6 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Merged Phase 2 as `f5dd1cb` (squash of PR #17) and launched Phase 3 on
   `feature/p3-ws4-model` with parent #18 and tasks #19 to #21. The downstream
   FreshForge workflow builds and validates the ws4 matrix.
+- Completed the P3 ws4 build. `ws4 build` and `validate` pass; the matrix has
+  56,187 blocks/fragments, 2,156 curves, 5,930 treatments, and 442,451.9975 ha
+  of block area.
