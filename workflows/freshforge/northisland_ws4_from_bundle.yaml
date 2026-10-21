@@ -1,0 +1,116 @@
+workflow:
+  id: northisland_ws4_from_bundle
+  name: North Island ws4 build from an existing FEMIC bundle
+  description: >
+    Downstream FreshForge graph for an existing FEMIC model-input bundle. It
+    exports the Patchworks-compatible XML and fragments, builds and validates the
+    ws4 matrix, runs the baseline simulation, reports, and prepares the web UI
+    geometry. Use this when the upstream bundle has already been inspected.
+nodes:
+  - id: export_patchworks
+    provider: femic.export_patchworks
+    inputs:
+      model_input_bundle: data/model_input_bundle
+    outputs:
+      patchworks_package: output/patchworks_northisland
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.northisland.yaml
+      tsa: "northisland"
+      bundle_dir: data/model_input_bundle
+      checkpoint: data/ria_vri_vclr1p_checkpoint8.feather
+      output_dir: output/patchworks_northisland
+    artifacts:
+      forestmodel_xml: output/patchworks_northisland/forestmodel.xml
+      fragments: output/patchworks_northisland/fragments/fragments.shp
+
+  - id: build_dataset
+    provider: northisland.ws4.build_dataset
+    needs:
+      - export_patchworks
+    outputs:
+      dataset: runtime/matrix
+    parameters:
+      instance_root: "."
+      xml: output/patchworks_northisland/forestmodel.xml
+      fragments: output/patchworks_northisland/fragments/fragments.shp
+      out: runtime/matrix
+    artifacts:
+      manifest: runtime/matrix/manifest.json
+
+  - id: validate_dataset
+    provider: northisland.ws4.validate_dataset
+    needs:
+      - build_dataset
+    inputs:
+      dataset: build_dataset.dataset
+    outputs:
+      validated_dataset: runtime/matrix
+    parameters:
+      instance_root: "."
+      dataset: runtime/matrix
+
+  - id: build_baseline_schedule
+    provider: northisland.ws4.build_baseline_schedule
+    needs:
+      - validate_dataset
+    inputs:
+      validated_dataset: validate_dataset.validated_dataset
+    outputs:
+      schedule: runtime/baseline_schedule.csv
+    parameters:
+      instance_root: "."
+      dataset: runtime/matrix
+      out: runtime/baseline_schedule.csv
+      target_age: "60"
+    artifacts:
+      schedule: runtime/baseline_schedule.csv
+      summary: runtime/baseline_schedule.summary.json
+
+  - id: simulate_baseline
+    provider: northisland.ws4.simulate
+    needs:
+      - build_baseline_schedule
+    inputs:
+      schedule: build_baseline_schedule.schedule
+    outputs:
+      run: runtime/baseline
+    parameters:
+      instance_root: "."
+      dataset: runtime/matrix
+      schedule: runtime/baseline_schedule.csv
+      out: runtime/baseline
+      years: "100"
+    artifacts:
+      run: runtime/baseline
+
+  - id: report_baseline
+    provider: northisland.ws4.report
+    needs:
+      - simulate_baseline
+    inputs:
+      run: simulate_baseline.run
+    outputs:
+      report: runtime/baseline
+    parameters:
+      instance_root: "."
+      run: runtime/baseline
+      targets: config/targets.yaml
+    artifacts:
+      summary: runtime/baseline/account_summary.csv
+      targets: runtime/baseline/report_targets.csv
+
+  - id: prepare_ui
+    provider: northisland.ws4.prepare_ui
+    needs:
+      - report_baseline
+    inputs:
+      run: report_baseline.report
+    outputs:
+      ui_assets: runtime/fragments.geojson
+    parameters:
+      instance_root: "."
+      fragments: output/patchworks_northisland/fragments/fragments.shp
+      out: runtime/fragments.geojson
+    artifacts:
+      geometry: runtime/fragments.geojson
