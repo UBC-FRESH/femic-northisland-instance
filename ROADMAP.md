@@ -16,7 +16,7 @@ after its parent issue exists and the maintainer approves it.
 | P1 AOI and public data | #7 | `feature/p1-aoi-public-data` | complete |
 | P2 FEMIC upstream build | #12 | `feature/p2-femic-upstream` | complete |
 | P3 ws4 model build | #18 | `feature/p3-ws4-model` | complete |
-| P4 Baseline, targets, and web UI | #23 | `feature/p4-baseline-ui` | active |
+| P4 Baseline, targets, and web UI | #23 | `feature/p4-baseline-ui` | pr-open |
 | P5 Verify and release | TBD | `feature/p5-verify-release` | planned |
 | P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
 
@@ -121,15 +121,15 @@ Acceptance criteria:
 
 Parent issue: #23
 Branch: `feature/p4-baseline-ui`
-Status: active
+Status: pr-open
 
 Goal: produce the first baseline schedule and target report, then serve the model
 in the ws4 web UI.
 
-- [ ] P4.1 Build and simulate the baseline schedule (#24)
-- [ ] P4.2 Write the first target set and report (#25)
-- [ ] P4.3 Prepare the UI geometry and launch the loopback service (#26)
-- [ ] P4.4 Verify map rendering, target display, and run switching (#27)
+- [x] P4.1 Build and simulate the baseline schedule (#24)
+- [x] P4.2 Write the first target set and report (#25)
+- [x] P4.3 Prepare the UI geometry and launch the loopback service (#26)
+- [x] P4.4 Verify map rendering, target display, and run switching (#27)
 
 Acceptance criteria:
 

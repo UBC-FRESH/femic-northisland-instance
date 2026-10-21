@@ -49,3 +49,5 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Merged Phase 3 as `f4fea9e` and launched Phase 4 on `feature/p4-baseline-ui`
   with parent #23 and tasks #24 to #27. The baseline run and the loopback web UI
   are verified.
+- Completed P4: baseline simulated, two provisional targets met, and the ws4 UI
+  verified with 51,289 blocks on loopback port 8014.
