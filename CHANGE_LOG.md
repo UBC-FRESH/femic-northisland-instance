@@ -27,3 +27,5 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Closed P0.1 to P0.3 and queued P0.4. `python scripts/dashboard.py` reports all
   gates GREEN with 160 tests. `freshforge validate` and `plan` pass for the
   11-node workflow. Generated AOI, VDYP, and runtime outputs remain untracked.
+- Merged Phase 0 as `e853651`, closed parent issue #1, and launched Phase 1 on
+  `feature/p1-aoi-public-data` with parent #7 and tasks #8 to #10.
