@@ -14,3 +14,9 @@ targets:
     min_weight: 1
     max_weight: 1
     notes: "Current North Island TSA AAC (2020 TSR data package), first decade."
+  - account: product.Yield.managed.Total
+    year: 0
+    period_width: 1
+    maximum: 1248100
+    max_weight: 1
+    notes: "Do not liquidate the initial inventory in year zero; hold it to one AAC."
