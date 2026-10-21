@@ -48,6 +48,12 @@ Runtime boundary
 ----------------
 
 VDYP7 is a Windows executable. On Linux it runs under Wine, including the 32-bit
-loader. The first lane sets ``managed_curve_mode: vdyp_transform`` and therefore
+loader. The first lane sets ``vdyp_sampling_mode: auto`` because the larger
+``all`` batches exceeded the short VDYP console timeout in the first run. Auto
+sampling fits from fewer stands, so it is a provisional workaround; raise the
+timeout and rerun in ``all`` mode before release.
+
+The first lane also sets ``managed_curve_mode: vdyp_transform`` and therefore
 does not need BatchTIPSY. That transform is a provisional managed curve lane, not
-accepted TIPSY yield curves. Replace it before release.
+accepted TIPSY yield curves. Replace it before release. See
+``notes/reference/vdyp-runtime.md`` for the timeout evidence.

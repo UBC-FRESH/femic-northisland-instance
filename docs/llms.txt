@@ -12,3 +12,5 @@
 - [North Island AOI](aoi.html): the Basecamp AOI rule, public boundary sources, review checks, and the CFA caveat.
 - [Model build](model-build.html): the FreshForge workflow, FEMIC-to-ws4 chain, commands, and runtime boundary.
 - [Web UI](web-ui.html): the ws4 serve command, EPSG:3005 handling, and the verification checks.
+
+- [VDYP runtime boundary](../notes/reference/vdyp-runtime.md): Wine, the batch timeout evidence, and the provisional auto-sampling workaround.
