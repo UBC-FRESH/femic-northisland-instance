@@ -13,6 +13,7 @@ import json
 from pathlib import Path
 
 import geopandas as gpd
+import pandas as pd
 
 
 def _block_column(frame: gpd.GeoDataFrame) -> str:
@@ -37,6 +38,7 @@ def prepare_ui_geometry(
     out: Path,
     simplify_m: float = 100.0,
     precision: int = 1,
+    parts: Path | None = None,
 ) -> dict[str, object]:
     """Dissolve fragment geometry to blocks and write a GeoJSON file.
 
@@ -51,6 +53,9 @@ def prepare_ui_geometry(
         provincial map scales and keeps the browser payload small.
     precision : int
         Decimal places retained for native-CRS coordinates.
+    parts : Path, optional
+        A ``block_parts.csv`` sidecar with ``block_id``, ``part``, and ``k3z``.
+        When given, the properties travel into the UI GeoJSON.
 
     Returns
     -------
@@ -65,9 +70,17 @@ def prepare_ui_geometry(
     blocks = frame[[block_column, "geometry"]].dissolve(by=block_column).reset_index()
     blocks = blocks.rename(columns={block_column: "block_id"})
     blocks["block_id"] = blocks["block_id"].astype(int)
+    if parts is not None and parts.exists():
+        flags = pd.read_csv(parts)
+        blocks = blocks.merge(flags[["block_id", "part", "k3z"]], on="block_id", how="left")
+        blocks["part"] = blocks["part"].fillna("unknown").astype(str)
+        blocks["k3z"] = blocks["k3z"].fillna(0).astype(int)
     if simplify_m > 0:
         blocks["geometry"] = blocks.geometry.simplify(simplify_m, preserve_topology=True)
-    collection = blocks[["block_id", "geometry"]].__geo_interface__
+    properties = ["block_id"]
+    if parts is not None and parts.exists():
+        properties.extend(["part", "k3z"])
+    collection = blocks[properties + ["geometry"]].__geo_interface__
     for feature in collection["features"]:
         feature["geometry"]["coordinates"] = _round_coordinates(
             feature["geometry"]["coordinates"], precision
@@ -91,12 +104,14 @@ def main() -> None:
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--simplify-m", type=float, default=100.0)
     parser.add_argument("--precision", type=int, default=1)
+    parser.add_argument("--parts", type=Path, default=None)
     args = parser.parse_args()
     summary = prepare_ui_geometry(
         fragments=args.fragments,
         out=args.out,
         simplify_m=args.simplify_m,
         precision=args.precision,
+        parts=args.parts,
     )
     print(json.dumps(summary, indent=2, sort_keys=True))
 

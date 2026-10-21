@@ -1,0 +1,13 @@
+# Full North Island TSA 48 benchmark targets.
+#
+# The 2020 North Island TSA Timber Supply Review data package reports a current
+# AAC of 1,248,100 m3/yr and a current THLB of 177,505 ha. These entries are
+# reference targets for the full-TSA benchmark run, not an optimized policy
+# target set. The NICC-only model has its own target file.
+targets:
+  - account: product.Yield.managed.Total
+    period: 1
+    period_width: 10
+    minimum: 1248100
+    min_weight: 1
+    notes: "Current North Island TSA AAC (2020 TSR data package)."
