@@ -28,9 +28,14 @@ status=ok, duration_sec=22.8, feature_count=1557
 
 ## First-lane workaround
 
-The first lane sets `vdyp_sampling_mode: auto`. Auto sampling uses smaller
-batches, which stay inside the current timeout. The trade-off is that natural
-curves are fitted from the sampled stands, not every stand in the stratum.
+The first lane sets `vdyp_sampling_mode: auto` and
+`vdyp_two_pass_rebin: false`. With two-pass rebin enabled, FEMIC forces the first
+VDYP pass back to `all`; disabling it keeps the auto sampler, which caps each
+batch at the configured sample size. The trade-off is that natural curves are
+fitted from the sampled stands, not every stand in the stratum.
+
+The successful first run covered 12 AUs: CWH_HW, CWH_CW, CWH_YC, and CWH_FD,
+each at L/M/H. It wrote 51,289 fragments and 49 curves.
 
 This is a provisional workaround. Before release, either:
 

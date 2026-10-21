@@ -22,10 +22,14 @@ Chain
      -> northisland.ws4.report
      -> northisland.ws4.prepare_ui
 
-FEMIC compiles the public inventory and yield curves. The export reads the final
-checkpoint (`checkpoint8`) so the fragments carry the full AOI. The Patchworks export gives
-ws4 a ForestModel XML recipe and a fragment inventory. ws4 compiles the canonical
-matrix and runs the baseline simulation.
+FEMIC compiles the public inventory and yield curves and writes the model-input
+bundle. The export reads the final checkpoint (`checkpoint8`) so the fragments
+carry the full AOI. The Patchworks export gives ws4 a ForestModel XML recipe and a
+fragment inventory. ws4 compiles the canonical matrix and runs the baseline
+simulation.
+
+The first North Island run produced 12 AUs across CWH_HW, CWH_CW, CWH_YC, and
+CWH_FD, 51,289 fragments, and 49 curves.
 
 Commands
 --------

@@ -23,7 +23,7 @@ modes:
   # the current 30-second timeout; switch back to all after the timeout is
   # raised. The managed lane is a VDYP transform, not accepted TIPSY output.
   vdyp_sampling_mode: auto
-  vdyp_two_pass_rebin: true
+  vdyp_two_pass_rebin: false
   vdyp_min_stands_per_si_bin: 10
   managed_curve_mode: vdyp_transform
 

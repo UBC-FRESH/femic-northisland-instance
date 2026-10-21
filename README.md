@@ -25,8 +25,7 @@ review checkpoints.
 ```text
 public BC data (VRI, TSA, district, tenure)
   -> femic prep validate-case / geospatial-preflight
-  -> femic run (VDYP natural curves + managed curve transform)
-  -> femic tsa post-tipsy (model-input bundle)
+  -> femic run (VDYP curves, managed transform, model-input bundle)
   -> femic export patchworks (ForestModel XML + fragments)
   -> ws4 build + validate (canonical matrix)
   -> ws4 baseline schedule + simulate + report
@@ -49,6 +48,16 @@ export FEMIC_EXTERNAL_DATA_ROOT=/path/to/femic-public-data/data
 python -m freshforge run workflows/freshforge/northisland_model_build.yaml \
   --workdir runtime/freshforge \
   --namespace northisland/model-build \
+  --json
+```
+
+If the inspected FEMIC bundle already exists, the downstream workflow starts at
+the XML/fragments export:
+
+```bash
+python -m freshforge run workflows/freshforge/northisland_ws4_from_bundle.yaml \
+  --workdir runtime/freshforge \
+  --namespace northisland/ws4 \
   --json
 ```
 
