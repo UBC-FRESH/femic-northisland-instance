@@ -74,7 +74,7 @@ nodes:
       run_config: config/run_profile.northisland.yaml
       tsa: "northisland"
       bundle_dir: data/model_input_bundle
-      checkpoint: data/ria_vri_vclr1p_checkpoint1.feather
+      checkpoint: data/ria_vri_vclr1p_checkpoint8.feather
       output_dir: output/patchworks_northisland
     artifacts:
       forestmodel_xml: output/patchworks_northisland/forestmodel.xml
