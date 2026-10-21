@@ -34,3 +34,5 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   K3Z remains the only active community forest touching the clipped TSA. Added
   `scripts/check_public_data.py` and the portable
   `data/source/public_data_manifest.json`. The dashboard is GREEN.
+- Merged Phase 1 as `b13f957` and launched Phase 2 on
+  `feature/p2-femic-upstream` with parent #12 and tasks #13 to #16.
