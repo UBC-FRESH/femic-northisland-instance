@@ -1,13 +1,13 @@
 schema_version: "1.0"
 
 instance:
-  case_id: "case-template"
+  case_id: "northisland"
   instance_root: "."
 
 runtime:
-  run_config: "config/run_profile.case_template.yaml"
+  run_config: "config/run_profile.northisland.yaml"
   tipsy_config_dir: "config/tipsy"
-  patchworks_config: "config/patchworks.runtime.windows.yaml"
+  patchworks_config: "config/patchworks.runtime.northisland.yaml"
   log_dir: "runtime/logs"
   baseline_unexpected_diff_threshold: 0
 
@@ -40,17 +40,6 @@ steps:
       - "runtime/logs/*"
     expected_outputs:
       - "run_manifest-<run_id>.json"
-  - step_id: "post_tipsy_bundle"
-    kind: "femic_command"
-    command: "femic tsa post-tipsy --run-config ${runtime.run_config} --tsa <code>"
-    required: true
-    depends_on:
-      - "compile_upstream"
-    mutable_artifacts:
-      - "data/model_input_bundle/*"
-      - "runtime/logs/*"
-    expected_outputs:
-      - "post-tipsy manifest and bundle tables"
 
 invariants:
   - invariant_id: "accounts_targets_presence"
@@ -58,7 +47,7 @@ invariants:
     metric: "accounts.targets.required_present"
     comparator: "eq"
     target: true
-    remediation: "Re-run matrix build and inspect accounts.csv/protoaccounts.csv."
+    remediation: "Re-run the matrix build and inspect accounts.csv/protoaccounts.csv."
   - invariant_id: "managed_area_sanity"
     severity: "fatal"
     metric: "managed_area_ha"
@@ -70,4 +59,4 @@ invariants:
     metric: "block_join_mismatch_count"
     comparator: "eq"
     target: 0
-    remediation: "Rebuild blocks.shp and verify BLOCK join keys."
+    remediation: "Rebuild blocks.shp and verify the BLOCK join keys."

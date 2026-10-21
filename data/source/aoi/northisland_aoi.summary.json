@@ -1,0 +1,13 @@
+{
+  "area_ha": 1083003.66,
+  "bounds": [
+    740950.574,
+    542039.84,
+    988579.684,
+    688552.175
+  ],
+  "cfa_count": 3,
+  "crs": "EPSG:3005",
+  "layer": "northisland_aoi",
+  "path": "data/source/aoi/northisland_aoi.gpkg"
+}

@@ -119,4 +119,29 @@ Record the result in the changelog entry for the milestone.
 
 ## Project-specific rules
 
-Add domain guardrails here, each with its reason. Keep shared workflow rules out of this section.
+- **The Basecamp AOI decision is authoritative.** The AOI is TSA 48 clipped to
+  the North Island - Central Coast Natural Resource District, with the community
+  forest agreement added back. The quote, sources, and review checkpoints are in
+  `notes/reference/aoi.md`. Do not change `selection.boundary_path` or
+  `boundary_code` without a new recorded decision.
+- **FEMIC is the upstream compiler and ws4 is the runtime.** The Patchworks XML
+  and fragments are an interchange pair for ws4, not a second runtime lane. Do
+  not claim a ws4 model exists until the matrix, baseline run, and web UI have
+  been inspected.
+- **FreshForge is the workflow of record.** Every model-producing step belongs
+  in `workflows/freshforge/`. A manual shell loop is a diagnostic, not a
+  reproducible build. Add a node and a command contract instead of documenting a
+  one-off command.
+- **The public data path is explicit.** Use
+  `FEMIC_EXTERNAL_DATA_ROOT` to point at the materialized
+  `femic-public-data/data` tree. Do not commit VRI, VDYP caches, checkpoints, or
+  model-output bundles.
+- **VDYP and TIPSY boundaries are real.** VDYP7 is a Windows executable and runs
+  under Wine on Linux. The first lane uses `managed_curve_mode: vdyp_transform`,
+  so BatchTIPSY is not required. Replace that lane with accepted TIPSY output
+  before release, and do not describe the transform as final yield curves.
+- **The web UI is loopback-only.** ws4 has no authentication. Do not use
+  `--allow-remote` without a trusted proxy. Pass `--crs EPSG:3005` for the North
+  Island geometry.
+- **Costs and revenues are public bases.** Do not add raw private financial
+  spreadsheets or tenure data to this public repository.

@@ -1,0 +1,37 @@
+Web UI
+======
+
+The ws4 web UI serves a compiled dataset and its runs. It is read-only except for
+the optional run and agent controls. It binds loopback by default and has no
+authentication.
+
+Launch
+------
+
+.. code-block:: bash
+
+   python -m ws4.cli serve \
+     --dataset runtime/matrix \
+     --runs runtime \
+     --geometry runtime/fragments.geojson \
+     --targets config/targets.yaml \
+     --crs EPSG:3005 \
+     --allow-runs \
+     --allow-agent \
+     --port 8014
+
+The North Island geometry is EPSG:3005. Pass ``--crs EPSG:3005`` so the server
+can project it for MapLibre, which renders in WGS84. The block layer still
+renders if the OpenStreetMap basemap tiles are unavailable.
+
+Checks
+------
+
+- ``/health`` returns ``{"status":"ok"}``.
+- The map shows the AOI blocks, not a world view.
+- The run list contains the baseline run.
+- The target table shows the configured targets and their realized values.
+- The UI can switch runs without a server restart.
+
+Do not use ``--allow-remote`` on an untrusted network. Put the service behind a
+trusted proxy if it must be reachable from another host.

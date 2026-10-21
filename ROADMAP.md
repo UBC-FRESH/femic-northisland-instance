@@ -1,125 +1,160 @@
 # FEMIC North Island Instance Roadmap
 
-This roadmap is the plan of record and the issue tracker map for FEMIC North Island Instance. Keep it in step with the GitHub issues, `CHANGE_LOG.md`, and `notes/`. `scripts/check_workflow.py` parses the phase headers, status lines, and checkboxes below, so keep their format.
+This roadmap is the plan of record and the issue tracker map for the North Island
+instance. Keep it in step with the GitHub issues, `CHANGE_LOG.md`, and `notes/`.
+`scripts/check_workflow.py` parses the phase headers, status lines, and checkboxes
+below, so keep their format.
 
-Every phase starts as `planned` with `Parent issue: TBD`. Activate a phase only after its parent issue exists and the maintainer approves it.
+Every phase starts as `planned` with `Parent issue: TBD`. Activate a phase only
+after its parent issue exists and the maintainer approves it.
 
 ## Issue Tracker Map
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap | TBD | `feature/p0-bootstrap` | planned |
-| P1 Scope and design | TBD | `feature/p1-scope-design` | planned |
-| P2 Contracts and prototype | TBD | `feature/p2-contracts-prototype` | planned |
-| P3 Build | TBD | `feature/p3-build` | planned |
-| P4 Verify | TBD | `feature/p4-verify` | planned |
-| P5 Release and deploy | TBD | `feature/p5-release` | planned |
+| P0 Bootstrap | #1 | `feature/p0-bootstrap` | pr-open |
+| P1 AOI and public data | TBD | `feature/p1-aoi-public-data` | planned |
+| P2 FEMIC upstream build | TBD | `feature/p2-femic-upstream` | planned |
+| P3 ws4 model build | TBD | `feature/p3-ws4-model` | planned |
+| P4 Baseline, targets, and web UI | TBD | `feature/p4-baseline-ui` | planned |
+| P5 Verify and release | TBD | `feature/p5-verify-release` | planned |
 | P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
 
 ## Lifecycle Map
 
 | Stage | Phases | Exit criteria |
 | --- | --- | --- |
-| Scope and design | P0, P1 | Goal, scope, and out-of-scope items recorded; decisions in ADRs, each accepted or deferred |
-| Build | P2, P3 | Each task committed with its task ID; each commit leaves the dashboard green; docs updated in the same change set |
-| Verify | P4 | The dashboard and CI pass on the head commit; each acceptance criterion has evidence in the close-out report |
-| Release and deploy | P5 | Tag, release notes, and Pages live; a clean checkout verifies them; each release action approved on its own |
-| Operate and maintain | P6 | Review cadence held; incoming ideas triaged; retirement decided and recorded as an ADR |
+| Scope and design | P0, P1 | The AOI, sources, and public/private boundary are recorded and validated |
+| Build | P2, P3 | FEMIC compiles the inputs and ws4 builds and validates the matrix |
+| Verify | P4, P5 | The baseline run, target report, and web UI are inspected and reproducible |
+| Release and deploy | P5 | A reviewed release names the exact artifacts and their provenance |
+| Operate and maintain | P6 | Review cadence, incoming changes, and retirement are recorded |
 | Retire | P6 (procedure) | Archive notice, final changelog entry, and issues closed |
 
 ## Conventions
 
-- A phase is `P<n>`. A task is `P<n>.<m>`. A subtask is a checklist item inside the task's issue body. Three levels at most.
+- A phase is `P<n>`. A task is `P<n>.<m>`. A subtask is a checklist item inside
+  the task's issue body. Three levels at most.
 - Status values are `planned`, `active`, `pr-open`, `complete`, and `deferred`.
-- A phase becomes `complete` only after its pull request merges to `main` and its parent issue closes.
+- A phase becomes `complete` only after its pull request merges to `main` and its
+  parent issue closes.
 
 ## Phase 0: Bootstrap
 
-Parent issue: TBD
+Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: planned
+Status: pr-open
 
-Goal: adapt the contract to this project, and make the first pull request reviewable.
+Goal: make the repository a self-describing, reproducible FEMIC and ws4 instance
+for the North Island AOI.
 
-- [ ] P0.1 Adapt `AGENTS.md` and `README.md` to this project
-- [ ] P0.2 Confirm the validator and the docs build pass
+- [x] P0.1 Adapt the seed contract and project identity (#2)
+- [x] P0.2 Add the FEMIC instance configuration and AOI boundary (#3)
+- [x] P0.3 Add the FreshForge provider and model-build workflow (#4)
+- [x] P0.4 Verify the green dashboard and local web UI path (#5)
 
 Acceptance criteria:
 
-- <State the criterion that shows this phase met its goal.>
+- `python scripts/dashboard.py` is green.
+- `python -m freshforge validate` and `plan` pass for
+  `workflows/freshforge/northisland_model_build.yaml`.
+- The committed AOI GeoPackage has one EPSG:3005 polygon and the reviewed area.
+- No generated runtime or model output is tracked.
 
-## Phase 1: Scope and design
+## Phase 1: AOI and public data
 
 Parent issue: TBD
-Branch: `feature/p1-scope-design`
+Branch: `feature/p1-aoi-public-data`
 Status: planned
 
-Goal: state the question, the users, the scope, and the out-of-scope items. Record the first decisions as ADRs.
+Goal: confirm the Basecamp AOI decision, materialize the public data root, and
+verify the boundary and source layers.
 
-- [ ] P1.1 Write the problem statement and scope in `notes/`
-- [ ] P1.2 Record the first design decisions as ADRs in `notes/adr/`
+- [ ] P1.1 Confirm the CFA interpretation with the thread and map
+- [ ] P1.2 Materialize the public VRI, VDYP, TSA, and district layers
+- [ ] P1.3 Validate the AOI area, bounds, and source checksums
 
 Acceptance criteria:
 
-- <State the criterion that shows this phase met its goal.>
+- The AOI decision names the exact clip and add-back layers.
+- `femic prep validate-case` passes against the materialized public data root.
+- The boundary and source manifests are recorded.
 
-## Phase 2: Contracts and prototype
+## Phase 2: FEMIC upstream build
 
 Parent issue: TBD
-Branch: `feature/p2-contracts-prototype`
+Branch: `feature/p2-femic-upstream`
 Status: planned
 
-Goal: define the interfaces and data contracts, then build the smallest prototype that exercises them.
+Goal: compile natural and managed yield inputs for the AOI with FEMIC.
 
-- [ ] P2.1 Define the interface and data contracts in `docs/`
-- [ ] P2.2 Build a prototype that exercises the contracts on synthetic data
+- [ ] P2.1 Run the VDYP curve build and inspect the curve diagnostics
+- [ ] P2.2 Build the post-TIPSY model-input bundle
+- [ ] P2.3 Export the ForestModel XML and fragments for ws4
+- [ ] P2.4 Record the accepted runtime boundary and any deferred TIPSY gap
 
 Acceptance criteria:
 
-- <State the criterion that shows this phase met its goal.>
+- The run manifest, curve tables, bundle tables, and XML/fragments exist.
+- The model-input QA checks pass or have a recorded blocker.
+- The export has the expected block and area counts.
 
-## Phase 3: Build
+## Phase 3: ws4 model build
 
 Parent issue: TBD
-Branch: `feature/p3-build`
+Branch: `feature/p3-ws4-model`
 Status: planned
 
-Goal: implement the agreed scope, one task at a time, on the phase branch.
+Goal: compile the FEMIC export into a canonical ws4 dataset and validate it.
 
-- [ ] P3.1 Implement the first build task
+- [ ] P3.1 Build the ws4 matrix from the exported XML and fragments
+- [ ] P3.2 Validate the dataset manifest and schema invariants
+- [ ] P3.3 Inspect block, curve, treatment, and account coverage
 
 Acceptance criteria:
 
-- <State the criterion that shows this phase met its goal.>
+- `python -m ws4.cli build` and `validate` pass.
+- The dataset has positive managed area and no orphan block joins.
+- The manifest records the XML and fragment inputs.
 
-## Phase 4: Verify
+## Phase 4: Baseline, targets, and web UI
 
 Parent issue: TBD
-Branch: `feature/p4-verify`
+Branch: `feature/p4-baseline-ui`
 Status: planned
 
-Goal: show that the build meets its acceptance criteria, and record the evidence in the changelog.
+Goal: produce the first baseline schedule and target report, then serve the model
+in the ws4 web UI.
 
-- [ ] P4.1 Run the acceptance checks and record the evidence
+- [ ] P4.1 Build and simulate the baseline schedule
+- [ ] P4.2 Write the first target set and report
+- [ ] P4.3 Prepare the UI geometry and launch the loopback service
+- [ ] P4.4 Verify map rendering, target display, and run switching
 
 Acceptance criteria:
 
-- <State the criterion that shows this phase met its goal.>
+- The baseline run has a harvest and growing-stock summary.
+- The target report distinguishes met and unmet rows.
+- The web UI renders the AOI and the baseline run with `--crs EPSG:3005`.
 
-## Phase 5: Release and deploy
+## Phase 5: Verify and release
 
 Parent issue: TBD
-Branch: `feature/p5-release`
+Branch: `feature/p5-verify-release`
 Status: planned
 
-Goal: tag a release, publish the docs, and verify the published artifacts from a clean checkout.
+Goal: verify the full workflow from a clean checkout and publish the reviewed
+instance artifacts.
 
-- [ ] P5.1 Write the release notes and the known-gaps list
-- [ ] P5.2 Tag, publish, and verify from a clean checkout (maintainer approval required)
+- [ ] P5.1 Run the full workflow from a clean checkout
+- [ ] P5.2 Record the release notes and known gaps
+- [ ] P5.3 Tag and publish after approval
 
 Acceptance criteria:
 
-- <State the criterion that shows this phase met its goal.>
+- A clean checkout reproduces the matrix and baseline run.
+- The release names the exact commit, data root, and runtime versions.
+- No private data or generated model output is tracked.
 
 ## Phase 6: Operate and maintain
 
@@ -127,15 +162,24 @@ Parent issue: TBD
 Branch: `feature/p6-operate`
 Status: planned
 
-Goal: keep the project current: triage incoming ideas, review on a cadence, and close out cleanly.
+Goal: keep the instance current and retire it cleanly when needed.
 
 - [ ] P6.1 Set a review cadence and record the first review
+- [ ] P6.2 Triage source-layer, runtime, and AOI changes
+- [ ] P6.3 Record the retirement procedure
 
 Acceptance criteria:
 
-- <State the criterion that shows this phase met its goal.>
+- The review cadence is held once and recorded.
+- Incoming changes have a disposition.
 
 ## Detailed Next Steps Notes
 
-1. Create the GitHub repository and the Phase 0 parent issue. This needs maintainer approval.
-2. Activate Phase 0 by setting its parent issue number and its status to `active`, here and in the tracker map.
+1. Phase 0 is active on `feature/p0-bootstrap`, parent issue #1. Its child tasks
+   are #2 to #5.
+2. The AOI is TSA 48 clipped to the NICC district, with the community forest
+   agreement added back. See `notes/reference/aoi.md`.
+3. The first model execution uses `managed_curve_mode: vdyp_transform` and does
+   not require BatchTIPSY. Replace it with accepted TIPSY output before release.
+4. Run FreshForge from the instance root with `FEMIC_EXTERNAL_DATA_ROOT` set to
+   the materialized public data tree.

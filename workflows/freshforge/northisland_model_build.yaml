@@ -1,0 +1,172 @@
+workflow:
+  id: northisland_model_build
+  name: North Island FEMIC to ws4 model-build workflow
+  description: >
+    Instance-owned FreshForge graph that rebuilds the North Island model inputs
+    with FEMIC, exports the Patchworks-compatible XML and fragments that ws4
+    compiles, then builds, validates, simulates, reports, and prepares the web UI
+    geometry. Every model-producing step is a recorded command with an artifact
+    path. Run from the instance root so the relative paths resolve against this
+    checkout.
+nodes:
+  - id: validate_case
+    provider: femic.validate_case
+    outputs:
+      case_validation: case_preflight_ok
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.northisland.yaml
+      tipsy_config_dir: config/tipsy
+
+  - id: geospatial_preflight
+    provider: femic.geospatial_preflight
+    needs:
+      - validate_case
+    inputs:
+      case_validation: validate_case.case_validation
+    outputs:
+      geospatial_runtime: geospatial_runtime_ok
+    parameters:
+      instance_root: "."
+
+  - id: compile_upstream
+    provider: femic.compile_upstream
+    needs:
+      - geospatial_preflight
+    inputs:
+      geospatial_runtime: geospatial_preflight.geospatial_runtime
+    outputs:
+      btc_handoff: northisland_vdyp_handoff
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.northisland.yaml
+      run_id: northisland_20261021
+      log_dir: runtime/logs
+    artifacts:
+      run_manifest: runtime/logs/run_manifest-northisland_20261021.json
+
+  - id: post_tipsy
+    provider: northisland.ws4.post_tipsy
+    needs:
+      - compile_upstream
+    inputs:
+      compiled_upstream: compile_upstream.btc_handoff
+    outputs:
+      model_input_bundle: data/model_input_bundle
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.northisland.yaml
+      tsa: "northisland"
+      run_id: northisland_20261021
+    artifacts:
+      manifest: runtime/logs/run_manifest-post_tipsy_northisland_20261021.json
+
+  - id: export_patchworks
+    provider: femic.export_patchworks
+    needs:
+      - post_tipsy
+    inputs:
+      model_input_bundle: post_tipsy.model_input_bundle
+    outputs:
+      patchworks_package: output/patchworks_northisland
+    parameters:
+      instance_root: "."
+      run_config: config/run_profile.northisland.yaml
+      tsa: "northisland"
+      bundle_dir: data/model_input_bundle
+      checkpoint: data/ria_vri_vclr1p_checkpoint1.feather
+      output_dir: output/patchworks_northisland
+    artifacts:
+      forestmodel_xml: output/patchworks_northisland/forestmodel.xml
+      fragments: output/patchworks_northisland/fragments/fragments.shp
+
+  - id: build_dataset
+    provider: northisland.ws4.build_dataset
+    needs:
+      - export_patchworks
+    outputs:
+      dataset: runtime/matrix
+    parameters:
+      instance_root: "."
+      xml: output/patchworks_northisland/forestmodel.xml
+      fragments: output/patchworks_northisland/fragments/fragments.shp
+      out: runtime/matrix
+    artifacts:
+      manifest: runtime/matrix/manifest.json
+
+  - id: validate_dataset
+    provider: northisland.ws4.validate_dataset
+    needs:
+      - build_dataset
+    inputs:
+      dataset: build_dataset.dataset
+    outputs:
+      validated_dataset: runtime/matrix
+    parameters:
+      instance_root: "."
+      dataset: runtime/matrix
+
+  - id: build_baseline_schedule
+    provider: northisland.ws4.build_baseline_schedule
+    needs:
+      - validate_dataset
+    inputs:
+      validated_dataset: validate_dataset.validated_dataset
+    outputs:
+      schedule: runtime/baseline_schedule.csv
+    parameters:
+      instance_root: "."
+      dataset: runtime/matrix
+      out: runtime/baseline_schedule.csv
+      target_age: "60"
+    artifacts:
+      schedule: runtime/baseline_schedule.csv
+      summary: runtime/baseline_schedule.summary.json
+
+  - id: simulate_baseline
+    provider: northisland.ws4.simulate
+    needs:
+      - build_baseline_schedule
+    inputs:
+      schedule: build_baseline_schedule.schedule
+    outputs:
+      run: runtime/baseline
+    parameters:
+      instance_root: "."
+      dataset: runtime/matrix
+      schedule: runtime/baseline_schedule.csv
+      out: runtime/baseline
+      years: "100"
+    artifacts:
+      run: runtime/baseline
+
+  - id: report_baseline
+    provider: northisland.ws4.report
+    needs:
+      - simulate_baseline
+    inputs:
+      run: simulate_baseline.run
+    outputs:
+      report: runtime/baseline
+    parameters:
+      instance_root: "."
+      run: runtime/baseline
+      targets: config/targets.yaml
+    artifacts:
+      summary: runtime/baseline/account_summary.csv
+      targets: runtime/baseline/report_targets.csv
+
+  - id: prepare_ui
+    provider: northisland.ws4.prepare_ui
+    needs:
+      - report_baseline
+    inputs:
+      run: report_baseline.report
+    outputs:
+      ui_assets: runtime/fragments.geojson
+    parameters:
+      instance_root: "."
+      fragments: output/patchworks_northisland/fragments/fragments.shp
+      out: runtime/fragments.geojson
+    artifacts:
+      geometry: runtime/fragments.geojson

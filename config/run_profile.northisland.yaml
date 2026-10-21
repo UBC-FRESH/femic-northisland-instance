@@ -1,0 +1,32 @@
+selection:
+  # The custom AOI is keyed as northisland so the artifact names and the
+  # bundle rows match the boundary code.
+  tsa:
+    - "northisland"
+
+  # Basecamp email thread, 2026-10-21: the AOI is the part of the North Island
+  # TSA inside the North Island - Central Coast Natural Resource District, with
+  # the community forest agreement added back. build_aoi.py materializes this
+  # boundary from public BC layers.
+  boundary_path: "data/source/aoi/northisland_aoi.gpkg"
+  boundary_layer: "northisland_aoi"
+  boundary_code: "northisland"
+  strata: []
+
+modes:
+  resume: false
+  dry_run: false
+  verbose: true
+  skip_checks: false
+
+  # First executable lane. It builds natural curves with VDYP and a managed
+  # curve transform without requiring the Windows BatchTIPSY runtime. Replace
+  # the managed lane with accepted TIPSY output before release.
+  vdyp_sampling_mode: all
+  vdyp_two_pass_rebin: true
+  vdyp_min_stands_per_si_bin: 10
+  managed_curve_mode: vdyp_transform
+
+run:
+  run_id: "northisland_20261021"
+  log_dir: "runtime/logs"
