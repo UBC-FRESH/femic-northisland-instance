@@ -19,11 +19,11 @@ modes:
   verbose: true
   skip_checks: false
 
-  # First executable lane. It builds natural curves with VDYP and a managed
-  # curve transform without requiring the Windows BatchTIPSY runtime. Replace
-  # the managed lane with accepted TIPSY output before release.
-  vdyp_sampling_mode: all
-  vdyp_two_pass_rebin: true
+  # First executable lane. Auto sampling keeps each VDYP console batch inside
+  # the current 30-second timeout; switch back to all after the timeout is
+  # raised. The managed lane is a VDYP transform, not accepted TIPSY output.
+  vdyp_sampling_mode: auto
+  vdyp_two_pass_rebin: false
   vdyp_min_stands_per_si_bin: 10
   managed_curve_mode: vdyp_transform
 

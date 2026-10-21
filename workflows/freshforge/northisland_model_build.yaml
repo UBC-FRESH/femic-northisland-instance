@@ -45,28 +45,12 @@ nodes:
     artifacts:
       run_manifest: runtime/logs/run_manifest-northisland_20261021.json
 
-  - id: post_tipsy
-    provider: northisland.ws4.post_tipsy
-    needs:
-      - compile_upstream
-    inputs:
-      compiled_upstream: compile_upstream.btc_handoff
-    outputs:
-      model_input_bundle: data/model_input_bundle
-    parameters:
-      instance_root: "."
-      run_config: config/run_profile.northisland.yaml
-      tsa: "northisland"
-      run_id: northisland_20261021
-    artifacts:
-      manifest: runtime/logs/run_manifest-post_tipsy_northisland_20261021.json
-
   - id: export_patchworks
     provider: femic.export_patchworks
     needs:
-      - post_tipsy
+      - compile_upstream
     inputs:
-      model_input_bundle: post_tipsy.model_input_bundle
+      model_input_bundle: compile_upstream.btc_handoff
     outputs:
       patchworks_package: output/patchworks_northisland
     parameters:
@@ -74,7 +58,7 @@ nodes:
       run_config: config/run_profile.northisland.yaml
       tsa: "northisland"
       bundle_dir: data/model_input_bundle
-      checkpoint: data/ria_vri_vclr1p_checkpoint1.feather
+      checkpoint: data/ria_vri_vclr1p_checkpoint8.feather
       output_dir: output/patchworks_northisland
     artifacts:
       forestmodel_xml: output/patchworks_northisland/forestmodel.xml

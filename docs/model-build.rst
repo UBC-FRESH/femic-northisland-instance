@@ -22,9 +22,14 @@ Chain
      -> northisland.ws4.report
      -> northisland.ws4.prepare_ui
 
-FEMIC compiles the public inventory and yield curves. The Patchworks export gives
-ws4 a ForestModel XML recipe and a fragment inventory. ws4 compiles the canonical
-matrix and runs the baseline simulation.
+FEMIC compiles the public inventory and yield curves and writes the model-input
+bundle. The export reads the final checkpoint (`checkpoint8`) so the fragments
+carry the full AOI. The Patchworks export gives ws4 a ForestModel XML recipe and a
+fragment inventory. ws4 compiles the canonical matrix and runs the baseline
+simulation.
+
+The first North Island run produced 12 AUs across CWH_HW, CWH_CW, CWH_YC, and
+CWH_FD, 51,289 fragments, and 49 curves.
 
 Commands
 --------
@@ -48,6 +53,12 @@ Runtime boundary
 ----------------
 
 VDYP7 is a Windows executable. On Linux it runs under Wine, including the 32-bit
-loader. The first lane sets ``managed_curve_mode: vdyp_transform`` and therefore
+loader. The first lane sets ``vdyp_sampling_mode: auto`` because the larger
+``all`` batches exceeded the short VDYP console timeout in the first run. Auto
+sampling fits from fewer stands, so it is a provisional workaround; raise the
+timeout and rerun in ``all`` mode before release.
+
+The first lane also sets ``managed_curve_mode: vdyp_transform`` and therefore
 does not need BatchTIPSY. That transform is a provisional managed curve lane, not
-accepted TIPSY yield curves. Replace it before release.
+accepted TIPSY yield curves. Replace it before release. See
+``notes/reference/vdyp-runtime.md`` for the timeout evidence.

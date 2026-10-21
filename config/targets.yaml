@@ -1,3 +1,13 @@
-# Baseline target set. These are provisional until the first ws4 run reveals the
-# realized harvest and growing-stock scale for the North Island AOI.
-targets: []
+# Provisional demonstration targets. Replace with reviewed policy targets after
+# the baseline and the AOI yield curves are accepted.
+targets:
+  - account: product.Yield.managed.Total
+    period: 1
+    period_width: 10
+    minimum: 1000000
+    min_weight: 1
+  - account: feature.Yield.managed.Total
+    period: 5
+    period_width: 10
+    minimum: 5000000
+    min_weight: 1

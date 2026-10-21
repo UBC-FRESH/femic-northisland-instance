@@ -34,3 +34,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   K3Z remains the only active community forest touching the clipped TSA. Added
   `scripts/check_public_data.py` and the portable
   `data/source/public_data_manifest.json`. The dashboard is GREEN.
+- Merged Phase 1 as `b13f957` and launched Phase 2 on
+  `feature/p2-femic-upstream` with parent #12 and tasks #13 to #16.
+- Completed the P2 upstream build. The corrected auto-sampling run covers all 12
+  AUs, writes the model-input bundle, and exports 51,289 fragments and 49 curves.
+  `freshforge validate` passes for the 10-node full workflow and the 7-node
+  downstream workflow.
