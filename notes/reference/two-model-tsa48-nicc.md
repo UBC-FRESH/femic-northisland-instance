@@ -1,6 +1,6 @@
 # Full TSA 48 and NICC-overlap models
 
-Status: build in progress on `feature/full-tsa48`.
+Status: full model built on `feature/full-tsa48`; benchmark and part share recorded.
 
 ## The two models
 
@@ -54,6 +54,34 @@ Evidence files:
 - `runtime/tsa48_full/evidence/account_values_by_part.csv`
 - `runtime/tsa48_full/evidence/account_values_by_part_reconciliation.csv`
 - `runtime/tsa48_full/evidence/tsr_benchmark.csv`
+
+## Build result
+
+| Quantity | Full TSA 48 | NICC part | Outside part |
+| --- | ---: | ---: | ---: |
+| Blocks | 110,728 | 51,292 | 59,436 |
+| Block area | 1,092,831.62 ha | 442,591.61 ha | 650,240.01 ha |
+| Model managed area | 130,481.59 ha | 28,557.95 ha | 101,923.64 ha |
+
+The K3Z flag touches 253 blocks and 2,093.48 ha.
+
+The NICC part is almost identical to the existing 8014 model (442,451.9974 ha,
+51,289 blocks), which confirms the two builds agree on the overlap.
+
+## Baseline benchmark
+
+The deterministic clearcut-at-age-60 baseline overharvests the full TSA
+(2.83M m3/yr on average, 227% of the 1,248,100 m3/yr AAC). The model managed
+area is 130,481.59 ha, or 73.5% of the published 177,505 ha THLB. The NICC part
+is 28,557.95 ha, or 16.1% of the published THLB.
+
+The first optimization run held the first-decade harvest to 9,977,924 m3
+(80.0% of the 12,481,000 m3 first-decade AAC). The model cannot reach the
+published AAC without reconciling the land base/yields with the TSR netdown.
+The optimized NICC first-decade share is 10.31% of the full model harvest,
+which scales to a provisional reference of about **128,657 m3/yr** of the legal
+AAC. Treat that as a lower-bound reference until the full model reaches the
+published AAC.
 
 ## Reproduction
 
