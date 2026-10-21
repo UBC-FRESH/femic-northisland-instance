@@ -6,10 +6,11 @@ the resulting model and serves it in a local web UI.
 
 ## Status
 
-Phase 0 (bootstrap) is active. The public AOI boundary, FEMIC profile, and the
-FreshForge workflow exist. The first full VDYP/TIPSY build and ws4 baseline run
-are the next executable lane. `ROADMAP.md` is the plan of record, and the GitHub
-issues carry the live state.
+Phase 4 (baseline and web UI) is complete. The public AOI boundary, FEMIC
+upstream build, ws4 matrix, baseline run, and loopback web UI are verified.
+The managed curves are a provisional VDYP transform; accepted TIPSY curves and
+reviewed policy targets remain before release. `ROADMAP.md` is the plan of
+record, and the GitHub issues carry the live state.
 
 ## AOI
 
@@ -19,6 +20,16 @@ added back. The tracked boundary is
 `data/source/aoi/northisland_aoi.gpkg` (EPSG:3005, layer `northisland_aoi`,
 1,083,003.66 ha). See `notes/reference/aoi.md` for the quote, sources, and
 review checkpoints.
+
+## First build
+
+- AOI: 1,083,003.66 ha (TSA 48 clipped to NICC, CFA added back).
+- FEMIC: 12 AUs across CWH_HW, CWH_CW, CWH_YC, and CWH_FD at L/M/H.
+- Export: 51,289 fragments, 49 curves.
+- ws4 matrix: 56,187 blocks/fragments, 2,156 curves, 5,930 treatments.
+- Baseline: 51,289 scheduled blocks, 100 years.
+- Targets: two provisional targets, both met.
+- UI: 51,289 blocks, MapLibre, `http://127.0.0.1:8014/`.
 
 ## Model-build chain
 

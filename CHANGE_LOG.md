@@ -51,3 +51,5 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   are verified.
 - Completed P4: baseline simulated, two provisional targets met, and the ws4 UI
   verified with 51,289 blocks on loopback port 8014.
+- Merged Phase 4 as `2558f9c`. The North Island model builds end to end and the
+  ws4 UI is live on `127.0.0.1:8014` with 51,289 blocks and two met targets.
