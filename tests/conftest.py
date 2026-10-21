@@ -6,5 +6,8 @@ import sys
 from pathlib import Path
 
 SCRIPTS: Path = Path(__file__).resolve().parents[1] / "scripts"
-if str(SCRIPTS) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS))
+ROOT: Path = Path(__file__).resolve().parents[1]
+SRC: Path = ROOT / "src"
+for path in (ROOT, SCRIPTS, SRC):
+    if str(path) not in sys.path:
+        sys.path.insert(0, str(path))
