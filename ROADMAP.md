@@ -13,7 +13,7 @@ after its parent issue exists and the maintainer approves it.
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
 | P0 Bootstrap | #1 | `feature/p0-bootstrap` | complete |
-| P1 AOI and public data | #7 | `feature/p1-aoi-public-data` | active |
+| P1 AOI and public data | #7 | `feature/p1-aoi-public-data` | pr-open |
 | P2 FEMIC upstream build | TBD | `feature/p2-femic-upstream` | planned |
 | P3 ws4 model build | TBD | `feature/p3-ws4-model` | planned |
 | P4 Baseline, targets, and web UI | TBD | `feature/p4-baseline-ui` | planned |
@@ -65,14 +65,14 @@ Acceptance criteria:
 
 Parent issue: #7
 Branch: `feature/p1-aoi-public-data`
-Status: active
+Status: pr-open
 
 Goal: confirm the Basecamp AOI decision, materialize the public data root, and
 verify the boundary and source layers.
 
-- [ ] P1.1 Confirm the CFA interpretation with the thread and map (#8)
-- [ ] P1.2 Materialize the public VRI, VDYP, TSA, and district layers (#9)
-- [ ] P1.3 Validate the AOI area, bounds, and source checksums (#10)
+- [x] P1.1 Confirm the CFA interpretation with the thread and map (#8)
+- [x] P1.2 Materialize the public VRI, VDYP, TSA, and district layers (#9)
+- [x] P1.3 Validate the AOI area, bounds, and source checksums (#10)
 
 Acceptance criteria:
 
