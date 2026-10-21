@@ -24,6 +24,12 @@ The North Island geometry is EPSG:3005. Pass ``--crs EPSG:3005`` so the server
 can project it for MapLibre, which renders in WGS84. The block layer still
 renders if the OpenStreetMap basemap tiles are unavailable.
 
+The first North Island map contains 51,289 polygons. ``prepare_ws4_ui.py``
+simplifies them at 100 m and rounds coordinates; the uncompressed map response
+drops from about 114 MB to 20 MB, and the ws4 gzip middleware serves it at about
+5 MB. If MapLibre still cannot create a WebGL context, switch **Map engine** to
+**SVG (fallback)**.
+
 Checks
 ------
 

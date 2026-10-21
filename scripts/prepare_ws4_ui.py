@@ -22,10 +22,21 @@ def _block_column(frame: gpd.GeoDataFrame) -> str:
     raise ValueError("fragment geometry needs one of BLOCK, block, block_id, or BLOCK_ID")
 
 
+def _round_coordinates(value: object, precision: int) -> object:
+    """Round nested coordinate values to a fixed number of decimal places."""
+    if isinstance(value, (list, tuple)):
+        return [_round_coordinates(item, precision) for item in value]
+    if isinstance(value, float):
+        return round(value, precision)
+    return value
+
+
 def prepare_ui_geometry(
     *,
     fragments: Path,
     out: Path,
+    simplify_m: float = 100.0,
+    precision: int = 1,
 ) -> dict[str, object]:
     """Dissolve fragment geometry to blocks and write a GeoJSON file.
 
@@ -35,11 +46,16 @@ def prepare_ui_geometry(
         Fragment shapefile or GeoPackage exported by FEMIC.
     out : Path
         Destination GeoJSON path.
+    simplify_m : float
+        Douglas-Peucker tolerance in metres. The default 100 m is invisible at
+        provincial map scales and keeps the browser payload small.
+    precision : int
+        Decimal places retained for native-CRS coordinates.
 
     Returns
     -------
     dict
-        A JSON-ready summary with the source, block count, and CRS.
+        A JSON-ready summary with the source, block count, CRS, and tolerance.
     """
     frame = gpd.read_file(fragments)
     if frame.empty:
@@ -49,13 +65,22 @@ def prepare_ui_geometry(
     blocks = frame[[block_column, "geometry"]].dissolve(by=block_column).reset_index()
     blocks = blocks.rename(columns={block_column: "block_id"})
     blocks["block_id"] = blocks["block_id"].astype(int)
+    if simplify_m > 0:
+        blocks["geometry"] = blocks.geometry.simplify(simplify_m, preserve_topology=True)
+    collection = blocks[["block_id", "geometry"]].__geo_interface__
+    for feature in collection["features"]:
+        feature["geometry"]["coordinates"] = _round_coordinates(
+            feature["geometry"]["coordinates"], precision
+        )
     out.parent.mkdir(parents=True, exist_ok=True)
-    blocks.to_file(out, driver="GeoJSON")
+    out.write_text(json.dumps(collection, separators=(",", ":")), encoding="utf-8")
     return {
         "source": str(fragments),
         "out": str(out),
         "block_count": len(blocks),
         "crs": str(frame.crs) if frame.crs is not None else None,
+        "simplify_m": simplify_m,
+        "bytes": out.stat().st_size,
     }
 
 
@@ -64,8 +89,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fragments", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--simplify-m", type=float, default=100.0)
+    parser.add_argument("--precision", type=int, default=1)
     args = parser.parse_args()
-    summary = prepare_ui_geometry(fragments=args.fragments, out=args.out)
+    summary = prepare_ui_geometry(
+        fragments=args.fragments,
+        out=args.out,
+        simplify_m=args.simplify_m,
+        precision=args.precision,
+    )
     print(json.dumps(summary, indent=2, sort_keys=True))
 
 

@@ -53,3 +53,7 @@ Verification:
 - The browser console has no errors; the only messages are WebGL performance
   warnings from the headless renderer.
 - The MapLibre basemap uses OpenStreetMap raster tiles.
+- The 51,289-polygon geometry is simplified at 100 m. The map API response is
+  about 20 MB uncompressed and about 5 MB with gzip.
+- If WebGL is unavailable, the **SVG (fallback)** map engine renders the same
+  blocks.
