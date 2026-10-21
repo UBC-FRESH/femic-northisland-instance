@@ -46,3 +46,8 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Completed the P3 ws4 build. `ws4 build` and `validate` pass; the matrix has
   56,187 blocks/fragments, 2,156 curves, 5,930 treatments, and 442,451.9975 ha
   of block area.
+- Merged Phase 3 as `f4fea9e` and launched Phase 4 on `feature/p4-baseline-ui`
+  with parent #23 and tasks #24 to #27. The baseline run and the loopback web UI
+  are verified.
+- Completed P4: baseline simulated, two provisional targets met, and the ws4 UI
+  verified with 51,289 blocks on loopback port 8014.

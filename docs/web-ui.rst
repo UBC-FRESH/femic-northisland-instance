@@ -33,5 +33,9 @@ Checks
 - The target table shows the configured targets and their realized values.
 - The UI can switch runs without a server restart.
 
+The first North Island smoke rendered 51,289 blocks, showed 4,746 treated in
+period 2, and displayed both provisional targets as `met`. See
+``notes/reference/ws4-baseline.md``.
+
 Do not use ``--allow-remote`` on an untrusted network. Put the service behind a
 trusted proxy if it must be reachable from another host.
