@@ -31,6 +31,10 @@ data/downloads/
 data/bc/
 data/*.feather
 data/*.pkl
+data/*.xlsx
+data/03_input-*
+data/04_*
+data/tipsy_*
 data/model_input_bundle/
 outputs/
 output/

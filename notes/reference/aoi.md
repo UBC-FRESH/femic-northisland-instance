@@ -53,5 +53,8 @@ future TSA revision cannot silently drop it.
 
 The original email says "add back in the CFA" without naming the file. The
 public tenure layer returns only K3Z, the North Island Community Forest, as an
-active community forest touching the clipped TSA. Treat that as the CFA until
-the sender or the attached map confirms a different file.
+active community forest touching the clipped TSA. The attached overview map
+labels the black North Island TSA boundary, the red NICC district boundary, and
+the dark-gray Section 8 decision area, but it does not label the CFA. Treat K3Z
+as the CFA until the sender or a more detailed tenure map confirms a different
+file.

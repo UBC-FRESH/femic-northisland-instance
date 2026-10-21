@@ -27,3 +27,10 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Closed P0.1 to P0.3 and queued P0.4. `python scripts/dashboard.py` reports all
   gates GREEN with 160 tests. `freshforge validate` and `plan` pass for the
   11-node workflow. Generated AOI, VDYP, and runtime outputs remain untracked.
+- Merged Phase 0 as `e853651`, closed parent issue #1, and launched Phase 1 on
+  `feature/p1-aoi-public-data` with parent #7 and tasks #8 to #10.
+- Completed P1.1 to P1.3 on `feature/p1-aoi-public-data`. The Basecamp overview
+  map confirms the TSA and NICC district geometry but does not label the CFA;
+  K3Z remains the only active community forest touching the clipped TSA. Added
+  `scripts/check_public_data.py` and the portable
+  `data/source/public_data_manifest.json`. The dashboard is GREEN.
