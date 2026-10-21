@@ -24,3 +24,6 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   suite passes 160 tests and the full dashboard is green.
 - Installed Wine and Wine32 on the host so the bundled VDYP7 console executable
   can run on Linux. This is a host prerequisite, not a repository artifact.
+- Closed P0.1 to P0.3 and queued P0.4. `python scripts/dashboard.py` reports all
+  gates GREEN with 160 tests. `freshforge validate` and `plan` pass for the
+  11-node workflow. Generated AOI, VDYP, and runtime outputs remain untracked.

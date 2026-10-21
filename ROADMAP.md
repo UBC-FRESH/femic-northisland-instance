@@ -12,7 +12,7 @@ after its parent issue exists and the maintainer approves it.
 
 | Phase | Parent issue | Branch | Status |
 | --- | --- | --- | --- |
-| P0 Bootstrap | #1 | `feature/p0-bootstrap` | active |
+| P0 Bootstrap | #1 | `feature/p0-bootstrap` | pr-open |
 | P1 AOI and public data | TBD | `feature/p1-aoi-public-data` | planned |
 | P2 FEMIC upstream build | TBD | `feature/p2-femic-upstream` | planned |
 | P3 ws4 model build | TBD | `feature/p3-ws4-model` | planned |
@@ -43,15 +43,15 @@ after its parent issue exists and the maintainer approves it.
 
 Parent issue: #1
 Branch: `feature/p0-bootstrap`
-Status: active
+Status: pr-open
 
 Goal: make the repository a self-describing, reproducible FEMIC and ws4 instance
 for the North Island AOI.
 
-- [ ] P0.1 Adapt the seed contract and project identity (#2)
-- [ ] P0.2 Add the FEMIC instance configuration and AOI boundary (#3)
-- [ ] P0.3 Add the FreshForge provider and model-build workflow (#4)
-- [ ] P0.4 Verify the green dashboard and local web UI path (#5)
+- [x] P0.1 Adapt the seed contract and project identity (#2)
+- [x] P0.2 Add the FEMIC instance configuration and AOI boundary (#3)
+- [x] P0.3 Add the FreshForge provider and model-build workflow (#4)
+- [x] P0.4 Verify the green dashboard and local web UI path (#5)
 
 Acceptance criteria:
 
