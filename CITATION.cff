@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this model instance, cite the repository and the upstream FEMIC and ws4 software."
+title: "FEMIC North Island Instance"
+version: 0.1.0
+date-released: 2026-10-21
+authors:
+  - family-names: "UBC FRESH Lab"
+repository-code: "https://github.com/UBC-FRESH/femic-northisland-instance"
+license: MIT

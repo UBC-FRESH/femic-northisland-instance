@@ -6,3 +6,9 @@
 
 - [Home](index.html): the documentation home for the project.
 - [API reference](api/index.html): every public function, with its parameters, types, and return values.
+
+## Guides
+
+- [North Island AOI](aoi.html): the Basecamp AOI rule, public boundary sources, review checks, and the CFA caveat.
+- [Model build](model-build.html): the FreshForge workflow, FEMIC-to-ws4 chain, commands, and runtime boundary.
+- [Web UI](web-ui.html): the ws4 serve command, EPSG:3005 handling, and the verification checks.

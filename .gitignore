@@ -27,7 +27,17 @@ dist/
 tmp/
 local/
 data/private/
+data/downloads/
+data/bc/
+data/*.feather
+data/*.pkl
+data/model_input_bundle/
 outputs/
+output/
+vdyp_io/
+tipsy_io/
+plots/
+src/*.egg-info/
 
 # Editors and OS
 .vscode/

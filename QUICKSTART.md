@@ -1,4 +1,4 @@
-﻿# FEMIC Deployment Instance Quickstart
+# FEMIC Deployment Instance Quickstart
 
 1. Validate CLI install:
    `femic --help`

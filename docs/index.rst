@@ -10,6 +10,14 @@ project grows.
 
 .. toctree::
    :maxdepth: 2
+   :caption: Guides
+
+   aoi
+   model-build
+   web-ui
+
+.. toctree::
+   :maxdepth: 2
    :caption: API
 
    api/index
