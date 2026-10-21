@@ -14,7 +14,7 @@ after its parent issue exists and the maintainer approves it.
 | --- | --- | --- | --- |
 | P0 Bootstrap | #1 | `feature/p0-bootstrap` | complete |
 | P1 AOI and public data | #7 | `feature/p1-aoi-public-data` | complete |
-| P2 FEMIC upstream build | #12 | `feature/p2-femic-upstream` | active |
+| P2 FEMIC upstream build | #12 | `feature/p2-femic-upstream` | pr-open |
 | P3 ws4 model build | TBD | `feature/p3-ws4-model` | planned |
 | P4 Baseline, targets, and web UI | TBD | `feature/p4-baseline-ui` | planned |
 | P5 Verify and release | TBD | `feature/p5-verify-release` | planned |
@@ -84,14 +84,14 @@ Acceptance criteria:
 
 Parent issue: #12
 Branch: `feature/p2-femic-upstream`
-Status: active
+Status: pr-open
 
 Goal: compile natural and managed yield inputs for the AOI with FEMIC.
 
-- [ ] P2.1 Run the VDYP curve build and inspect the curve diagnostics (#13)
-- [ ] P2.2 Build the post-TIPSY model-input bundle (#14)
-- [ ] P2.3 Export the ForestModel XML and fragments for ws4 (#15)
-- [ ] P2.4 Record the accepted runtime boundary and any deferred TIPSY gap (#16)
+- [x] P2.1 Run the VDYP curve build and inspect the curve diagnostics (#13)
+- [x] P2.2 Build the post-TIPSY model-input bundle (#14)
+- [x] P2.3 Export the ForestModel XML and fragments for ws4 (#15)
+- [x] P2.4 Record the accepted runtime boundary and any deferred TIPSY gap (#16)
 
 Acceptance criteria:
 
