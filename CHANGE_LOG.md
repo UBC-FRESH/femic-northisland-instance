@@ -40,3 +40,6 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   AUs, writes the model-input bundle, and exports 51,289 fragments and 49 curves.
   `freshforge validate` passes for the 10-node full workflow and the 7-node
   downstream workflow.
+- Merged Phase 2 as `f5dd1cb` (squash of PR #17) and launched Phase 3 on
+  `feature/p3-ws4-model` with parent #18 and tasks #19 to #21. The downstream
+  FreshForge workflow builds and validates the ws4 matrix.
