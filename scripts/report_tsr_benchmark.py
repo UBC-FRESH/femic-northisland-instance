@@ -66,7 +66,7 @@ def _summary(
         "harvest_m3_per_year_min": round(float(harvest.min()), 4) if len(harvest) else 0.0,
         "aac_m3_per_year": AAC_M3_PER_YEAR,
         "mean_percent_of_aac": round(mean / AAC_M3_PER_YEAR * 100.0, 4),
-        "scheduled_blocks": int(len(scheduled_blocks)),
+        "scheduled_blocks": int(scheduled["block_id"].nunique()),
         "scheduled_area_ha": round(float(scheduled_blocks["area_ha"].sum()), 4),
         "model_managed_area_ha": round(managed_area, 4),
         "tsr_thlb_ha": THLB_HA,
