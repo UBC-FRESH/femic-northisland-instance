@@ -3,7 +3,7 @@
 Phase: P0 Bootstrap
 Parent issue: #1
 Pull request: queued, `feature/p0-bootstrap` into `main`
-Evidence head: `47153cc`
+Evidence head: `fbe4884`
 Report commit: the commit that adds this report
 Date: 2026-10-21
 Status: queued for approval. Not merged.
@@ -61,9 +61,14 @@ the plan lists all 11 nodes in dependency order.
 
 ## 4. CI evidence
 
-CI has not run on the new repository yet. The pull request opens after this
-report; its CI run is the first remote evidence. The local dashboard is the
-evidence head above.
+| Run ID | Head commit | Conclusion | Notes |
+| --- | --- | --- | --- |
+| 39649466430 | `fbe4884` | success | Quality gates, dashboard summary, and pre-commit parity all pass |
+
+The first run on the seed head failed because CI did not install the public-data
+runtime dependencies. `fbe4884` adds pandas, pyarrow, geopandas, shapely,
+requests, and the matching type stubs to `requirements-dev.txt`, and the run is
+green.
 
 ## 5. Deviations
 
