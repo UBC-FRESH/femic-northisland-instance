@@ -5,8 +5,8 @@ metadata:
   - title: North Island TSA Timber Supply Review Data Package
     year: 2020
     url: https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/stewardship/forest-analysis-inventory/tsr-annual-allowable-cut/48tsdp_2020.pdf
-    notes: TIPSY model, site index, genetic gain, OAF, and AU definition sections;
-      Table 4 netdown.
+    notes: TIPSY model, site index, genetic gain, OAF, and AU definition sections; Table 4
+      netdown.
   - title: North Island TSA Discussion Paper
     year: 2022
     url: https://www2.gov.bc.ca/assets/gov/farming-natural-resources-and-industry/forestry/stewardship/forest-analysis-inventory/tsr-annual-allowable-cut/48ts_pdp_2022.pdf
@@ -17,10 +17,9 @@ metadata:
     notes: AAC, THLB, and managed-stand interpretation.
   author: UBC FRESH Lab
   created_utc: '2026-10-22T00:00:00+00:00'
-  notes: AU rules mapped from the TSR data package and the model AU table. The TSR
-    reference tsa48_tipsy_input table is not published; species/density/SI are model-derived,
-    while OAF2, genetic worth, and regeneration rules are TSR-sourced. OAF1 is computed
-    by FEMIC from the VDYP run.
+  notes: AU rules mapped from the public RESULTS candidate table and the TSR data package.
+    Species, density, and genetic worth come from RESULTS; OAF2 and regeneration rules are
+    TSR-sourced. OAF1 is the TSA 48 15% reduction.
 defaults:
   e:
     OAF2: 0.95
@@ -42,42 +41,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: HW
-      PCT_1: 70
-      GW_1: 5.2
-      GW_age_1: 0
-      SPP_2: BA
-      PCT_2: 20
-      GW_2: 0.0
-      GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 10
-      GW_3: 4.33
-      GW_age_3: 0
+      Density: 1127
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: HW
-      PCT_1: 70
+      PCT_1: 38
       GW_1: 5.2
       GW_age_1: 0
       SPP_2: BA
-      PCT_2: 20
+      PCT_2: 37
       GW_2: 0.0
       GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 10
+      SPP_3: YC
+      PCT_3: 17
       GW_3: 4.33
       GW_age_3: 0
+      SPP_4: CW
+      PCT_4: 7
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: FD
+      PCT_5: 1
+      GW_5: 7.63
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1127
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 21000: CWH_HW L; species mix Hw:70;Ba:20;Cw:10; TSR OAF/genetic
-    constants; SI 11.6 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: HW
+      PCT_1: 38
+      GW_1: 5.2
+      GW_age_1: 0
+      SPP_2: BA
+      PCT_2: 37
+      GW_2: 0.0
+      GW_age_2: 0
+      SPP_3: YC
+      PCT_3: 17
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: CW
+      PCT_4: 7
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: FD
+      PCT_5: 1
+      GW_5: 7.63
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_HW L; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_22000
   when:
     au_id_in:
@@ -85,42 +100,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: HW
-      PCT_1: 70
-      GW_1: 5.2
-      GW_age_1: 0
-      SPP_2: BA
-      PCT_2: 20
-      GW_2: 0.0
-      GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 10
-      GW_3: 4.33
-      GW_age_3: 0
+      Density: 1176
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: HW
-      PCT_1: 70
+      PCT_1: 60
       GW_1: 5.2
       GW_age_1: 0
-      SPP_2: BA
-      PCT_2: 20
-      GW_2: 0.0
+      SPP_2: CW
+      PCT_2: 19
+      GW_2: 4.33
       GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 10
-      GW_3: 4.33
+      SPP_3: BA
+      PCT_3: 14
+      GW_3: 0.0
       GW_age_3: 0
+      SPP_4: YC
+      PCT_4: 5
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: FD
+      PCT_5: 2
+      GW_5: 7.63
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1176
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 22000: CWH_HW M; species mix Hw:70;Ba:20;Cw:10; TSR OAF/genetic
-    constants; SI 18.4 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: HW
+      PCT_1: 60
+      GW_1: 5.2
+      GW_age_1: 0
+      SPP_2: CW
+      PCT_2: 19
+      GW_2: 4.33
+      GW_age_2: 0
+      SPP_3: BA
+      PCT_3: 14
+      GW_3: 0.0
+      GW_age_3: 0
+      SPP_4: YC
+      PCT_4: 5
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: FD
+      PCT_5: 2
+      GW_5: 7.63
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_HW M; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_23000
   when:
     au_id_in:
@@ -128,42 +159,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: HW
-      PCT_1: 70
-      GW_1: 5.2
-      GW_age_1: 0
-      SPP_2: BA
-      PCT_2: 20
-      GW_2: 0.0
-      GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 10
-      GW_3: 4.33
-      GW_age_3: 0
+      Density: 1094
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: HW
-      PCT_1: 70
+      PCT_1: 65
       GW_1: 5.2
       GW_age_1: 0
       SPP_2: BA
-      PCT_2: 20
+      PCT_2: 14
       GW_2: 0.0
       GW_age_2: 0
       SPP_3: CW
-      PCT_3: 10
+      PCT_3: 12
       GW_3: 4.33
       GW_age_3: 0
+      SPP_4: FD
+      PCT_4: 5
+      GW_4: 7.63
+      GW_age_4: 0
+      SPP_5: YC
+      PCT_5: 4
+      GW_5: 4.33
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1094
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 23000: CWH_HW H; species mix Hw:70;Ba:20;Cw:10; TSR OAF/genetic
-    constants; SI 27.6 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: HW
+      PCT_1: 65
+      GW_1: 5.2
+      GW_age_1: 0
+      SPP_2: BA
+      PCT_2: 14
+      GW_2: 0.0
+      GW_age_2: 0
+      SPP_3: CW
+      PCT_3: 12
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: FD
+      PCT_4: 5
+      GW_4: 7.63
+      GW_age_4: 0
+      SPP_5: YC
+      PCT_5: 4
+      GW_5: 4.33
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_HW H; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_21001
   when:
     au_id_in:
@@ -171,34 +218,50 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: CW
-      PCT_1: 70
-      GW_1: 4.33
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 30
-      GW_2: 5.2
-      GW_age_2: 0
+      Density: 1019
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: CW
-      PCT_1: 70
+      PCT_1: 59
       GW_1: 4.33
       GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 30
-      GW_2: 5.2
+      SPP_2: YC
+      PCT_2: 18
+      GW_2: 4.33
       GW_age_2: 0
+      SPP_3: HW
+      PCT_3: 18
+      GW_3: 5.2
+      GW_age_3: 0
+      SPP_4: FD
+      PCT_4: 5
+      GW_4: 7.63
+      GW_age_4: 0
+    f:
+      Regen_Delay: 1
+      Density: 1019
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 21001: CWH_CW L; species mix Cw:70;Hw:30; TSR OAF/genetic constants;
-    SI 7.9 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: CW
+      PCT_1: 59
+      GW_1: 4.33
+      GW_age_1: 0
+      SPP_2: YC
+      PCT_2: 18
+      GW_2: 4.33
+      GW_age_2: 0
+      SPP_3: HW
+      PCT_3: 18
+      GW_3: 5.2
+      GW_age_3: 0
+      SPP_4: FD
+      PCT_4: 5
+      GW_4: 7.63
+      GW_age_4: 0
+  notes: RESULTS-derived species/density for CWH_CW L; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_22001
   when:
     au_id_in:
@@ -206,34 +269,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: CW
-      PCT_1: 70
-      GW_1: 4.33
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 30
-      GW_2: 5.2
-      GW_age_2: 0
+      Density: 1006
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: CW
-      PCT_1: 70
+      PCT_1: 68
       GW_1: 4.33
       GW_age_1: 0
       SPP_2: HW
-      PCT_2: 30
+      PCT_2: 21
       GW_2: 5.2
       GW_age_2: 0
+      SPP_3: YC
+      PCT_3: 8
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: SS
+      PCT_4: 2
+      GW_4: 2.0
+      GW_age_4: 0
+      SPP_5: BA
+      PCT_5: 1
+      GW_5: 0.0
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1006
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 22001: CWH_CW M; species mix Cw:70;Hw:30; TSR OAF/genetic constants;
-    SI 12.0 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: CW
+      PCT_1: 68
+      GW_1: 4.33
+      GW_age_1: 0
+      SPP_2: HW
+      PCT_2: 21
+      GW_2: 5.2
+      GW_age_2: 0
+      SPP_3: YC
+      PCT_3: 8
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: SS
+      PCT_4: 2
+      GW_4: 2.0
+      GW_age_4: 0
+      SPP_5: BA
+      PCT_5: 1
+      GW_5: 0.0
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_CW M; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_23001
   when:
     au_id_in:
@@ -241,34 +328,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: CW
-      PCT_1: 70
-      GW_1: 4.33
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 30
-      GW_2: 5.2
-      GW_age_2: 0
+      Density: 1116
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: CW
       PCT_1: 70
       GW_1: 4.33
       GW_age_1: 0
       SPP_2: HW
-      PCT_2: 30
+      PCT_2: 22
       GW_2: 5.2
       GW_age_2: 0
+      SPP_3: BA
+      PCT_3: 3
+      GW_3: 0.0
+      GW_age_3: 0
+      SPP_4: YC
+      PCT_4: 3
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: SS
+      PCT_5: 2
+      GW_5: 2.0
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1116
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 23001: CWH_CW H; species mix Cw:70;Hw:30; TSR OAF/genetic constants;
-    SI 18.3 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: CW
+      PCT_1: 70
+      GW_1: 4.33
+      GW_age_1: 0
+      SPP_2: HW
+      PCT_2: 22
+      GW_2: 5.2
+      GW_age_2: 0
+      SPP_3: BA
+      PCT_3: 3
+      GW_3: 0.0
+      GW_age_3: 0
+      SPP_4: YC
+      PCT_4: 3
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: SS
+      PCT_5: 2
+      GW_5: 2.0
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_CW H; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_21002
   when:
     au_id_in:
@@ -276,42 +387,50 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: YC
-      PCT_1: 60
-      GW_1: 4.33
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 25
-      GW_2: 5.2
-      GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 15
-      GW_3: 4.33
-      GW_age_3: 0
+      Density: 872
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: YC
-      PCT_1: 60
+      PCT_1: 59
       GW_1: 4.33
       GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 25
-      GW_2: 5.2
+      SPP_2: BA
+      PCT_2: 22
+      GW_2: 0.0
       GW_age_2: 0
-      SPP_3: CW
+      SPP_3: HW
       PCT_3: 15
-      GW_3: 4.33
+      GW_3: 5.2
       GW_age_3: 0
+      SPP_4: CW
+      PCT_4: 4
+      GW_4: 4.33
+      GW_age_4: 0
+    f:
+      Regen_Delay: 1
+      Density: 872
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 21002: CWH_YC L; species mix Yc:60;Hw:25;Cw:15; TSR OAF/genetic
-    constants; SI 7.0 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: YC
+      PCT_1: 59
+      GW_1: 4.33
+      GW_age_1: 0
+      SPP_2: BA
+      PCT_2: 22
+      GW_2: 0.0
+      GW_age_2: 0
+      SPP_3: HW
+      PCT_3: 15
+      GW_3: 5.2
+      GW_age_3: 0
+      SPP_4: CW
+      PCT_4: 4
+      GW_4: 4.33
+      GW_age_4: 0
+  notes: RESULTS-derived species/density for CWH_YC L; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_22002
   when:
     au_id_in:
@@ -319,42 +438,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: YC
-      PCT_1: 60
-      GW_1: 4.33
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 25
-      GW_2: 5.2
-      GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 15
-      GW_3: 4.33
-      GW_age_3: 0
+      Density: 1160
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: YC
-      PCT_1: 60
+      PCT_1: 63
       GW_1: 4.33
       GW_age_1: 0
       SPP_2: HW
-      PCT_2: 25
+      PCT_2: 19
       GW_2: 5.2
       GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 15
-      GW_3: 4.33
+      SPP_3: BA
+      PCT_3: 17
+      GW_3: 0.0
       GW_age_3: 0
+      SPP_4: FD
+      PCT_4: 1
+      GW_4: 7.63
+      GW_age_4: 0
+      SPP_5: CW
+      PCT_5: 0
+      GW_5: 4.33
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1160
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 22002: CWH_YC M; species mix Yc:60;Hw:25;Cw:15; TSR OAF/genetic
-    constants; SI 9.7 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: YC
+      PCT_1: 63
+      GW_1: 4.33
+      GW_age_1: 0
+      SPP_2: HW
+      PCT_2: 19
+      GW_2: 5.2
+      GW_age_2: 0
+      SPP_3: BA
+      PCT_3: 17
+      GW_3: 0.0
+      GW_age_3: 0
+      SPP_4: FD
+      PCT_4: 1
+      GW_4: 7.63
+      GW_age_4: 0
+      SPP_5: CW
+      PCT_5: 0
+      GW_5: 4.33
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_YC M; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_23002
   when:
     au_id_in:
@@ -362,42 +497,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: YC
-      PCT_1: 60
-      GW_1: 4.33
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 25
-      GW_2: 5.2
-      GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 15
-      GW_3: 4.33
-      GW_age_3: 0
+      Density: 986
       OAF2: 0.95
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: YC
-      PCT_1: 60
+      PCT_1: 55
       GW_1: 4.33
       GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 25
-      GW_2: 5.2
+      SPP_2: BA
+      PCT_2: 19
+      GW_2: 0.0
       GW_age_2: 0
-      SPP_3: CW
-      PCT_3: 15
-      GW_3: 4.33
+      SPP_3: HW
+      PCT_3: 18
+      GW_3: 5.2
       GW_age_3: 0
+      SPP_4: CW
+      PCT_4: 6
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: FD
+      PCT_5: 2
+      GW_5: 7.63
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 986
       OAF2: 0.95
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 23002: CWH_YC H; species mix Yc:60;Hw:25;Cw:15; TSR OAF/genetic
-    constants; SI 13.0 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: YC
+      PCT_1: 55
+      GW_1: 4.33
+      GW_age_1: 0
+      SPP_2: BA
+      PCT_2: 19
+      GW_2: 0.0
+      GW_age_2: 0
+      SPP_3: HW
+      PCT_3: 18
+      GW_3: 5.2
+      GW_age_3: 0
+      SPP_4: CW
+      PCT_4: 6
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: FD
+      PCT_5: 2
+      GW_5: 7.63
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_YC H; OAF2 0.950; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_21003
   when:
     au_id_in:
@@ -405,34 +556,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: FD
-      PCT_1: 70
-      GW_1: 7.63
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 30
-      GW_2: 5.2
-      GW_age_2: 0
+      Density: 1400
       OAF2: 0.875
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: FD
-      PCT_1: 70
+      PCT_1: 59
       GW_1: 7.63
       GW_age_1: 0
       SPP_2: HW
-      PCT_2: 30
+      PCT_2: 19
       GW_2: 5.2
       GW_age_2: 0
+      SPP_3: CW
+      PCT_3: 17
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: YC
+      PCT_4: 3
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: BA
+      PCT_5: 2
+      GW_5: 0.0
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1400
       OAF2: 0.875
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 21003: CWH_FD L; species mix Fd:70;Hw:30; TSR OAF/genetic constants;
-    SI 23.0 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: FD
+      PCT_1: 59
+      GW_1: 7.63
+      GW_age_1: 0
+      SPP_2: HW
+      PCT_2: 19
+      GW_2: 5.2
+      GW_age_2: 0
+      SPP_3: CW
+      PCT_3: 17
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: YC
+      PCT_4: 3
+      GW_4: 4.33
+      GW_age_4: 0
+      SPP_5: BA
+      PCT_5: 2
+      GW_5: 0.0
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_FD L; OAF2 0.875; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_22003
   when:
     au_id_in:
@@ -440,34 +615,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: FD
-      PCT_1: 70
-      GW_1: 7.63
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 30
-      GW_2: 5.2
-      GW_age_2: 0
+      Density: 1320
       OAF2: 0.875
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: FD
-      PCT_1: 70
+      PCT_1: 71
       GW_1: 7.63
       GW_age_1: 0
       SPP_2: HW
-      PCT_2: 30
+      PCT_2: 18
       GW_2: 5.2
       GW_age_2: 0
+      SPP_3: CW
+      PCT_3: 9
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: BA
+      PCT_4: 1
+      GW_4: 0.0
+      GW_age_4: 0
+      SPP_5: YC
+      PCT_5: 1
+      GW_5: 4.33
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1320
       OAF2: 0.875
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 22003: CWH_FD M; species mix Fd:70;Hw:30; TSR OAF/genetic constants;
-    SI 28.4 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: FD
+      PCT_1: 71
+      GW_1: 7.63
+      GW_age_1: 0
+      SPP_2: HW
+      PCT_2: 18
+      GW_2: 5.2
+      GW_age_2: 0
+      SPP_3: CW
+      PCT_3: 9
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: BA
+      PCT_4: 1
+      GW_4: 0.0
+      GW_age_4: 0
+      SPP_5: YC
+      PCT_5: 1
+      GW_5: 4.33
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_FD M; OAF2 0.875; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_23003
   when:
     au_id_in:
@@ -475,34 +674,58 @@ rules:
   assign:
     e:
       Regen_Delay: 1
-      Density: 1200
-      SPP_1: FD
-      PCT_1: 70
-      GW_1: 7.63
-      GW_age_1: 0
-      SPP_2: HW
-      PCT_2: 30
-      GW_2: 5.2
-      GW_age_2: 0
+      Density: 1226
       OAF2: 0.875
       Util_DBH_cm: 17.5
-    f:
-      Regen_Delay: 1
-      Density: 1200
       SPP_1: FD
-      PCT_1: 70
+      PCT_1: 68
       GW_1: 7.63
       GW_age_1: 0
       SPP_2: HW
-      PCT_2: 30
+      PCT_2: 19
       GW_2: 5.2
       GW_age_2: 0
+      SPP_3: CW
+      PCT_3: 10
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: SS
+      PCT_4: 2
+      GW_4: 2.0
+      GW_age_4: 0
+      SPP_5: BA
+      PCT_5: 1
+      GW_5: 0.0
+      GW_age_5: 0
+    f:
+      Regen_Delay: 1
+      Density: 1226
       OAF2: 0.875
       Util_DBH_cm: 17.5
       SI_c1: 1.0
       SI_c2: 0.0
-  notes: 'TSR 48 AU 23003: CWH_FD H; species mix Fd:70;Hw:30; TSR OAF/genetic constants;
-    SI 33.6 m from the FEMIC VDYP/PSPL run.'
+      SPP_1: FD
+      PCT_1: 68
+      GW_1: 7.63
+      GW_age_1: 0
+      SPP_2: HW
+      PCT_2: 19
+      GW_2: 5.2
+      GW_age_2: 0
+      SPP_3: CW
+      PCT_3: 10
+      GW_3: 4.33
+      GW_age_3: 0
+      SPP_4: SS
+      PCT_4: 2
+      GW_4: 2.0
+      GW_age_4: 0
+      SPP_5: BA
+      PCT_5: 1
+      GW_5: 0.0
+      GW_age_5: 0
+  notes: RESULTS-derived species/density for CWH_FD H; OAF2 0.875; SI from the model PSPL/VDYP
+    mapping.
 - id: northisland_au_default
   when: {}
   assign:

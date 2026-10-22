@@ -204,7 +204,7 @@ def test_main_reads_fetched_layers(tmp_path: Path, monkeypatch: pytest.MonkeyPat
     assert result.iloc[0]["stratum_code"] == "CWH_HW"
     updated = pd.read_csv(tipsy_input)
     assert updated.iloc[0]["planted_species1"] == "Hw"
-    assert updated.iloc[0]["planted_density1"] == 1200.0
+    assert updated.iloc[0]["planted_density1"] == 1200
 
     # The candidate table is still written when no TIPSY input is requested.
     monkeypatch.setattr(
@@ -268,7 +268,8 @@ def test_apply_candidates_merges_fdc_into_fd() -> None:
     )
 
     assert updated.iloc[0]["planted_species1"] == "Fd"
-    assert updated.iloc[0]["planted_density1"] == 750.0
+    assert updated.iloc[0]["planted_density1"] == 750
+    assert updated["planted_density1"].dtype == "int64"
     assert updated.iloc[0]["planted_species2"] == "Hw"
     assert updated.iloc[0]["fd_si"] == 28.0
     assert updated.iloc[0]["oaf2"] == 0.875

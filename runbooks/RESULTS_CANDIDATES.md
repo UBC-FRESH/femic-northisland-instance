@@ -54,21 +54,26 @@ python scripts/build_results_tipsy_inputs.py \
 - `median_density` uses the planting-derived density where RESULTS has a planting
   record. It does not use `I_TOTAL_STEMS_PER_HA`, which includes natural ingress
   and is retained only as `median_total_stems` for comparison.
-- The BatchTIPSY run on the RESULTS input did not produce
-  `04_output-northisland.csv` within five minutes under Wine. A leading-species-
-  only variant also did not complete, so the blocker is the TIPSY runtime rather
-  than the species mix. The completed managed/VDYP comparison remains the
-  median-VDYP-SI variant.
+- BatchTIPSY now runs through the documented Linux and Wine lane in
+  `runbooks/tipsy-btc-linux-wine.md`: scratch Wine prefix with Wine Mono 9.0.0,
+  userspace patched Xvfb, and a direct `wine TIPSYbtc.exe /TSR` call. The
+  earlier hangs were the system `xvfb-run`/legacy prefix and decimal density
+  values that BatchTIPSY parses as `Integer`.
+- The 12-AU RESULTS input completes with `exit_code=0`, 12 output rows, and zero
+  error rows. The accepted candidate uses the RESULTS species and density with
+  the model PSPL/VDYP site-index mapping.
+- Nine of twelve AUs meet or beat VDYP on gross volume. CWH_CW L and M and
+  CWH_YC L remain below; that is a site-index/curve interpretation gap, not a
+  runtime failure.
 
 ## 4. Promotion gate
 
 Before this lane replaces the accepted input:
 
-1. Resolve the free-growing density and species mix, rather than using total
-   stems per hectare.
-2. Run BatchTIPSY to completion and show that the managed curve meets or beats
-   VDYP at the same site index, or record the gap as a known limitation.
-3. Review the thin AUs and decide whether to borrow a neighbouring AU, widen the
-   SI class, or keep the median-VDYP-SI curve.
-4. Update `config/tsr/tipsy_au_mapping.csv` and the FreshForge workflow only
-   after the comparison is accepted.
+1. Review the low CWH_CW L and M and CWH_YC L gross-volume ratios against the
+   VDYP curves and decide whether the site-index transfer or the VDYP curve is
+   the weak link.
+2. Review the thin AUs and decide whether to borrow a neighbouring AU or widen
+   the SI class.
+3. Update `config/tsr/tipsy_au_mapping.csv` and the FreshForge workflow when the
+   comparison is accepted.

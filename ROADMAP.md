@@ -212,6 +212,8 @@ Acceptance criteria:
    the materialized public data tree.
 5. The public RESULTS candidate lane is implemented in
    `scripts/build_results_tipsy_inputs.py` and documented in
-   `runbooks/RESULTS_CANDIDATES.md`. It writes 12 AU rows from 4,198 openings,
-   but BatchTIPSY has not completed on the RESULTS input. Treat the candidates
-   as diagnostics until the managed/VDYP comparison completes.
+   `runbooks/RESULTS_CANDIDATES.md`. BatchTIPSY now runs through the Linux and
+   Wine lane in `runbooks/tipsy-btc-linux-wine.md`. The RESULTS species/density
+   lane rebuilt the bundle, ws4 matrix, baseline, and UI; nine of twelve AUs
+   meet or beat VDYP on gross volume. The remaining CWH_CW L and M and CWH_YC L
+   gaps are a site-index and curve-interpretation review item.

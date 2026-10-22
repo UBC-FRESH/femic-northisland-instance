@@ -81,3 +81,26 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   diagnostic candidate, not the accepted managed-curve lane.
 - `python scripts/dashboard.py` is GREEN with 189 tests and 96.47 percent branch
   coverage of `scripts/`.
+
+## 2026-10-22
+
+- Corrected the earlier P5.5 conclusion. BatchTIPSY does run under Wine on this
+  host through the documented `tsa29mini` lane: a scratch Wine prefix with Wine
+  Mono 9.0.0, a userspace Xvfb patched to `/tmp/xkb`, and a direct
+  `wine TIPSYbtc.exe /TSR` call. The earlier failures came from the system
+  `xvfb-run`/legacy prefix path, not from TIPSY itself.
+- Added `runbooks/tipsy-btc-linux-wine.md` and
+  `scripts/tipsybtc-wine.sh` with the working recipe and the FEMIC wrapper
+  contract.
+- Fixed `scripts/build_results_tipsy_inputs.py` so planted densities are
+  integers. BatchTIPSY parses those columns as `Integer`; a value such as
+  `416.7` raised a hidden .NET conversion dialog.
+- The 12-AU RESULTS input now completes with `exit_code=0`, 12 output rows, and
+  zero error rows. Nine of twelve AUs meet or beat VDYP on gross volume;
+  CWH_CW L and M and CWH_YC L remain below and are documented as a site-index
+  and curve-interpretation gap.
+- Updated `config/tipsy/northisland.yaml` to the RESULTS species and density.
+  Rebuilt the model-input bundle (696 curves), ws4 matrix (56,187
+  blocks/fragments), baseline run, target report, and UI geometry. Both
+  provisional targets are met.
+- `python scripts/dashboard.py` is GREEN.

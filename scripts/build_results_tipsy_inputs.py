@@ -424,7 +424,7 @@ def apply_candidates_to_input(
             start=1,
         ):
             frame.at[index, f"planted_species{position}"] = species
-            frame.at[index, f"planted_density{position}"] = round(density * percentage / total, 1)
+            frame.at[index, f"planted_density{position}"] = round(density * percentage / total)
             frame.at[index, f"genetic_worth{position}"] = GENETIC_WORTH.get(species, 0.0)
             si_column = species_si_columns.get(species)
             if si_column is not None:
@@ -435,6 +435,11 @@ def apply_candidates_to_input(
             frame.at[index, "oaf1"] = oaf1
         if oaf2 is not None:
             frame.at[index, "oaf2"] = oaf2
+    for position in range(1, 6):
+        column = f"planted_density{position}"
+        if column in frame:
+            # BTC parses these as Integer; "417.0" raises a conversion dialog.
+            frame[column] = frame[column].fillna(0).astype(int)
     return frame
 
 

@@ -62,14 +62,23 @@ Likely causes:
 Until one of those closes the gap, the TFL 6 adaptation should be treated as a
 diagnostic, not as the accepted managed-curve lane.
 
-## SIBEC SI attempt
+## Working Linux and Wine lane
 
-A second variant used the TFL 6 species and density, the TSA 48 15% OAF 1, and
-the SIBEC/PSPL site index per species from the FEMIC run. BatchTIPSY under Wine
-started but did not produce `04_output-northisland.csv` within ten minutes; the
-run was stopped. The SIBEC SI route is therefore not yet a working lane in this
-runtime. The median-VDYP-SI variant remains the only completed managed/VDYP
-comparison.
+The earlier SIBEC and RESULTS attempts did not fail because TIPSY cannot run
+here. They used a system `xvfb-run` and a legacy Wine prefix, and the RESULTS
+input wrote planted densities as decimals such as `416.7`. BatchTIPSY parses
+those columns as `Integer`, so it opened a hidden .NET dialog and waited.
+
+The documented `tsa29mini` lane works on this host:
+
+- scratch Wine prefix with Wine Mono 9.0.0;
+- userspace Xvfb built from extracted Ubuntu packages and string-patched to
+  `/tmp/xkb`;
+- direct `wine TIPSYbtc.exe /TSR <input> <output> <error>`.
+
+After rounding planted densities to integers, the 12-AU North Island input ran
+in about ten seconds with `exit_code=0`, 12 output rows, and zero error rows.
+The exact recipe is in `runbooks/tipsy-btc-linux-wine.md`.
 
 ## RESULTS reverse-engineering workflow
 
@@ -120,10 +129,31 @@ median planting-derived density from RESULTS. `median_total_stems` is retained
 separately because `I_TOTAL_STEMS_PER_HA` includes natural ingress and is not a
 planted density.
 
-The BatchTIPSY run with the RESULTS input did not produce
-`04_output-northisland.csv` within five minutes under Wine. A second run with a
-leading-species-only input (Hw, Cw, Yc, or Fd at 1,200 stems per hectare with the
-RESULTS site index) also did not complete. The failure is therefore at the
-TIPSY runtime boundary, not only in the species mix. The completed managed/VDYP
-comparison remains the median-VDYP-SI variant, and the RESULTS table is a
-candidate diagnostic rather than the accepted lane.
+The accepted candidate uses the RESULTS species and density with the model
+PSPL/VDYP site-index mapping, the TSA 48 15% OAF 1, and OAF 2 of 5% (12.5% for
+CWH_FD). Gross TIPSY volume divided by VDYP volume, mean over ages 60, 80, 100,
+and 120:
+
+| Model AU | Stratum | SI | TIPSY / VDYP gross | TIPSY / VDYP merchantable |
+| --- | --- | ---: | ---: | ---: |
+| 21000 | CWH_HW L | 11.6 | 0.89 | 0.70 |
+| 22000 | CWH_HW M | 18.4 | 1.13 | 1.00 |
+| 23000 | CWH_HW H | 27.6 | 1.38 | 1.23 |
+| 21001 | CWH_CW L | 7.9 | 0.46 | 0.23 |
+| 22001 | CWH_CW M | 12.0 | 0.80 | 0.65 |
+| 23001 | CWH_CW H | 18.3 | 1.15 | 1.01 |
+| 21002 | CWH_YC L | 7.0 | 0.71 | 0.27 |
+| 22002 | CWH_YC M | 9.7 | 1.18 | 0.82 |
+| 23002 | CWH_YC H | 13.0 | 1.30 | 1.09 |
+| 21003 | CWH_FD L | 23.0 | 2.12 | 1.72 |
+| 22003 | CWH_FD M | 28.4 | 1.56 | 1.26 |
+| 23003 | CWH_FD H | 33.6 | 1.47 | 1.17 |
+
+Nine of twelve AUs meet or beat VDYP on gross volume. CWH_CW L and M and
+CWH_YC L remain below. A leading-species-only variant raises CWH_YC L from
+0.71 to 0.92 and CWH_CW M from 0.80 to 0.87, but CWH_CW L stays near 0.53. That
+points to the low CWH_CW L site index or the VDYP curve in that AU, not to the
+BatchTIPSY runtime.
+
+The ws4 bundle, matrix, baseline run, targets, and UI geometry were rebuilt from
+this lane. Both provisional targets are met.
