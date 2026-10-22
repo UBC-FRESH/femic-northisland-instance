@@ -35,7 +35,7 @@ def prepare_ui_geometry(
     *,
     fragments: Path,
     out: Path,
-    simplify_m: float = 10.0,
+    simplify_m: float = 0.0,
     precision: int = 1,
 ) -> dict[str, object]:
     """Dissolve fragment geometry to blocks and write a GeoJSON file.
@@ -89,7 +89,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fragments", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--simplify-m", type=float, default=10.0)
+    parser.add_argument("--simplify-m", type=float, default=0.0)
     parser.add_argument("--precision", type=int, default=1)
     args = parser.parse_args()
     summary = prepare_ui_geometry(
