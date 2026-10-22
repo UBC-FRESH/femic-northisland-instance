@@ -53,3 +53,7 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   verified with 51,289 blocks on loopback port 8014.
 - Merged Phase 4 as `2558f9c`. The North Island model builds end to end and the
   ws4 UI is live on `127.0.0.1:8014` with 51,289 blocks and two met targets.
+- Launched Phase 5 on `feature/p5-tsr-metadata` with parent #29 and tasks #30 to
+  #35. The phase uses the FEMIC TSR document-metadata workflows to extract the
+  TSA 48 data-package structure, the full THLB net-down ladder, and AU-wise
+  TIPSY parameters.

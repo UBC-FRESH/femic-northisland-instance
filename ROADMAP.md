@@ -17,8 +17,9 @@ after its parent issue exists and the maintainer approves it.
 | P2 FEMIC upstream build | #12 | `feature/p2-femic-upstream` | complete |
 | P3 ws4 model build | #18 | `feature/p3-ws4-model` | complete |
 | P4 Baseline, targets, and web UI | #23 | `feature/p4-baseline-ui` | complete |
-| P5 Verify and release | TBD | `feature/p5-verify-release` | planned |
-| P6 Operate and maintain | TBD | `feature/p6-operate` | planned |
+| P5 TSR metadata and TIPSY parameters | #29 | `feature/p5-tsr-metadata` | active |
+| P6 Verify and release | TBD | `feature/p6-verify-release` | planned |
+| P7 Operate and maintain | TBD | `feature/p7-operate` | planned |
 
 ## Lifecycle Map
 
@@ -137,18 +138,43 @@ Acceptance criteria:
 - The target report distinguishes met and unmet rows.
 - The web UI renders the AOI and the baseline run with `--crs EPSG:3005`.
 
-## Phase 5: Verify and release
+## Phase 5: TSR metadata and TIPSY parameters
+
+Parent issue: #29
+Branch: `feature/p5-tsr-metadata`
+Status: active
+
+Goal: use the FEMIC TSR document-metadata workflows to extract the North Island
+data-package structure, the full THLB net-down ladder, and AU-wise TIPSY input
+parameters mapped to this model's AUs.
+
+- [ ] P5.1 Refresh and extract the TSA 48 TSR candidate facts (#30)
+- [ ] P5.2 Build the reviewed overlay and source-layer recipe (#31)
+- [ ] P5.3 Build the full THLB net-down recipe (#32)
+- [ ] P5.4 Extract TIPSY AU-wise parameters and map them to the model AUs (#33)
+- [ ] P5.5 Rebuild the managed-curve lane from the reviewed parameters (#34)
+- [ ] P5.6 Verify and record the TSR and TIPSY evidence (#35)
+
+Acceptance criteria:
+
+- The TSA 48 candidate facts and review CSVs exist.
+- The overlay and both recipes carry provenance.
+- The THLB recipe carries the GLB -> AFLB -> LHLB -> THLB ladder and benchmark
+  areas.
+- Every model AU has a TIPSY parameter row or an explicit review blocker.
+
+## Phase 6: Verify and release
 
 Parent issue: TBD
-Branch: `feature/p5-verify-release`
+Branch: `feature/p6-verify-release`
 Status: planned
 
 Goal: verify the full workflow from a clean checkout and publish the reviewed
 instance artifacts.
 
-- [ ] P5.1 Run the full workflow from a clean checkout
-- [ ] P5.2 Record the release notes and known gaps
-- [ ] P5.3 Tag and publish after approval
+- [ ] P6.1 Run the full workflow from a clean checkout
+- [ ] P6.2 Record the release notes and known gaps
+- [ ] P6.3 Tag and publish after approval
 
 Acceptance criteria:
 
@@ -156,17 +182,17 @@ Acceptance criteria:
 - The release names the exact commit, data root, and runtime versions.
 - No private data or generated model output is tracked.
 
-## Phase 6: Operate and maintain
+## Phase 7: Operate and maintain
 
 Parent issue: TBD
-Branch: `feature/p6-operate`
+Branch: `feature/p7-operate`
 Status: planned
 
 Goal: keep the instance current and retire it cleanly when needed.
 
-- [ ] P6.1 Set a review cadence and record the first review
-- [ ] P6.2 Triage source-layer, runtime, and AOI changes
-- [ ] P6.3 Record the retirement procedure
+- [ ] P7.1 Set a review cadence and record the first review
+- [ ] P7.2 Triage source-layer, runtime, and AOI changes
+- [ ] P7.3 Record the retirement procedure
 
 Acceptance criteria:
 
@@ -175,11 +201,12 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. Phase 0 is active on `feature/p0-bootstrap`, parent issue #1. Its child tasks
-   are #2 to #5.
+1. Phases P0 to P4 are complete. P5 is active on `feature/p5-tsr-metadata`,
+   parent issue #29, with tasks #30 to #35.
 2. The AOI is TSA 48 clipped to the NICC district, with the community forest
    agreement added back. See `notes/reference/aoi.md`.
-3. The first model execution uses `managed_curve_mode: vdyp_transform` and does
-   not require BatchTIPSY. Replace it with accepted TIPSY output before release.
+3. The current model uses `managed_curve_mode: vdyp_transform`. P5 replaces the
+   provisional TIPSY rules with reviewed AU-wise TSA 48 values and rebuilds the
+   managed-curve lane.
 4. Run FreshForge from the instance root with `FEMIC_EXTERNAL_DATA_ROOT` set to
    the materialized public data tree.
