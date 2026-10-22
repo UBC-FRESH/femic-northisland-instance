@@ -61,3 +61,41 @@ Likely causes:
 
 Until one of those closes the gap, the TFL 6 adaptation should be treated as a
 diagnostic, not as the accepted managed-curve lane.
+
+## SIBEC SI attempt
+
+A second variant used the TFL 6 species and density, the TSA 48 15% OAF 1, and
+the SIBEC/PSPL site index per species from the FEMIC run. BatchTIPSY under Wine
+started but did not produce `04_output-northisland.csv` within ten minutes; the
+run was stopped. The SIBEC SI route is therefore not yet a working lane in this
+runtime. The median-VDYP-SI variant remains the only completed managed/VDYP
+comparison.
+
+## RESULTS reverse-engineering workflow
+
+The public RESULTS layers can supply the missing AU-wise TIPSY inputs without the
+unpublished `tsa48_tipsy_input` workbook. Candidate layers:
+
+| Layer | Use |
+| --- | --- |
+| `WHSE_FOREST_VEGETATION.RSLT_OPENING_SVW` | opening identity, harvest date, area, BEC |
+| `WHSE_FOREST_VEGETATION.RSLT_PLANTING_SVW` | planted species, density, seedlot, genetic worth, planting date |
+| `WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_INV_SVW` | free-growing inventory attributes |
+| `WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_SILV_SVW` | silviculture status and stocking |
+| `WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_SPECIES_SVW` | free-growing species composition and density |
+| `WHSE_FOREST_VEGETATION.RSLT_STANDARDS_UNITS_SVW` | standards-unit context |
+| `WHSE_FOREST_VEGETATION.RSLT_ACTIVITY_TREATMENT_SVW` | treatment history and timing |
+
+Workflow:
+
+1. Fetch TSA 48-scoped subsets with WFS/OpenMaps or the BCGW custom download.
+2. Join each opening to planting, free-growing species, and activity records.
+3. Derive planted and natural species composition, density, regeneration delay,
+   genetic worth, and free-growing species mix.
+4. Aggregate to the model AU keys (BEC zone/subzone + leading species + SI class).
+5. Replace the TFL 6 candidate species and density in `03_input` with the
+   RESULTS-derived values.
+6. Run BatchTIPSY and compare managed versus VDYP again.
+
+This path is fully public and reproducible, and it matches the TSA 48 data
+package method, which states that managed-stand inputs come from RESULTS.
