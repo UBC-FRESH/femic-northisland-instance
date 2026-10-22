@@ -159,3 +159,16 @@ The AU-wise comparison is in
 `config/tsr/tipsy_au_results_vdyp_comparison.csv`. The ws4 bundle, matrix,
 baseline run, targets, and UI geometry were rebuilt from this lane. Both
 provisional targets are met.
+
+## Visual inspection
+
+The 12-AU contact sheet is `plots/tipsy_vdyp_northisland_12au.png`; individual
+panels are `plots/tipsy_vdyp_northisland-<AU>.png`. These are generated build
+artifacts and are not tracked. Red panels mark the four AUs that remain below
+VDYP on mean gross volume over ages 60-120.
+
+The model THLB area by AU is in `config/tsr/thlb_area_by_au.csv`. The four
+problem AUs cover 9,142 ha of the 28,558 ha model-flagged THLB (32.0%). For
+context, they cover 165,368 ha of the 442,452 ha compiled model stand area
+(37.4%). The model THLB flag is narrower than the TSR Table 4 current THLB
+benchmark; the two denominators should not be mixed.

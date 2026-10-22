@@ -1,0 +1,13 @@
+feature_id,stratum_code,si_level,thlb_area_ha,thlb_fraction,model_area_ha,model_fraction,problem_au,source
+23000,CWH_HW,H,8792.82329825671,0.3078941095042857,112839.41733584,0.25503199890480444,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+22000,CWH_HW,M,5256.6882758617,0.18407095204096122,71162.79186328,0.1608373162945644,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+21000,CWH_HW,L,4312.6204463828035,0.15101297807636688,85254.34099372,0.1926860800267032,True,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+23001,CWH_CW,H,3731.5664806590466,0.13066648784427956,28467.44802852,0.0643401955260375,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+22001,CWH_CW,M,3112.0245968788136,0.10897228449949703,28099.637668800002,0.06350889549390332,True,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+21001,CWH_CW,L,1497.2165537550475,0.052427319635194064,35938.811666890004,0.0812264649540964,True,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+21003,CWH_FD,L,603.4969807178658,0.021132366608969864,10827.676144070001,0.024471979346520092,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+22002,CWH_YC,M,416.65856094928535,0.014589934568143982,12524.31473754,0.028306606838647854,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+22003,CWH_FD,M,302.6217283428713,0.010596761063451535,13100.03077549,0.0296078011856813,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+21002,CWH_YC,L,220.37933863587347,0.007716918436867544,16074.776106520001,0.03633111885177095,True,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+23002,CWH_YC,H,187.84929640530945,0.006577829427004002,10906.46484203,0.024650052218626844,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
+23003,CWH_FD,H,124.00026554566338,0.00434205829497864,17256.287313740002,0.039001490358643656,False,THLB from ria_vri_vclr1p_checkpoint8.thlb_area; model area from runtime/matrix blocks
