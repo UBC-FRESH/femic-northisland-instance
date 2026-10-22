@@ -23,7 +23,9 @@ def _schedule(blocks: pd.DataFrame, target_age: int, treatment: str) -> pd.DataF
         .agg(offset=("offset", "min"), area_ha=("area_ha", "sum"))
         .sort_values("block_id")
     )
-    grouped["period"] = (target_age - grouped["offset"]).clip(lower=0).astype(int)
+    # Period 0 is the zero-length pre-simulation snapshot; mature stands enter
+    # at year 1, never in year 0.
+    grouped["period"] = (target_age - grouped["offset"]).clip(lower=1).astype(int)
     grouped["treatment"] = treatment
     return grouped.loc[:, ["block_id", "treatment", "period"]].copy()
 

@@ -2,9 +2,11 @@
 """Build a deterministic baseline harvest schedule from a ws4 dataset.
 
 Every block is harvested once with the declared treatment when it reaches the
-target age. Blocks already at or beyond the target age are harvested in period
-zero. The schedule is deliberately simple: it gives the web UI and the target
-reports a reproducible baseline before any optimizer run.
+target age. Blocks already at or beyond the target age are harvested in the
+first simulation year, year 1, never in year 0: period 0 is the zero-length
+pre-simulation snapshot, and no treatment belongs there. The schedule is
+deliberately simple: it gives the web UI and the target reports a reproducible
+baseline before any optimizer run.
 """
 
 from __future__ import annotations
@@ -52,7 +54,9 @@ def build_schedule(
         .agg(offset=("offset", "min"), area_ha=("area_ha", "sum"))
         .sort_values("block_id")
     )
-    grouped["period"] = (target_age - grouped["offset"]).clip(lower=0).astype(int)
+    # Period 0 is the zero-length snapshot before the simulation starts. A
+    # treatment there is not meaningful, so mature stands enter at year 1.
+    grouped["period"] = (target_age - grouped["offset"]).clip(lower=1).astype(int)
     grouped["treatment"] = treatment
     schedule = grouped.loc[:, ["block_id", "treatment", "period"]].copy()
     schedule["block_id"] = schedule["block_id"].astype(int)
