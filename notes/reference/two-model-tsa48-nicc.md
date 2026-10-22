@@ -78,10 +78,47 @@ is 28,557.95 ha, or 16.1% of the published THLB.
 The first optimization run held the first-decade harvest to 9,977,924 m3
 (80.0% of the 12,481,000 m3 first-decade AAC). The model cannot reach the
 published AAC without reconciling the land base/yields with the TSR netdown.
-The optimized NICC first-decade share is 10.31% of the full model harvest,
-which scales to a provisional reference of about **128,657 m3/yr** of the legal
-AAC. Treat that as a lower-bound reference until the full model reaches the
-published AAC.
+For the uncalibrated proportional variant, the optimized NICC first-decade
+share is 10.31% of the full model harvest, which scales to a provisional
+reference of about **128,657 m3/yr** of the legal AAC. The calibrated variant
+is the primary reference; see the calibrated optimized share below.
+
+## Calibrated THLB variant
+
+The default proportional export gives 130,481.59 ha of managed area. To
+calibrate the per-stand THLB proportion to the published 177,505 ha reference,
+`scripts/calibrate_thlb_proportion.py` scales `thlb_raw / 100` by
+**1.4461532388060396**, caps it at `1.0`, and writes
+`thlb_raw_calibrated`. The capped area is exactly **177,505.0 ha**; 6,018
+stands saturate to fully managed.
+
+The calibrated model is built under `runtime/tsa48_full_calibrated/`:
+
+| Quantity | Calibrated full TSA 48 | NICC part | Outside part |
+| --- | ---: | ---: | ---: |
+| Blocks | 110,728 | 51,292 | 59,436 |
+| Block area | 1,092,831.62 ha | 442,591.61 ha | 650,240.01 ha |
+| Model managed area | 177,505.00 ha | 38,960.29 ha | 138,544.71 ha |
+| Share of TSR THLB | 100.0% | 21.95% | 78.05% |
+
+The calibration is a reviewed area calibration, not a replacement for the
+reviewed TSR netdown sequence. The part accounting reconciles exactly
+(`full = nicc + outside`, max error 1.1e-5).
+
+### Calibrated optimized share
+
+The AAC-constrained optimization on the calibrated model held the first decade
+to **9,966,742 m3** (79.9% of the 12,481,000 m3 first-decade AAC). The NICC
+part contributed **1,875,142 m3** in that decade:
+
+- NICC share of the full-model first-decade harvest: **18.81%**
+- NICC share of the full-model total harvest: 18.69%
+- scaled to the legal AAC: **≈234,817 m3/yr**
+- NICC's own first-decade harvest: 187,514 m3/yr
+
+The full model still does not reach the published AAC, so the scaled NICC
+reference is an upper-bound share of the legal AAC; the NICC's own model
+harvest is the lower-bound. The gap is the same model-vs-TSR gap as before.
 
 ## Reproduction
 
