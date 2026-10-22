@@ -30,13 +30,13 @@ def test_build_schedule_uses_age_offsets(tmp_path: Path) -> None:
     )
 
     assert schedule.to_dict("records") == [
-        {"block_id": 1, "treatment": "CC", "period": 40},
-        {"block_id": 2, "treatment": "CC", "period": 0},
+        {"block_id": 1, "treatment": "CC", "offset": 40},
+        {"block_id": 2, "treatment": "CC", "offset": 0},
     ]
     assert summary["block_count"] == 2
     assert summary["area_ha"] == 16.0
-    assert summary["period_min"] == 0
-    assert summary["period_max"] == 40
+    assert summary["offset_min"] == 0
+    assert summary["offset_max"] == 40
 
 
 def test_build_schedule_rejects_missing_columns(tmp_path: Path) -> None:

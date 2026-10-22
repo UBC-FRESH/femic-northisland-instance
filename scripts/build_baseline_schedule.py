@@ -2,9 +2,10 @@
 """Build a deterministic baseline harvest schedule from a ws4 dataset.
 
 Every block is harvested once with the declared treatment when it reaches the
-target age. Blocks already at or beyond the target age are harvested in period
-zero. The schedule is deliberately simple: it gives the web UI and the target
-reports a reproducible baseline before any optimizer run.
+target age. The schedule is driven by the 0-based treatment ``offset``: offset
+0 is the first simulation year, and a block already at or beyond the target age
+is entered at offset 0. Period 0 is the zero-length pre-simulation snapshot and
+is never a treatment slot.
 """
 
 from __future__ import annotations
@@ -36,7 +37,7 @@ def build_schedule(
     Returns
     -------
     tuple of (pandas.DataFrame, dict)
-        The schedule with ``block_id``, ``treatment``, and ``period`` columns,
+        The schedule with ``block_id``, ``treatment``, and ``offset`` columns,
         and a JSON-ready summary.
     """
     blocks = pd.read_parquet(dataset / "blocks.parquet")
@@ -52,9 +53,9 @@ def build_schedule(
         .agg(offset=("offset", "min"), area_ha=("area_ha", "sum"))
         .sort_values("block_id")
     )
-    grouped["period"] = (target_age - grouped["offset"]).clip(lower=0).astype(int)
+    grouped["offset"] = (target_age - grouped["offset"]).clip(lower=0).astype(int)
     grouped["treatment"] = treatment
-    schedule = grouped.loc[:, ["block_id", "treatment", "period"]].copy()
+    schedule = grouped.loc[:, ["block_id", "treatment", "offset"]].copy()
     schedule["block_id"] = schedule["block_id"].astype(int)
 
     summary: dict[str, object] = {
@@ -63,8 +64,8 @@ def build_schedule(
         "treatment": treatment,
         "block_count": len(schedule),
         "area_ha": round(float(grouped["area_ha"].sum()), 4),
-        "period_min": int(schedule["period"].min()),
-        "period_max": int(schedule["period"].max()),
+        "offset_min": int(schedule["offset"].min()),
+        "offset_max": int(schedule["offset"].max()),
     }
     return schedule, summary
 
