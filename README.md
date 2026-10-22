@@ -77,9 +77,11 @@ The public data root must contain `bc/tsa/FADM_TSA.gdb`,
 geodatabase. The `femic-public-data` submodule is the canonical source.
 
 VDYP7 runs under Wine on Linux. The repository carries the VDYP executable; the
-host needs `wine` and `wine32`. The first lane uses the VDYP-transform managed
-curve mode, so it does not require BatchTIPSY. Replace that lane with accepted
-TIPSY output before release.
+host needs `wine` and `wine32`. BatchTIPSY also runs under Wine through the
+scratch-prefix, Wine Mono, and userspace-Xvfb lane in
+`runbooks/tipsy-btc-linux-wine.md`. The accepted managed lane uses public RESULTS
+species and density with the model PSPL/VDYP site index; the AU-wise comparison
+is in `config/tsr/tipsy_au_results_vdyp_comparison.csv`.
 
 ## Web UI
 
