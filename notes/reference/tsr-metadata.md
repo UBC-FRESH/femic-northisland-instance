@@ -107,3 +107,39 @@ The exact `tsa48_tipsy_input` workbook is not published with the TSR package.
 Until it is supplied, per-AU species composition and density remain
 model-derived, while the TSR constants are adopted. Accepted BatchTIPSY output
 is still required before the managed-curve lane is production-ready.
+
+## TFL 6 TSR candidate parameters
+
+The `femic-tfl6-instance` TIPSY lane was informed by the TFL 6 Management Plan 10
+information package (2011), Tables 27-29. The reviewed parameter library from
+that instance is copied here as
+`config/tsr/tfl6_mp10_tipsy_parameter_library.csv` (90 legacy AU rows).
+
+Because the TSA 48 `tsa48_tipsy_input` workbook is not published, the TFL 6
+library is the closest published coastal AU-wise candidate source. The
+`config/tsr/tipsy_au_tfl6_candidates.csv` file maps each of the 12 model AUs to
+the nearest TFL 6 future-managed row (Table 29) by species mix and site index.
+
+| Model AU | Stratum | SI | TFL 6 AU | Initial sph | Species mix | OAF1 | OAF2 |
+| --- | --- | ---: | --- | ---: | --- | ---: | ---: |
+| 21000 | CWH_HW L | 11.6 | 9510 | 2000 | Hw70 Ba20 Cy10 | 10% | 5% |
+| 22000 | CWH_HW M | 18.4 | 9510 | 2000 | Hw70 Ba20 Cy10 | 10% | 5% |
+| 23000 | CWH_HW H | 27.6 | 1500 | 1100 | Hw60 Ba20 Cw20 | 10% | 5% |
+| 21001 | CWH_CW L | 7.9 | 7500 | 1000 | Cw90 Hw10 | 10% | 5% |
+| 22001 | CWH_CW M | 12.0 | 7500 | 1000 | Cw90 Hw10 | 10% | 5% |
+| 23001 | CWH_CW H | 18.3 | 7500 | 1000 | Cw90 Hw10 | 10% | 5% |
+| 21002 | CWH_YC L | 7.0 | 9500 | 1000 | Cy40 Hw60 | 10% | 5% |
+| 22002 | CWH_YC M | 9.7 | 9500 | 1000 | Cy40 Hw60 | 10% | 5% |
+| 23002 | CWH_YC H | 13.0 | 9500 | 1000 | Cy40 Hw60 | 10% | 5% |
+| 21003 | CWH_FD L | 23.0 | 8500 | 1000 | Fd65 Cw25 Hw10 | 10% | 5% |
+| 22003 | CWH_FD M | 28.4 | 4500 | 1100 | Fd65 Cw25 Hw10 | 10% | 5% |
+| 23003 | CWH_FD H | 33.6 | 4500 | 1100 | Fd65 Cw25 Hw10 | 10% | 5% |
+
+These are **candidates**, not adopted values. Two conflicts must be resolved:
+
+- TFL 6 uses OAF 1 of 10%; the TSA 48 data package documents 15%.
+- TFL 6 species mixes are RESULTS-derived for TFL 6; they are a proxy for the
+  unpublished TSA 48 `tsa48_tipsy_input` mixes.
+
+The candidate file records the full species percentages, per-species site
+indices, utilization DBH, regeneration delay, and THLB area for each match.
