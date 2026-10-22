@@ -93,7 +93,7 @@ python scripts/report_tsr_benchmark.py \
 python scripts/prepare_ws4_ui.py \
   --fragments "$PATCHWORKS_OUT/fragments/fragments.shp" \
   --out "$MODEL_DIR/fragments.geojson" \
-  --simplify-m "${UI_SIMPLIFY_M:-10}" \
+  --simplify-m "${UI_SIMPLIFY_M:-0}" \
   --parts "$MODEL_DIR/parts/block_parts.csv"
 
 echo "full TSA 48 model built under $MODEL_DIR"
