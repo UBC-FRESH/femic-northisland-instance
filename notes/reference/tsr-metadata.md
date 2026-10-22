@@ -143,3 +143,11 @@ These are **candidates**, not adopted values. Two conflicts must be resolved:
 
 The candidate file records the full species percentages, per-species site
 indices, utilization DBH, regeneration delay, and THLB area for each match.
+
+## TFL 6 adaptation result
+
+`config/tsr/tipsy_au_tfl6_tsa48_adapted.csv` applies the TFL 6 candidate species
+and density, the TSA 48 15% OAF 1, and the median VDYP output SI per AU. The
+resulting managed TIPSY curves are below VDYP for Hw, Cw, and Yc, and above for
+Fd. See `notes/reference/tipsy-vs-vdyp.md` for the AU-wise ratios and the next
+candidate fixes.
