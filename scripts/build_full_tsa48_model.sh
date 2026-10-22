@@ -14,13 +14,29 @@ PATCHWORKS_OUT="${PATCHWORKS_OUT:-output/patchworks_tsa48_full}"
 MODEL_DIR="${MODEL_DIR:-runtime/tsa48_full}"
 TARGET_AGE="${TARGET_AGE:-60}"
 YEARS="${YEARS:-100}"
+CALIBRATE_THLB="${CALIBRATE_THLB:-0}"
+THLB_TARGET_HA="${THLB_TARGET_HA:-177505}"
+IFM_SOURCE_COL="${IFM_SOURCE_COL:-}"
 
 mkdir -p "$MODEL_DIR" "$MODEL_DIR/parts" "$MODEL_DIR/schedules" "$MODEL_DIR/runs" "$MODEL_DIR/evidence"
+
+if [ "$CALIBRATE_THLB" = "1" ]; then
+  CALIBRATED_CHECKPOINT="$MODEL_DIR/thlb_calibrated_checkpoint.feather"
+  python scripts/calibrate_thlb_proportion.py \
+    --checkpoint "$CHECKPOINT" \
+    --target-ha "$THLB_TARGET_HA" \
+    --out-checkpoint "$CALIBRATED_CHECKPOINT" \
+    --summary "$MODEL_DIR/evidence/thlb_calibration.json"
+  CHECKPOINT="$CALIBRATED_CHECKPOINT"
+  IFM_SOURCE_COL="thlb_raw_calibrated"
+fi
 
 python -m femic export patchworks \
   --tsa 48 \
   --bundle-dir data/model_input_bundle \
   --checkpoint "$CHECKPOINT" \
+  --ifm-mode proportional \
+  ${IFM_SOURCE_COL:+--ifm-source-col "$IFM_SOURCE_COL"} \
   --output-dir "$PATCHWORKS_OUT"
 
 python -m ws4.cli build \
