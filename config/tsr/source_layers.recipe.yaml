@@ -1,0 +1,2623 @@
+schema_version: 1
+recipe_kind: source_layers
+tsa:
+  tsa_id: tsa_48
+  tsa_code: '48'
+  tsa_name: North Island
+canonical_inputs:
+  registry_path: runtime/tsr/metadata/tsa_registry.json
+  documents_path: external/femic-northisland-instance/runtime/tsr/metadata/tsa_documents_tsa48_full.json
+  candidate_facts_path: external/femic-northisland-instance/runtime/tsr/metadata/tsa_candidate_facts_tsa48_full.json
+instance_inputs:
+  overlay_path: config/tsr/overlay.yaml
+  source_layer_overrides_path: config/tsr/source_layer_overrides.yaml
+  download_root: data/downloads/bcdc
+recipe_contract:
+  status: built
+  last_built_utc: '2026-10-22T05:38:41.749480+00:00'
+  last_run_utc: ''
+  notes:
+  - Review and refresh this file with `femic tsr source-layers-build`.
+  - Use `source_layer_overrides.yaml` only for unresolved public-acquisition wall
+    cases.
+entries:
+- entry_id: bec_biogeoclimatic_poly
+  label: BEC_BIOGEOCLIMATIC_POLY
+  recommended_query: BEC_BIOGEOCLIMATIC_POLY
+  acquisition_query: WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY
+  extracted_value: BEC_BIOGEOCLIMATIC_POLY
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: BCGW files WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY and
+  page_number: 21
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=21 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=41
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY
+  used_alias: ''
+  top_match_title: BEC Map
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/bec-map
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: fadm_designated_areas
+  label: FADM_DESIGNATED_AREAS
+  recommended_query: FADM_DESIGNATED_AREAS
+  acquisition_query: WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS
+  extracted_value: FADM_DESIGNATED_AREAS
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS,
+  page_number: 51
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=51
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS
+  used_alias: ''
+  top_match_title: FADM - Designated Areas
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/fadm-designated-areas
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: ften_recreation_lines_svw
+  label: FTEN_RECREATION_LINES_SVW
+  recommended_query: FTEN_RECREATION_LINES_SVW
+  acquisition_query: WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW
+  extracted_value: FTEN_RECREATION_LINES_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: Additional trails in use are identified in the BCGW layer (FTEN_RECREATION_LINES_SVW).
+    These
+  page_number: 31
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=31
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW
+  used_alias: ''
+  top_match_title: Recreation Line
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/recreation-line
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: ften_recreation_poly_svw
+  label: FTEN_RECREATION_POLY_SVW
+  recommended_query: FTEN_RECREATION_POLY_SVW
+  acquisition_query: WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+  extracted_value: FTEN_RECREATION_POLY_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: layer (FTEN_RECREATION_POLY_SVW). Some of these areas have objectives which
+    are
+  page_number: 31
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=31 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=32
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+  used_alias: ''
+  top_match_title: Recreation Polygons
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/recreation-polygons
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: ften_road_section_lines_svw
+  label: FTEN_ROAD_SECTION_LINES_SVW
+  recommended_query: FTEN_ROAD_SECTION_LINES_SVW
+  acquisition_query: WHSE_FOREST_TENURE.FTEN_ROAD_SECTION_LINES_SVW
+  extracted_value: FTEN_ROAD_SECTION_LINES_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: FTEN_ROAD_SECTION_LINES_SVW, RSLT_FOREST_COVER_INV_SVW.
+  page_number: 29
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=29
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_TENURE.FTEN_ROAD_SECTION_LINES_SVW
+  used_alias: ''
+  top_match_title: Forest Tenure Road Section Lines
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/forest-tenure-road-section-lines
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: ften_timber_licence_poly_svw
+  label: FTEN_TIMBER_LICENCE_POLY_SVW
+  recommended_query: FTEN_TIMBER_LICENCE_POLY_SVW
+  acquisition_query: WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW
+  extracted_value: FTEN_TIMBER_LICENCE_POLY_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: BCGW file WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW (for expiration)
+    and
+  page_number: 28
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=28
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW
+  used_alias: ''
+  top_match_title: Forest Tenure Timber Licence
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/forest-tenure-timber-licence
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: rec_karst_inv_svw
+  label: REC_KARST_INV_SVW
+  recommended_query: REC_KARST_INV_SVW
+  acquisition_query: WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW
+  extracted_value: REC_KARST_INV_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: BCGW files WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW,
+  page_number: 53
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=53
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW
+  used_alias: ''
+  top_match_title: Recreation Karst Inventory
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/recreation-karst-inventory
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: dwds_order
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+- entry_id: reg_legal_and_admin_boundaries_controlled_rec_areas_bc
+  label: REG_LEGAL_AND_ADMIN_BOUNDARIES.CONTROLLED_REC_AREAS_BC
+  recommended_query: REG_LEGAL_AND_ADMIN_BOUNDARIES.CONTROLLED_REC_AREAS_BC
+  acquisition_query: REG_LEGAL_AND_ADMIN_BOUNDARIES.REC_TENURE_ALPINE_SKI_AREAS_SP
+  extracted_value: REG_LEGAL_AND_ADMIN_BOUNDARIES.CONTROLLED_REC_AREAS_BC
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: REG_LEGAL_AND_ADMIN_BOUNDARIES.CONTROLLED_REC_AREAS_BC.
+  page_number: 27
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=27
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: weak_text_hit
+  matched_by: none
+  used_alias: ''
+  top_match_title: BC Controlled Recreation Areas
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/bc-controlled-recreation-areas
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 1
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: manual_review_required
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: rmp_landscape_unit_svw
+  label: RMP_LANDSCAPE_UNIT_SVW
+  recommended_query: RMP_LANDSCAPE_UNIT_SVW
+  acquisition_query: WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW
+  extracted_value: RMP_LANDSCAPE_UNIT_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW,
+  page_number: 41
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=41
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW
+  used_alias: ''
+  top_match_title: Landscape Units of British Columbia - Current
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/landscape-units-of-british-columbia-current
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: rmp_ogma_legal_current_svw
+  label: RMP_OGMA_LEGAL_CURRENT_SVW
+  recommended_query: RMP_OGMA_LEGAL_CURRENT_SVW
+  acquisition_query: WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW
+  extracted_value: RMP_OGMA_LEGAL_CURRENT_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW, Licensee draft OGMAs.
+  page_number: 38
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=38
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW
+  used_alias: ''
+  top_match_title: Old Growth Management Areas - Legal - Current
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/old-growth-management-areas-legal-current
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: rmp_ogma_non_legal_current_svw
+  label: RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  recommended_query: RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  acquisition_query: WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  extracted_value: RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: BCGW file WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW,
+  page_number: 38
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=38
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  used_alias: ''
+  top_match_title: Old Growth Management Areas - Non Legal - Current
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/old-growth-management-areas-non-legal-current
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: ta_crown_rights_of_way_svw
+  label: TA_CROWN_RIGHTS_OF_WAY_SVW
+  recommended_query: TA_CROWN_RIGHTS_OF_WAY_SVW
+  acquisition_query: WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  extracted_value: TA_CROWN_RIGHTS_OF_WAY_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  page_number: 29
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=29
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  used_alias: ''
+  top_match_title: TANTALIS - Crown Land Rights-of-way
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/tantalis-crown-land-rights-of-way
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: ta_crown_tenures_svw
+  label: TA_CROWN_TENURES_SVW
+  recommended_query: TA_CROWN_TENURES_SVW
+  acquisition_query: WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  extracted_value: TA_CROWN_TENURES_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  page_number: 51
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=51
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  used_alias: ''
+  top_match_title: TANTALIS - Crown Tenures
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/tantalis-crown-tenures
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: ta_park_ecores_pa_svw
+  label: TA_PARK_ECORES_PA_SVW
+  recommended_query: TA_PARK_ECORES_PA_SVW
+  acquisition_query: WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW
+  extracted_value: TA_PARK_ECORES_PA_SVW
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: BCGW file WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW and f_own_updated. Areas
+    used were
+  page_number: 30
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=30
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW
+  used_alias: ''
+  top_match_title: BC Parks, Ecological Reserves, and Protected Areas
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/bc-parks-ecological-reserves-and-protected-areas
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: trim_ebm_waterbodies
+  label: TRIM_EBM_WATERBODIES
+  recommended_query: TRIM_EBM_WATERBODIES
+  acquisition_query: WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES
+  extracted_value: TRIM_EBM_WATERBODIES
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES,
+  page_number: 28
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=28
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES
+  used_alias: ''
+  top_match_title: Waterbodies - TRIM Enhanced Base Map (EBM)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/waterbodies-trim-enhanced-base-map-ebm
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: trim_transportation_lines
+  label: TRIM_TRANSPORTATION_LINES
+  recommended_query: TRIM_TRANSPORTATION_LINES
+  acquisition_query: WHSE_BASEMAPPING.TRIM_TRANSPORTATION_LINES
+  extracted_value: TRIM_TRANSPORTATION_LINES
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: TRIM_TRANSPORTATION_LINES, ABR_ROAD_SECTION_LINE,
+  page_number: 29
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=29
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_BASEMAPPING.TRIM_TRANSPORTATION_LINES
+  used_alias: ''
+  top_match_title: TRIM Transportation Lines
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/trim-transportation-lines
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: veg_comp_lry_r1_poly
+  label: VEG_COMP_LRY_R1_POLY
+  recommended_query: VEG_COMP_LRY_R1_POLY
+  acquisition_query: VEG_COMP_LRY_R1_POLY
+  extracted_value: VEG_COMP_LRY_R1_POLY
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_FOREST_VEGETATION.VEG_COMP_LRY_R1_POLY (2012), ECAS, Data from Strathcona
+  page_number: 36
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=36
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: no_hit
+  matched_by: ''
+  used_alias: ''
+  top_match_title: ''
+  dataset_page_url: ''
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: false
+  has_supporting_document: false
+  acquisition_strategy: override_required
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - No catalogue matches found for the supplied query.
+- entry_id: veg_comp_lyr_r1_poly
+  label: VEG_COMP_LYR_R1_POLY
+  recommended_query: VEG_COMP_LYR_R1_POLY
+  acquisition_query: WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY
+  extracted_value: VEG_COMP_LYR_R1_POLY
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: BCGW file WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY (LiDAR areas = where
+  page_number: 21
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=21 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=28
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY
+  used_alias: ''
+  top_match_title: VRI - 2025 - Forest Vegetation Composite Rank 1 Layer (R1)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/vri-2025-forest-vegetation-composite-rank-1-layer-r1-
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 1
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: veg_consolidated_cut_blocks_sp
+  label: VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  recommended_query: VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  acquisition_query: WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  extracted_value: VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  page_number: 21
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=21
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  used_alias: ''
+  top_match_title: Harvested Areas of BC (Consolidated Cutblocks)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/harvested-areas-of-bc-consolidated-cutblocks-
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 1
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: wcp_wha_proposed_sp
+  label: WCP_WHA_PROPOSED_SP
+  recommended_query: WCP_WHA_PROPOSED_SP
+  acquisition_query: WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP
+  extracted_value: WCP_WHA_PROPOSED_SP
+  quality: likely_useful
+  quality_reason: recognized forestry shorthand/prefix
+  snippet: 'BCGW file: WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP,'
+  page_number: 47
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=47
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name_suffix:WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP
+  used_alias: ''
+  top_match_title: Wildlife Habitat Areas - Proposed
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/wildlife-habitat-areas-proposed
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_admin_boundaries_cbd_boundary_poly_svw
+  label: WHSE_ADMIN_BOUNDARIES.CBD_BOUNDARY_POLY_SVW
+  recommended_query: WHSE_ADMIN_BOUNDARIES.CBD_BOUNDARY_POLY_SVW
+  acquisition_query: WHSE_ADMIN_BOUNDARIES.CBD_BOUNDARY_POLY_SVW
+  extracted_value: WHSE_ADMIN_BOUNDARIES.CBD_BOUNDARY_POLY_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_ADMIN_BOUNDARIES.CBD_BOUNDARY_POLY_SVW , which was verified to be
+    the same
+  page_number: 15
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=15
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: no_hit
+  matched_by: ''
+  used_alias: ''
+  top_match_title: ''
+  dataset_page_url: ''
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: false
+  has_supporting_document: false
+  acquisition_strategy: override_required
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - No catalogue matches found for the supplied query.
+- entry_id: whse_admin_boundaries_fadm_designated_areas
+  label: WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS
+  recommended_query: WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS
+  acquisition_query: WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS
+  extracted_value: WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS,
+  page_number: 51
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=51
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_ADMIN_BOUNDARIES.FADM_DESIGNATED_AREAS
+  used_alias: ''
+  top_match_title: FADM - Designated Areas
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/fadm-designated-areas
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_admin_boundaries_fadm_tsa
+  label: WHSE_ADMIN_BOUNDARIES.FADM_TSA
+  recommended_query: WHSE_ADMIN_BOUNDARIES.FADM_TSA
+  acquisition_query: WHSE_ADMIN_BOUNDARIES.FADM_TSA
+  extracted_value: WHSE_ADMIN_BOUNDARIES.FADM_TSA
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_ADMIN_BOUNDARIES.FADM_TSA
+  page_number: 26
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=26
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_ADMIN_BOUNDARIES.FADM_TSA
+  used_alias: ''
+  top_match_title: FADM - Timber Supply Areas (TSA) and Blocks (TSB)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/fadm-timber-supply-areas-tsa-and-blocks-tsb-
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: dwds_order
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+- entry_id: whse_admin_boundaries_pip_consultation_areas_sp
+  label: WHSE_ADMIN_BOUNDARIES.PIP_CONSULTATION_AREAS_SP
+  recommended_query: WHSE_ADMIN_BOUNDARIES.PIP_CONSULTATION_AREAS_SP
+  acquisition_query: WHSE_ADMIN_BOUNDARIES.PIP_CONSULTATION_AREAS_SP
+  extracted_value: WHSE_ADMIN_BOUNDARIES.PIP_CONSULTATION_AREAS_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'as the new layer: WHSE_ADMIN_BOUNDARIES.PIP_CONSULTATION_AREAS_SP'
+  page_number: 15
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=15
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: no_hit
+  matched_by: ''
+  used_alias: ''
+  top_match_title: ''
+  dataset_page_url: ''
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: false
+  has_supporting_document: false
+  acquisition_strategy: override_required
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - No catalogue matches found for the supplied query.
+- entry_id: whse_archaeology_raad_tfm_sites_svw
+  label: WHSE_ARCHAEOLOGY.RAAD_TFM_SITES_SVW
+  recommended_query: WHSE_ARCHAEOLOGY.RAAD_TFM_SITES_SVW
+  acquisition_query: WHSE_ARCHAEOLOGY.RAAD_TFM_SITES_SVW
+  extracted_value: WHSE_ARCHAEOLOGY.RAAD_TFM_SITES_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_ARCHAEOLOGY.RAAD_TFM_SITES_SVW.
+  page_number: 50
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=50
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_ARCHAEOLOGY.RAAD_TFM_SITES_SVW
+  used_alias: ''
+  top_match_title: Archaeology Sites Government Users View
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/archaeology-sites-government-users-view
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 1
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: false
+  has_supporting_document: false
+  acquisition_strategy: direct_download
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes: []
+- entry_id: whse_basemapping_dra_dgtl_road_atlas_mpar_sp
+  label: WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP
+  recommended_query: WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP
+  acquisition_query: WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP
+  extracted_value: WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: Highways from WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP
+  page_number: 29
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=29
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_BASEMAPPING.DRA_DGTL_ROAD_ATLAS_MPAR_SP
+  used_alias: ''
+  top_match_title: Digital Road Atlas (DRA) - Master Partially-Attributed Roads
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/digital-road-atlas-dra-master-partially-attributed-roads
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_basemapping_fwa_obstructions_sp
+  label: WHSE_BASEMAPPING.FWA_OBSTRUCTIONS_SP
+  recommended_query: WHSE_BASEMAPPING.FWA_OBSTRUCTIONS_SP
+  acquisition_query: WHSE_BASEMAPPING.FWA_OBSTRUCTIONS_SP
+  extracted_value: WHSE_BASEMAPPING.FWA_OBSTRUCTIONS_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_BASEMAPPING.FWA_OBSTRUCTIONS_SP
+  page_number: 46
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_BASEMAPPING.FWA_OBSTRUCTIONS_SP
+  used_alias: ''
+  top_match_title: Freshwater Atlas - Obstructions
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/freshwater-atlas-obstructions
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_basemapping_fwa_rivers_poly
+  label: WHSE_BASEMAPPING.FWA_RIVERS_POLY
+  recommended_query: WHSE_BASEMAPPING.FWA_RIVERS_POLY
+  acquisition_query: WHSE_BASEMAPPING.FWA_RIVERS_POLY
+  extracted_value: WHSE_BASEMAPPING.FWA_RIVERS_POLY
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'Rivers: BCGW file WHSE_BASEMAPPING.FWA_RIVERS_POLY'
+  page_number: 46
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_BASEMAPPING.FWA_RIVERS_POLY
+  used_alias: ''
+  top_match_title: Freshwater Atlas - Rivers
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/freshwater-atlas-rivers
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_basemapping_fwa_stream_networks_sp
+  label: WHSE_BASEMAPPING.FWA_STREAM_NETWORKS_SP
+  recommended_query: WHSE_BASEMAPPING.FWA_STREAM_NETWORKS_SP
+  acquisition_query: WHSE_BASEMAPPING.FWA_STREAM_NETWORKS_SP
+  extracted_value: WHSE_BASEMAPPING.FWA_STREAM_NETWORKS_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: "\u2022 Stream lines: BCGW file WHSE_BASEMAPPING.FWA_STREAM_NETWORKS_SP"
+  page_number: 46
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_BASEMAPPING.FWA_STREAM_NETWORKS_SP
+  used_alias: ''
+  top_match_title: Freshwater Atlas - Stream Network
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/freshwater-atlas-stream-network
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 1
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_basemapping_trim_ebm_waterbodies
+  label: WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES
+  recommended_query: WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES
+  acquisition_query: WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES
+  extracted_value: WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES,
+  page_number: 28
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=28 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_BASEMAPPING.TRIM_EBM_WATERBODIES
+  used_alias: ''
+  top_match_title: Waterbodies - TRIM Enhanced Base Map (EBM)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/waterbodies-trim-enhanced-base-map-ebm
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_basemapping_trim_ebm_wetlands
+  label: WHSE_BASEMAPPING.TRIM_EBM_WETLANDS
+  recommended_query: WHSE_BASEMAPPING.TRIM_EBM_WETLANDS
+  acquisition_query: WHSE_BASEMAPPING.TRIM_EBM_WETLANDS
+  extracted_value: WHSE_BASEMAPPING.TRIM_EBM_WETLANDS
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_BASEMAPPING.TRIM_EBM_WETLANDS.
+  page_number: 28
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=28 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_BASEMAPPING.TRIM_EBM_WETLANDS
+  used_alias: ''
+  top_match_title: Wetlands - TRIM Enhanced Base Map (EBM)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/wetlands-trim-enhanced-base-map-ebm
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_fish_fiss_fish_obsrvtn_pnt_sp
+  label: WHSE_FISH.FISS_FISH_OBSRVTN_PNT_SP
+  recommended_query: WHSE_FISH.FISS_FISH_OBSRVTN_PNT_SP
+  acquisition_query: WHSE_FISH.FISS_FISH_OBSRVTN_PNT_SP
+  extracted_value: WHSE_FISH.FISS_FISH_OBSRVTN_PNT_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_FISH.FISS_FISH_OBSRVTN_PNT_SP
+  page_number: 46
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FISH.FISS_FISH_OBSRVTN_PNT_SP
+  used_alias: ''
+  top_match_title: Known BC Fish Observations and BC Fish Distributions
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/known-bc-fish-observations-and-bc-fish-distributions
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_fish_fiss_obstacles_pnt_sp
+  label: WHSE_FISH.FISS_OBSTACLES_PNT_SP
+  recommended_query: WHSE_FISH.FISS_OBSTACLES_PNT_SP
+  acquisition_query: WHSE_FISH.FISS_OBSTACLES_PNT_SP
+  extracted_value: WHSE_FISH.FISS_OBSTACLES_PNT_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'file: WHSE_FISH.FISS_OBSTACLES_PNT_SP'
+  page_number: 46
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FISH.FISS_OBSTACLES_PNT_SP
+  used_alias: ''
+  top_match_title: Provincial Obstacles to Fish Passage
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/provincial-obstacles-to-fish-passage
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_tenure_ften_recreation_lines_svw
+  label: WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW
+  recommended_query: WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW
+  acquisition_query: WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW
+  extracted_value: WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW.
+  page_number: 32
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=32
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_TENURE.FTEN_RECREATION_LINES_SVW
+  used_alias: ''
+  top_match_title: Recreation Line
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/recreation-line
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_tenure_ften_recreation_poly_svw
+  label: WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+  recommended_query: WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+  acquisition_query: WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+  extracted_value: WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: f_own_updated and BCGW files WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+    and
+  page_number: 32
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=32
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_TENURE.FTEN_RECREATION_POLY_SVW
+  used_alias: ''
+  top_match_title: Recreation Polygons
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/recreation-polygons
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_tenure_ften_timber_licence_poly_svw
+  label: WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW
+  recommended_query: WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW
+  acquisition_query: WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW
+  extracted_value: WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: BCGW file WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW (for expiration)
+    and
+  page_number: 28
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=28
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_TENURE.FTEN_TIMBER_LICENCE_POLY_SVW
+  used_alias: ''
+  top_match_title: Forest Tenure Timber Licence
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/forest-tenure-timber-licence
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_vegetation_bec_biogeoclimatic_poly
+  label: WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY
+  recommended_query: WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY
+  acquisition_query: WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY
+  extracted_value: WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: BCGW files WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY and
+  page_number: 21
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=21 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=41
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.BEC_BIOGEOCLIMATIC_POLY
+  used_alias: ''
+  top_match_title: BEC Map
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/bec-map
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_forest_vegetation_rec_karst_inv_svw
+  label: WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW
+  recommended_query: WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW
+  acquisition_query: WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW
+  extracted_value: WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: BCGW files WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW,
+  page_number: 53
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=53
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.REC_KARST_INV_SVW
+  used_alias: ''
+  top_match_title: Recreation Karst Inventory
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/recreation-karst-inventory
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: dwds_order
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+- entry_id: whse_forest_vegetation_rec_visual_landscape_inventory
+  label: WHSE_FOREST_VEGETATION.REC_VISUAL_LANDSCAPE_INVENTORY
+  recommended_query: WHSE_FOREST_VEGETATION.REC_VISUAL_LANDSCAPE_INVENTORY
+  acquisition_query: WHSE_FOREST_VEGETATION.REC_VISUAL_LANDSCAPE_INVENTORY
+  extracted_value: WHSE_FOREST_VEGETATION.REC_VISUAL_LANDSCAPE_INVENTORY
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'BCGW file: WHSE_FOREST_VEGETATION.REC_VISUAL_LANDSCAPE_INVENTORY.'
+  page_number: 62
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=62
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.REC_VISUAL_LANDSCAPE_INVENTORY
+  used_alias: ''
+  top_match_title: Visual Landscape Inventory
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/visual-landscape-inventory
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_vegetation_resproj_rsrch_instltns_gov_svw
+  label: WHSE_FOREST_VEGETATION.RESPROJ_RSRCH_INSTLTNS_GOV_SVW
+  recommended_query: WHSE_FOREST_VEGETATION.RESPROJ_RSRCH_INSTLTNS_GOV_SVW
+  acquisition_query: WHSE_FOREST_VEGETATION.RESPROJ_RSRCH_INSTLTNS_GOV_SVW
+  extracted_value: WHSE_FOREST_VEGETATION.RESPROJ_RSRCH_INSTLTNS_GOV_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_FOREST_VEGETATION.RESPROJ_RSRCH_INSTLTNS_GOV_SVW
+  page_number: 52
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=52
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.RESPROJ_RSRCH_INSTLTNS_GOV_SVW
+  used_alias: ''
+  top_match_title: Research Installations Government View
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/research-installations-government-view
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: dwds_order
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+- entry_id: whse_forest_vegetation_rslt_activity_treatment_svw
+  label: WHSE_FOREST_VEGETATION.RSLT_ACTIVITY_TREATMENT_SVW
+  recommended_query: WHSE_FOREST_VEGETATION.RSLT_ACTIVITY_TREATMENT_SVW
+  acquisition_query: WHSE_FOREST_VEGETATION.RSLT_ACTIVITY_TREATMENT_SVW
+  extracted_value: WHSE_FOREST_VEGETATION.RSLT_ACTIVITY_TREATMENT_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'BCGW file: WHSE_FOREST_VEGETATION.RSLT_ACTIVITY_TREATMENT_SVW.'
+  page_number: 57
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=57
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.RSLT_ACTIVITY_TREATMENT_SVW
+  used_alias: ''
+  top_match_title: RESULTS - Activity Treatment Units
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/results-activity-treatment-units
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_vegetation_rslt_forest_cover_inv_svw
+  label: WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_INV_SVW
+  recommended_query: WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_INV_SVW
+  acquisition_query: WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_INV_SVW
+  extracted_value: WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_INV_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: BCGW files WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_INV_SVW,
+  page_number: 41
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=41
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.RSLT_FOREST_COVER_INV_SVW
+  used_alias: ''
+  top_match_title: RESULTS - Forest Cover Inventory
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/results-forest-cover-inventory
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_vegetation_veg_comp_lry_r1_poly
+  label: WHSE_FOREST_VEGETATION.VEG_COMP_LRY_R1_POLY
+  recommended_query: WHSE_FOREST_VEGETATION.VEG_COMP_LRY_R1_POLY
+  acquisition_query: WHSE_FOREST_VEGETATION.VEG_COMP_LRY_R1_POLY
+  extracted_value: WHSE_FOREST_VEGETATION.VEG_COMP_LRY_R1_POLY
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_FOREST_VEGETATION.VEG_COMP_LRY_R1_POLY (2012), ECAS, Data from Strathcona
+  page_number: 36
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=36 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=37
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: no_hit
+  matched_by: ''
+  used_alias: ''
+  top_match_title: ''
+  dataset_page_url: ''
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: false
+  has_supporting_document: false
+  acquisition_strategy: override_required
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - No catalogue matches found for the supplied query.
+- entry_id: whse_forest_vegetation_veg_comp_lyr_r1_poly
+  label: WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY
+  recommended_query: WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY
+  acquisition_query: WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY
+  extracted_value: WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: BCGW file WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY (LiDAR areas = where
+  page_number: 21
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=21 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=28
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.VEG_COMP_LYR_R1_POLY
+  used_alias: ''
+  top_match_title: VRI - 2025 - Forest Vegetation Composite Rank 1 Layer (R1)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/vri-2025-forest-vegetation-composite-rank-1-layer-r1-
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 1
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_forest_vegetation_veg_consolidated_cut_blocks_sp
+  label: WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  recommended_query: WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  acquisition_query: WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  extracted_value: WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  page_number: 21
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=21
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_FOREST_VEGETATION.VEG_CONSOLIDATED_CUT_BLOCKS_SP
+  used_alias: ''
+  top_match_title: Harvested Areas of BC (Consolidated Cutblocks)
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/harvested-areas-of-bc-consolidated-cutblocks-
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 1
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_forest_vegetaton_gry_psp_status_active
+  label: WHSE_FOREST_VEGETATON.GRY_PSP_STATUS_ACTIVE
+  recommended_query: WHSE_FOREST_VEGETATON.GRY_PSP_STATUS_ACTIVE
+  acquisition_query: WHSE_FOREST_VEGETATON.GRY_PSP_STATUS_ACTIVE
+  extracted_value: WHSE_FOREST_VEGETATON.GRY_PSP_STATUS_ACTIVE
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_FOREST_VEGETATON.GRY_PSP_STATUS_ACTIVE,
+  page_number: 52
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=52
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: no_hit
+  matched_by: ''
+  used_alias: ''
+  top_match_title: ''
+  dataset_page_url: ''
+  suggested_fetch_strategy: ''
+  direct_download_candidates: 0
+  has_service: false
+  has_wfs_queryable_service: false
+  has_indirect_custom_download: false
+  has_supporting_document: false
+  acquisition_strategy: override_required
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - No catalogue matches found for the supplied query.
+- entry_id: whse_land_use_planning_rkpm_karst_potential_area_sp
+  label: WHSE_LAND_USE_PLANNING.RKPM_KARST_POTENTIAL_AREA_SP
+  recommended_query: WHSE_LAND_USE_PLANNING.RKPM_KARST_POTENTIAL_AREA_SP
+  acquisition_query: WHSE_LAND_USE_PLANNING.RKPM_KARST_POTENTIAL_AREA_SP
+  extracted_value: WHSE_LAND_USE_PLANNING.RKPM_KARST_POTENTIAL_AREA_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_LAND_USE_PLANNING.RKPM_KARST_POTENTIAL_AREA_SP
+  page_number: 53
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=53
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_LAND_USE_PLANNING.RKPM_KARST_POTENTIAL_AREA_SP
+  used_alias: ''
+  top_match_title: Reconnaissance Karst Potential Mapping
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/reconnaissance-karst-potential-mapping
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_land_use_planning_rmp_landscape_unit_svw
+  label: WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW
+  recommended_query: WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW
+  acquisition_query: WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW
+  extracted_value: WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW,
+  page_number: 41
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=41
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_LAND_USE_PLANNING.RMP_LANDSCAPE_UNIT_SVW
+  used_alias: ''
+  top_match_title: Landscape Units of British Columbia - Current
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/landscape-units-of-british-columbia-current
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_land_use_planning_rmp_ogma_legal_current_svw
+  label: WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW
+  recommended_query: WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW
+  acquisition_query: WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW
+  extracted_value: WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW, Licensee draft OGMAs.
+  page_number: 38
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=38
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_LAND_USE_PLANNING.RMP_OGMA_LEGAL_CURRENT_SVW
+  used_alias: ''
+  top_match_title: Old Growth Management Areas - Legal - Current
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/old-growth-management-areas-legal-current
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_land_use_planning_rmp_ogma_non_legal_current_svw
+  label: WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  recommended_query: WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  acquisition_query: WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  extracted_value: WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: BCGW file WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW,
+  page_number: 38
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=38
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_LAND_USE_PLANNING.RMP_OGMA_NON_LEGAL_CURRENT_SVW
+  used_alias: ''
+  top_match_title: Old Growth Management Areas - Non Legal - Current
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/old-growth-management-areas-non-legal-current
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_land_use_planning_rmp_plan_legal_poly_svw
+  label: WHSE_LAND_USE_PLANNING.RMP_PLAN_LEGAL_POLY_SVW
+  recommended_query: WHSE_LAND_USE_PLANNING.RMP_PLAN_LEGAL_POLY_SVW
+  acquisition_query: WHSE_LAND_USE_PLANNING.RMP_PLAN_LEGAL_POLY_SVW
+  extracted_value: WHSE_LAND_USE_PLANNING.RMP_PLAN_LEGAL_POLY_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_LAND_USE_PLANNING.RMP_PLAN_LEGAL_POLY_SVW. Legal order can be found
+    on
+  page_number: 39
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=39
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_LAND_USE_PLANNING.RMP_PLAN_LEGAL_POLY_SVW
+  used_alias: ''
+  top_match_title: Legal Planning Objectives - Current - Polygon
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/legal-planning-objectives-current-polygon
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_tantalis_ta_crown_rights_of_way_svw
+  label: WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  recommended_query: WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  acquisition_query: WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  extracted_value: WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  page_number: 29
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=29
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_TANTALIS.TA_CROWN_RIGHTS_OF_WAY_SVW
+  used_alias: ''
+  top_match_title: TANTALIS - Crown Land Rights-of-way
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/tantalis-crown-land-rights-of-way
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_tantalis_ta_crown_tenures_svw
+  label: WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  recommended_query: WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  acquisition_query: WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  extracted_value: WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  page_number: 51
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=51
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_TANTALIS.TA_CROWN_TENURES_SVW
+  used_alias: ''
+  top_match_title: TANTALIS - Crown Tenures
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/tantalis-crown-tenures
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_tantalis_ta_park_ecores_pa_svw
+  label: WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW
+  recommended_query: WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW
+  acquisition_query: WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW
+  extracted_value: WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: BCGW file WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW and f_own_updated. Areas
+    used were
+  page_number: 30
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=30
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_TANTALIS.TA_PARK_ECORES_PA_SVW
+  used_alias: ''
+  top_match_title: BC Parks, Ecological Reserves, and Protected Areas
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/bc-parks-ecological-reserves-and-protected-areas
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_tantalis_ta_wildlife_mgmt_areas_svw
+  label: WHSE_TANTALIS.TA_WILDLIFE_MGMT_AREAS_SVW
+  recommended_query: WHSE_TANTALIS.TA_WILDLIFE_MGMT_AREAS_SVW
+  acquisition_query: WHSE_TANTALIS.TA_WILDLIFE_MGMT_AREAS_SVW
+  extracted_value: WHSE_TANTALIS.TA_WILDLIFE_MGMT_AREAS_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'BCGW file: WHSE_TANTALIS.TA_WILDLIFE_MGMT_AREAS_SVW.'
+  page_number: 49
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=49
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_TANTALIS.TA_WILDLIFE_MGMT_AREAS_SVW
+  used_alias: ''
+  top_match_title: TANTALIS - Wildlife Management Areas
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/tantalis-wildlife-management-areas
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_terrestrial_ecology_ste_tem_attribute_polys_svw
+  label: WHSE_TERRESTRIAL_ECOLOGY.STE_TEM_ATTRIBUTE_POLYS_SVW
+  recommended_query: WHSE_TERRESTRIAL_ECOLOGY.STE_TEM_ATTRIBUTE_POLYS_SVW
+  acquisition_query: WHSE_TERRESTRIAL_ECOLOGY.STE_TEM_ATTRIBUTE_POLYS_SVW
+  extracted_value: WHSE_TERRESTRIAL_ECOLOGY.STE_TEM_ATTRIBUTE_POLYS_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_TERRESTRIAL_ECOLOGY.STE_TEM_ATTRIBUTE_POLYS_SVW. TEM projects without
+  page_number: 21
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=21 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=41
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_TERRESTRIAL_ECOLOGY.STE_TEM_ATTRIBUTE_POLYS_SVW
+  used_alias: ''
+  top_match_title: Terrestrial Ecosystem Mapping (TEM) Detailed Polygons with Short
+    Attribute Table Spatial View
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/terrestrial-ecosystem-mapping-tem-detailed-polygons-with-short-attribute-table-spatial-view
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: true
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+  - Supporting documents are available for manual review but are not auto-downloaded
+    in v1.
+- entry_id: whse_water_management_wls_community_ws_pub_svw
+  label: WHSE_WATER_MANAGEMENT.WLS_COMMUNITY_WS_PUB_SVW
+  recommended_query: WHSE_WATER_MANAGEMENT.WLS_COMMUNITY_WS_PUB_SVW
+  acquisition_query: WHSE_WATER_MANAGEMENT.WLS_COMMUNITY_WS_PUB_SVW
+  extracted_value: WHSE_WATER_MANAGEMENT.WLS_COMMUNITY_WS_PUB_SVW
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'Community Watersheds: WHSE_WATER_MANAGEMENT.WLS_COMMUNITY_WS_PUB_SVW'
+  page_number: 46
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=46 | TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=59
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_WATER_MANAGEMENT.WLS_COMMUNITY_WS_PUB_SVW
+  used_alias: ''
+  top_match_title: Community Watersheds - Current
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/community-watersheds-current
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_wildlife_management_wcp_fish_sensitive_ws_poly
+  label: WHSE_WILDLIFE_MANAGEMENT.WCP_FISH_SENSITIVE_WS_POLY
+  recommended_query: WHSE_WILDLIFE_MANAGEMENT.WCP_FISH_SENSITIVE_WS_POLY
+  acquisition_query: WHSE_WILDLIFE_MANAGEMENT.WCP_FISH_SENSITIVE_WS_POLY
+  extracted_value: WHSE_WILDLIFE_MANAGEMENT.WCP_FISH_SENSITIVE_WS_POLY
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: WHSE_WILDLIFE_MANAGEMENT.WCP_FISH_SENSITIVE_WS_POLY.
+  page_number: 60
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=60
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_WILDLIFE_MANAGEMENT.WCP_FISH_SENSITIVE_WS_POLY
+  used_alias: ''
+  top_match_title: Fisheries Sensitive Watersheds
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/fisheries-sensitive-watersheds
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_wildlife_management_wcp_ungulate_winter_range_sp
+  label: WHSE_WILDLIFE_MANAGEMENT.WCP_UNGULATE_WINTER_RANGE_SP
+  recommended_query: WHSE_WILDLIFE_MANAGEMENT.WCP_UNGULATE_WINTER_RANGE_SP
+  acquisition_query: WHSE_WILDLIFE_MANAGEMENT.WCP_UNGULATE_WINTER_RANGE_SP
+  extracted_value: WHSE_WILDLIFE_MANAGEMENT.WCP_UNGULATE_WINTER_RANGE_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'BCGW file: WHSE_WILDLIFE_MANAGEMENT.WCP_UNGULATE_WINTER_RANGE_SP.'
+  page_number: 49
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=49
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_WILDLIFE_MANAGEMENT.WCP_UNGULATE_WINTER_RANGE_SP
+  used_alias: ''
+  top_match_title: Ungulate Winter Range - Approved
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/ungulate-winter-range-approved
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_wildlife_management_wcp_wha_proposed_sp
+  label: WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP
+  recommended_query: WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP
+  acquisition_query: WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP
+  extracted_value: WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'BCGW file: WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP,'
+  page_number: 47
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=47
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_WILDLIFE_MANAGEMENT.WCP_WHA_PROPOSED_SP
+  used_alias: ''
+  top_match_title: Wildlife Habitat Areas - Proposed
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/wildlife-habitat-areas-proposed
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.
+- entry_id: whse_wildlife_management_wcp_wildlife_habitat_area_poly
+  label: WHSE_WILDLIFE_MANAGEMENT.WCP_WILDLIFE_HABITAT_AREA_POLY
+  recommended_query: WHSE_WILDLIFE_MANAGEMENT.WCP_WILDLIFE_HABITAT_AREA_POLY
+  acquisition_query: WHSE_WILDLIFE_MANAGEMENT.WCP_WILDLIFE_HABITAT_AREA_POLY
+  extracted_value: WHSE_WILDLIFE_MANAGEMENT.WCP_WILDLIFE_HABITAT_AREA_POLY
+  quality: likely_useful
+  quality_reason: BCGW object-name style token
+  snippet: 'BCGW file: WHSE_WILDLIFE_MANAGEMENT.WCP_WILDLIFE_HABITAT_AREA_POLY.'
+  page_number: 47
+  document_title: 48tsdp 2020
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=47
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  current_public_status: exact_hit
+  matched_by: object_name:WHSE_WILDLIFE_MANAGEMENT.WCP_WILDLIFE_HABITAT_AREA_POLY
+  used_alias: ''
+  top_match_title: Wildlife Habitat Areas - Approved
+  dataset_page_url: https://catalogue.data.gov.bc.ca/dataset/wildlife-habitat-areas-approved
+  suggested_fetch_strategy: wfs_getfeature_bbox
+  direct_download_candidates: 0
+  has_service: true
+  has_wfs_queryable_service: true
+  has_indirect_custom_download: true
+  has_supporting_document: false
+  acquisition_strategy: wfs_fetch
+  run_status: pending
+  artifact_path: ''
+  override_kind: ''
+  override_value: ''
+  replacement_family_candidates: []
+  feature_count: ''
+  order_id: ''
+  submission_status: ''
+  order_manifest_path: ''
+  failure_message: ''
+  notes:
+  - Top match includes BCGW indirect/custom-download resources; use the dataset page
+    for manual access if a direct data URL is unavailable.
+  - Top match currently exposes service resources but no direct-access data file for
+    v1 automation.
+  - Top match includes WFS-queryable OpenMaps service resources; a later AOI-scoped
+    fetch path can use these service hints directly.

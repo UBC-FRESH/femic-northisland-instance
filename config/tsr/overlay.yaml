@@ -1,0 +1,22 @@
+schema_version: 1
+tsa:
+  tsa_id: tsa_48
+  tsa_code: '48'
+  tsa_name: North Island
+canonical_summary:
+  candidate_fact_count: 410
+  document_count: 3
+  fact_family_counts:
+    au_definition_candidate: 5
+    source_layer_candidate: 71
+    thlb_reference: 254
+    tipsy_input_candidate: 80
+  candidate_facts_path: external/femic-northisland-instance/runtime/tsr/metadata/tsa_candidate_facts_tsa48_full.json
+  documents_path: external/femic-northisland-instance/runtime/tsr/metadata/tsa_documents_tsa48_full.json
+  registry_path: runtime/tsr/metadata/tsa_registry.json
+adopted:
+  source_layers: []
+  au_definitions: []
+  thlb_references: []
+  tipsy_inputs: []
+  notes: []

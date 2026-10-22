@@ -1,0 +1,867 @@
+schema_version: 1
+recipe_kind: thlb_netdown
+tsa:
+  tsa_id: tsa_48
+  tsa_code: '48'
+  tsa_name: North Island
+canonical_inputs:
+  registry_path: runtime/tsr/metadata/tsa_registry.json
+  documents_path: runtime/tsr/metadata/tsa_documents_tsa48_full.json
+  candidate_facts_path: runtime/tsr/metadata/tsa_candidate_facts_tsa48_full.json
+instance_inputs:
+  overlay_path: config/tsr/overlay.yaml
+  source_layer_recipe_path: config/tsr/source_layers.recipe.yaml
+  source_layer_overrides_path: config/tsr/source_layer_overrides.yaml
+recipe_contract:
+  status: built
+  last_built_utc: '2026-10-22T00:00:00+00:00'
+  notes:
+  - Reviewed transcription of the 2020 data package Table 4 net-down table.
+  - Use the 2022 Discussion Paper Table 5 for updated values where noted.
+  - Future roads and future THLB are TBD in the published table.
+  selected_document_paths:
+  - TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+parent_steps:
+- parent_step_id: thlb_table4_parent_glb
+  parent_label: GLB
+  order_index: 1
+  land_base_stage: glb
+  stage_label: GLB
+  notes: []
+- parent_step_id: thlb_table4_parent_glb_to_aflb
+  parent_label: GLB -> AFLB
+  order_index: 2
+  land_base_stage: glb_to_aflb
+  stage_label: GLB -> AFLB
+  notes: []
+- parent_step_id: thlb_table4_parent_aflb_to_lhlb
+  parent_label: AFLB -> LHLB
+  order_index: 3
+  land_base_stage: aflb_to_lhlb
+  stage_label: AFLB -> LHLB
+  notes: []
+- parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 4
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  notes: []
+- parent_step_id: thlb_table4_parent_reference
+  parent_label: Reference targets
+  order_index: 5
+  land_base_stage: reference_target
+  stage_label: Reference targets
+  notes: []
+steps:
+- step_id: thlb_table4_01_north_island_tsa_boundary_area
+  parent_step_id: thlb_table4_parent_context
+  parent_label: glb
+  order_index: 1
+  step_kind: context
+  label: North Island TSA boundary area
+  raw_value: North Island TSA boundary area
+  raw_text: North Island TSA boundary area
+  land_base_stage: context
+  stage_label: glb
+  execution_class: reference_only
+  compiled_operation_type: GLB
+  step_status: ready
+  required: false
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 2426749
+  benchmark_cumulative_area_ha: null
+  normalized_action: reference
+  normalized_subject: North Island TSA boundary area
+  normalized_predicate: 'Table 4 row: North Island TSA boundary area'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_02_ocean
+  parent_step_id: thlb_table4_parent_glb_to_aflb
+  parent_label: GLB -> AFLB
+  order_index: 2
+  step_kind: netdown_rule
+  label: Ocean
+  raw_value: Ocean
+  raw_text: Ocean
+  land_base_stage: glb_to_aflb
+  stage_label: GLB -> AFLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: glb_to_aflb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 677289
+  benchmark_cumulative_area_ha: null
+  normalized_action: exclude
+  normalized_subject: Ocean
+  normalized_predicate: 'Table 4 row: Ocean'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_03_north_island_tsa_gross_area
+  parent_step_id: thlb_table4_parent_context
+  parent_label: GLB
+  order_index: 3
+  step_kind: context
+  label: North Island TSA gross area
+  raw_value: North Island TSA gross area
+  raw_text: North Island TSA gross area
+  land_base_stage: context
+  stage_label: GLB
+  execution_class: reference_only
+  compiled_operation_type: glb
+  step_status: ready
+  required: false
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 1749460
+  benchmark_cumulative_area_ha: null
+  normalized_action: reference
+  normalized_subject: North Island TSA gross area
+  normalized_predicate: 'Table 4 row: North Island TSA gross area'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_04_non_provincial_lands
+  parent_step_id: thlb_table4_parent_glb_to_aflb
+  parent_label: GLB -> AFLB
+  order_index: 4
+  step_kind: netdown_rule
+  label: Non-provincial lands
+  raw_value: Non-provincial lands
+  raw_text: Non-provincial lands
+  land_base_stage: glb_to_aflb
+  stage_label: GLB -> AFLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: glb_to_aflb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 244982
+  benchmark_cumulative_area_ha: null
+  normalized_action: exclude
+  normalized_subject: Non-provincial lands
+  normalized_predicate: 'Table 4 row: Non-provincial lands'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_05_not_managed_within_tsa_aac
+  parent_step_id: thlb_table4_parent_glb_to_aflb
+  parent_label: GLB -> AFLB
+  order_index: 5
+  step_kind: netdown_rule
+  label: Not managed within TSA AAC
+  raw_value: Not managed within TSA AAC
+  raw_text: Not managed within TSA AAC
+  land_base_stage: glb_to_aflb
+  stage_label: GLB -> AFLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: glb_to_aflb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 789755
+  benchmark_cumulative_area_ha: null
+  normalized_action: exclude
+  normalized_subject: Not managed within TSA AAC
+  normalized_predicate: 'Table 4 row: Not managed within TSA AAC'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_06_section_8_decision_area
+  parent_step_id: thlb_table4_parent_context
+  parent_label: AFLB
+  order_index: 6
+  step_kind: context
+  label: Section 8 Decision Area
+  raw_value: Section 8 Decision Area
+  raw_text: Section 8 Decision Area
+  land_base_stage: context
+  stage_label: AFLB
+  execution_class: reference_only
+  compiled_operation_type: aflb
+  step_status: ready
+  required: false
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 714726
+  benchmark_cumulative_area_ha: 714726
+  normalized_action: reference
+  normalized_subject: Section 8 Decision Area
+  normalized_predicate: 'Table 4 row: Section 8 Decision Area'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_07_non_forest
+  parent_step_id: thlb_table4_parent_aflb_to_lhlb
+  parent_label: AFLB -> LHLB
+  order_index: 7
+  step_kind: netdown_rule
+  label: Non-forest
+  raw_value: Non-forest
+  raw_text: Non-forest
+  land_base_stage: aflb_to_lhlb
+  stage_label: AFLB -> LHLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: aflb_to_lhlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 184783
+  benchmark_cumulative_area_ha: 184783
+  normalized_action: exclude
+  normalized_subject: Non-forest
+  normalized_predicate: 'Table 4 row: Non-forest'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_08_roads_trails_landings
+  parent_step_id: thlb_table4_parent_aflb_to_lhlb
+  parent_label: AFLB -> LHLB
+  order_index: 8
+  step_kind: netdown_rule
+  label: Roads, trails, landings
+  raw_value: Roads, trails, landings
+  raw_text: Roads, trails, landings
+  land_base_stage: aflb_to_lhlb
+  stage_label: AFLB -> LHLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: aflb_to_lhlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 7386
+  benchmark_cumulative_area_ha: 7386
+  normalized_action: aspatial_reduction
+  normalized_subject: Roads, trails, landings
+  normalized_predicate: 'Table 4 row: Roads, trails, landings'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_09_analysis_forest_land_base_(aflb)
+  parent_step_id: thlb_table4_parent_context
+  parent_label: AFLB
+  order_index: 9
+  step_kind: context
+  label: Analysis forest land base (AFLB)
+  raw_value: Analysis forest land base (AFLB)
+  raw_text: Analysis forest land base (AFLB)
+  land_base_stage: context
+  stage_label: AFLB
+  execution_class: reference_only
+  compiled_operation_type: aflb
+  step_status: ready
+  required: false
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 522557
+  benchmark_cumulative_area_ha: 522557
+  normalized_action: reference
+  normalized_subject: Analysis forest land base (AFLB)
+  normalized_predicate: 'Table 4 row: Analysis forest land base (AFLB)'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_10_provincial_parks_&_reserves
+  parent_step_id: thlb_table4_parent_aflb_to_lhlb
+  parent_label: AFLB -> LHLB
+  order_index: 10
+  step_kind: netdown_rule
+  label: Provincial parks & reserves
+  raw_value: Provincial parks & reserves
+  raw_text: Provincial parks & reserves
+  land_base_stage: aflb_to_lhlb
+  stage_label: AFLB -> LHLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: aflb_to_lhlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 137685
+  benchmark_cumulative_area_ha: 137685
+  normalized_action: exclude
+  normalized_subject: Provincial parks & reserves
+  normalized_predicate: 'Table 4 row: Provincial parks & reserves'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_11_recreation_sites
+  parent_step_id: thlb_table4_parent_aflb_to_lhlb
+  parent_label: AFLB -> LHLB
+  order_index: 11
+  step_kind: netdown_rule
+  label: Recreation sites
+  raw_value: Recreation sites
+  raw_text: Recreation sites
+  land_base_stage: aflb_to_lhlb
+  stage_label: AFLB -> LHLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: aflb_to_lhlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 8067
+  benchmark_cumulative_area_ha: 8067
+  normalized_action: exclude
+  normalized_subject: Recreation sites
+  normalized_predicate: 'Table 4 row: Recreation sites'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_12_recreation_trails
+  parent_step_id: thlb_table4_parent_aflb_to_lhlb
+  parent_label: AFLB -> LHLB
+  order_index: 12
+  step_kind: netdown_rule
+  label: Recreation trails
+  raw_value: Recreation trails
+  raw_text: Recreation trails
+  land_base_stage: aflb_to_lhlb
+  stage_label: AFLB -> LHLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: aflb_to_lhlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 33
+  benchmark_cumulative_area_ha: 33
+  normalized_action: exclude
+  normalized_subject: Recreation trails
+  normalized_predicate: 'Table 4 row: Recreation trails'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_13_inoperable
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 13
+  step_kind: netdown_rule
+  label: Inoperable
+  raw_value: Inoperable
+  raw_text: Inoperable
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 72256
+  benchmark_cumulative_area_ha: 72256
+  normalized_action: exclude
+  normalized_subject: Inoperable
+  normalized_predicate: 'Table 4 row: Inoperable'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_14_terrain_stability
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 14
+  step_kind: netdown_rule
+  label: Terrain stability
+  raw_value: Terrain stability
+  raw_text: Terrain stability
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 38715
+  benchmark_cumulative_area_ha: 38715
+  normalized_action: exclude
+  normalized_subject: Terrain stability
+  normalized_predicate: 'Table 4 row: Terrain stability'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_15_sites_with_low_growing_potential
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 15
+  step_kind: netdown_rule
+  label: Sites with low growing potential
+  raw_value: Sites with low growing potential
+  raw_text: Sites with low growing potential
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 58401
+  benchmark_cumulative_area_ha: 58401
+  normalized_action: exclude
+  normalized_subject: Sites with low growing potential
+  normalized_predicate: 'Table 4 row: Sites with low growing potential'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_16_problem_forest_types
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 16
+  step_kind: netdown_rule
+  label: Problem forest types
+  raw_value: Problem forest types
+  raw_text: Problem forest types
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 249
+  benchmark_cumulative_area_ha: 249
+  normalized_action: exclude
+  normalized_subject: Problem forest types
+  normalized_predicate: 'Table 4 row: Problem forest types'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_17_landscape_level_biodiversity___ogma
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 17
+  step_kind: netdown_rule
+  label: Landscape-level biodiversity - OGMA
+  raw_value: Landscape-level biodiversity - OGMA
+  raw_text: Landscape-level biodiversity - OGMA
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 13996
+  benchmark_cumulative_area_ha: 13996
+  normalized_action: exclude
+  normalized_subject: Landscape-level biodiversity - OGMA
+  normalized_predicate: 'Table 4 row: Landscape-level biodiversity - OGMA'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_18_stand_level_biodiversity___wtra
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 18
+  step_kind: netdown_rule
+  label: Stand-level biodiversity - WTRA
+  raw_value: Stand-level biodiversity - WTRA
+  raw_text: Stand-level biodiversity - WTRA
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 759
+  benchmark_cumulative_area_ha: 759
+  normalized_action: exclude
+  normalized_subject: Stand-level biodiversity - WTRA
+  normalized_predicate: 'Table 4 row: Stand-level biodiversity - WTRA'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_19_wildlife_habitat_areas
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 19
+  step_kind: netdown_rule
+  label: Wildlife habitat areas
+  raw_value: Wildlife habitat areas
+  raw_text: Wildlife habitat areas
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 1568
+  benchmark_cumulative_area_ha: 1568
+  normalized_action: exclude
+  normalized_subject: Wildlife habitat areas
+  normalized_predicate: 'Table 4 row: Wildlife habitat areas'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_20_ungulate_winter_range
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 20
+  step_kind: netdown_rule
+  label: Ungulate winter range
+  raw_value: Ungulate winter range
+  raw_text: Ungulate winter range
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 314
+  benchmark_cumulative_area_ha: 314
+  normalized_action: exclude
+  normalized_subject: Ungulate winter range
+  normalized_predicate: 'Table 4 row: Ungulate winter range'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_21_riparian_reserves_&_management_areas
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 21
+  step_kind: netdown_rule
+  label: Riparian reserves & management areas
+  raw_value: Riparian reserves & management areas
+  raw_text: Riparian reserves & management areas
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 9155
+  benchmark_cumulative_area_ha: 9155
+  normalized_action: aspatial_reduction
+  normalized_subject: Riparian reserves & management areas
+  normalized_predicate: 'Table 4 row: Riparian reserves & management areas'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_22_archaeological_sites
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 22
+  step_kind: netdown_rule
+  label: Archaeological sites
+  raw_value: Archaeological sites
+  raw_text: Archaeological sites
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 1892
+  benchmark_cumulative_area_ha: 1892
+  normalized_action: exclude
+  normalized_subject: Archaeological sites
+  normalized_predicate: 'Table 4 row: Archaeological sites'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_23_psp_&_research_installations
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 23
+  step_kind: netdown_rule
+  label: PSP & research installations
+  raw_value: PSP & research installations
+  raw_text: PSP & research installations
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 708
+  benchmark_cumulative_area_ha: 708
+  normalized_action: exclude
+  normalized_subject: PSP & research installations
+  normalized_predicate: 'Table 4 row: PSP & research installations'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_24_karst
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 24
+  step_kind: netdown_rule
+  label: Karst
+  raw_value: Karst
+  raw_text: Karst
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 1254
+  benchmark_cumulative_area_ha: 1254
+  normalized_action: exclude
+  normalized_subject: Karst
+  normalized_predicate: 'Table 4 row: Karst'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_25_current_timber_harvesting_land_base
+  parent_step_id: thlb_table4_parent_context
+  parent_label: THLB
+  order_index: 25
+  step_kind: context
+  label: Current timber harvesting land base
+  raw_value: Current timber harvesting land base
+  raw_text: Current timber harvesting land base
+  land_base_stage: context
+  stage_label: THLB
+  execution_class: reference_only
+  compiled_operation_type: thlb
+  step_status: ready
+  required: false
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 177505
+  benchmark_cumulative_area_ha: 177505
+  normalized_action: reference
+  normalized_subject: Current timber harvesting land base
+  normalized_predicate: 'Table 4 row: Current timber harvesting land base'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_26_future_wtra
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 26
+  step_kind: netdown_rule
+  label: Future WTRA
+  raw_value: Future WTRA
+  raw_text: Future WTRA
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: ready
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: 9609
+  benchmark_cumulative_area_ha: null
+  normalized_action: aspatial_reduction
+  normalized_subject: Future WTRA
+  normalized_predicate: 'Table 4 row: Future WTRA'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_27_future_roads
+  parent_step_id: thlb_table4_parent_lhlb_to_thlb
+  parent_label: LHLB -> THLB
+  order_index: 27
+  step_kind: netdown_rule
+  label: Future roads
+  raw_value: Future roads
+  raw_text: Future roads
+  land_base_stage: lhlb_to_thlb
+  stage_label: LHLB -> THLB
+  execution_class: legal_or_policy_exclusion
+  compiled_operation_type: lhlb_to_thlb
+  step_status: needs_review
+  required: true
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: null
+  benchmark_cumulative_area_ha: null
+  normalized_action: aspatial_reduction
+  normalized_subject: Future roads
+  normalized_predicate: 'Table 4 row: Future roads'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
+- step_id: thlb_table4_28_future_timber_harvesting_land_base
+  parent_step_id: thlb_table4_parent_reference_target
+  parent_label: Reference targets
+  order_index: 28
+  step_kind: reference_target
+  label: Future timber harvesting land base
+  raw_value: Future timber harvesting land base
+  raw_text: Future timber harvesting land base
+  land_base_stage: reference_target
+  stage_label: Reference targets
+  execution_class: context_only
+  compiled_operation_type: reference
+  step_status: needs_review
+  required: false
+  page_number: 25
+  document_title: 48tsdp 2020
+  document_type: data_package
+  cycle_label: TSR_2020
+  cycle_year: 2020
+  provenance_id: TSR_2020/Data_Package_2020/48tsdp_2020.pdf#page=25
+  source_url: https://www.for.gov.bc.ca/ftp/HTS/external/!publish/Timber_Supply_Review/TSA/North_Island_48/TSR_2020/Data_Package_2020/48tsdp_2020.pdf
+  benchmark_marginal_area_ha: null
+  benchmark_cumulative_area_ha: null
+  normalized_action: reference_target
+  normalized_subject: Future timber harvesting land base
+  normalized_predicate: 'Table 4 row: Future timber harvesting land base'
+  notes:
+  - 2022 Discussion Paper Table 5 updates some values; use the 2020 data package Table
+    4 as the reviewed net-down backbone and record the 2022 deltas in notes/reference/tsr-metadata.md.
