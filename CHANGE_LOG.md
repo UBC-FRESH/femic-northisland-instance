@@ -104,3 +104,7 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   blocks/fragments), baseline run, target report, and UI geometry. Both
   provisional targets are met.
 - `python scripts/dashboard.py` is GREEN.
+- Marked P5.5 complete: the managed-curve lane now carries the reviewed RESULTS
+  parameters, the ws4 dataset validates, and both provisional targets are met.
+  The low CWH_CW L and M and CWH_YC L gross-volume ratios remain documented
+  review items for P5.6.

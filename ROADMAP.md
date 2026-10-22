@@ -152,7 +152,7 @@ parameters mapped to this model's AUs.
 - [x] P5.2 Build the reviewed overlay and source-layer recipe (#31)
 - [x] P5.3 Build the full THLB net-down recipe (#32)
 - [x] P5.4 Extract TIPSY AU-wise parameters and map them to the model AUs (#33)
-- [ ] P5.5 Rebuild the managed-curve lane from the reviewed parameters (#34)
+- [x] P5.5 Rebuild the managed-curve lane from the reviewed parameters (#34)
 - [ ] P5.6 Verify and record the TSR and TIPSY evidence (#35)
 
 Acceptance criteria:
