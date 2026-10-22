@@ -107,10 +107,10 @@ reviewed TSR netdown sequence. The part accounting reconciles exactly
 
 ### Calibrated optimized share
 
-The corrected offset-clock benchmark uses ten per-decade AAC targets, each
-12,481,000 m3. The seed-greedy schedule holds every decade within 6.4 m3 of the
-AAC (total penalty 31.76 m3 over 100 years), with 9,335 blocks and 17,574
-treatment events (some blocks carry a second rotation).
+The corrected offset-clock benchmark uses ten per-decade AAC targets with a
+12,480,000-12,481,000 m3 band (the 1,248,100 m3/yr AAC, with a 0.008% rounding
+tolerance). The seed-greedy schedule holds every decade inside that band, with
+9,335 blocks and 17,574 treatment events (some blocks carry a second rotation).
 
 The NICC part contributes:
 
