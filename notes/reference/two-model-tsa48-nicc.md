@@ -107,20 +107,22 @@ reviewed TSR netdown sequence. The part accounting reconciles exactly
 
 ### Calibrated optimized share
 
-The AAC-constrained optimization on the corrected offset clock produced
-**14,996,784 m3** in the first decade (offsets 0-9), which is 20.2% **above**
-the 12,481,000 m3 first-decade AAC. The NICC part contributed
-**2,578,142 m3** in that decade:
+The corrected offset-clock benchmark uses ten per-decade AAC targets, each
+12,481,000 m3. The seed-greedy schedule holds every decade within 6.4 m3 of the
+AAC (total penalty 31.76 m3 over 100 years), with 9,335 blocks and 17,574
+treatment events (some blocks carry a second rotation).
 
+The NICC part contributes:
+
+- first-decade harvest: **2,145,437 m3**
 - NICC share of the full-model first-decade harvest: **17.19%**
-- NICC share of the full-model total harvest: 18.66%
-- scaled to the legal AAC: **≈214,565 m3/yr**
-- NICC's own first-decade harvest: 257,814 m3/yr
+- NICC share of the full-model total harvest: 16.72%
+- scaled to the legal AAC: **≈214,544 m3/yr**
+- NICC's own first-decade annual average: 214,544 m3/yr
 
-The optimizer has not yet converged to the AAC: it overshoots by 2,515,784 m3
-in the first decade. The share is therefore a current model result, not a
-calibrated AAC allocation. The previous 9.97M m3 / 80% result was an artifact
-of the old schedule `period`/year off-by-one and is superseded.
+That is the current reference for the NICC model. The earlier 9.97M m3 / 80%
+result was an artifact of the old schedule `period`/year off-by-one and is
+superseded.
 
 ## Reproduction
 
