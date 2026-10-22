@@ -23,11 +23,11 @@ def _schedule(blocks: pd.DataFrame, target_age: int, treatment: str) -> pd.DataF
         .agg(offset=("offset", "min"), area_ha=("area_ha", "sum"))
         .sort_values("block_id")
     )
-    # Period 0 is the zero-length pre-simulation snapshot; mature stands enter
-    # at year 1, never in year 0.
-    grouped["period"] = (target_age - grouped["offset"]).clip(lower=1).astype(int)
+    # Offset 0 is the first simulation year; period 0 is the zero-length
+    # snapshot before it, so mature stands enter at offset 0.
+    grouped["offset"] = (target_age - grouped["offset"]).clip(lower=0).astype(int)
     grouped["treatment"] = treatment
-    return grouped.loc[:, ["block_id", "treatment", "period"]].copy()
+    return grouped.loc[:, ["block_id", "treatment", "offset"]].copy()
 
 
 def _summary(
@@ -41,8 +41,8 @@ def _summary(
         "treatment": treatment,
         "block_count": int(len(schedule)),
         "area_ha": round(area, 4),
-        "period_min": int(schedule["period"].min()) if len(schedule) else None,
-        "period_max": int(schedule["period"].max()) if len(schedule) else None,
+        "offset_min": int(schedule["offset"].min()) if len(schedule) else None,
+        "offset_max": int(schedule["offset"].max()) if len(schedule) else None,
     }
 
 

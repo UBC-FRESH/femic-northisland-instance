@@ -37,7 +37,7 @@ def main() -> None:
     combined.to_csv(args.out, index=False)
 
     pivot = combined.pivot_table(
-        index=["year", "account"], columns="part", values="value", aggfunc="sum"
+        index=["offset", "account"], columns="part", values="value", aggfunc="sum"
     ).reset_index()
     for column in ("full", "nicc", "outside"):
         if column not in pivot.columns:

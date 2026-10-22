@@ -32,7 +32,7 @@ def _annual_harvest(run: Path) -> pd.Series:
         rows = products[products["account"].astype(str) == HARVEST_ACCOUNT]
     if rows.empty:
         return pd.Series(dtype=float)
-    series = rows.groupby("year")["value"].sum().sort_index()
+    series = rows.groupby("offset")["value"].sum().sort_index()
     return series.astype(float)
 
 

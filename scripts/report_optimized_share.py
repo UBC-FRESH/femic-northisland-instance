@@ -23,10 +23,10 @@ def _harvest(run: Path) -> dict[str, float]:
     """Return year-zero, first-decade, and total harvest for one run."""
     values = pd.read_csv(run / "account_values.csv")
     rows = values[values["account"].astype(str) == HARVEST_ACCOUNT]
-    annual = rows.groupby("year")["value"].sum().sort_index()
+    annual = rows.groupby("offset")["value"].sum().sort_index()
     return {
-        "year_zero_m3": float(annual.get(0, 0.0)),
-        "first_decade_m3": float(annual.loc[(annual.index >= 1) & (annual.index <= 10)].sum()),
+        "snapshot_m3": float(annual.get(-1, 0.0)),
+        "first_decade_m3": float(annual.loc[(annual.index >= 0) & (annual.index <= 9)].sum()),
         "total_m3": float(annual.sum()),
     }
 
