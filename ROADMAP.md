@@ -148,10 +148,10 @@ Goal: use the FEMIC TSR document-metadata workflows to extract the North Island
 data-package structure, the full THLB net-down ladder, and AU-wise TIPSY input
 parameters mapped to this model's AUs.
 
-- [ ] P5.1 Refresh and extract the TSA 48 TSR candidate facts (#30)
-- [ ] P5.2 Build the reviewed overlay and source-layer recipe (#31)
-- [ ] P5.3 Build the full THLB net-down recipe (#32)
-- [ ] P5.4 Extract TIPSY AU-wise parameters and map them to the model AUs (#33)
+- [x] P5.1 Refresh and extract the TSA 48 TSR candidate facts (#30)
+- [x] P5.2 Build the reviewed overlay and source-layer recipe (#31)
+- [x] P5.3 Build the full THLB net-down recipe (#32)
+- [x] P5.4 Extract TIPSY AU-wise parameters and map them to the model AUs (#33)
 - [ ] P5.5 Rebuild the managed-curve lane from the reviewed parameters (#34)
 - [ ] P5.6 Verify and record the TSR and TIPSY evidence (#35)
 

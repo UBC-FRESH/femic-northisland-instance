@@ -57,3 +57,9 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   #35. The phase uses the FEMIC TSR document-metadata workflows to extract the
   TSA 48 data-package structure, the full THLB net-down ladder, and AU-wise
   TIPSY parameters.
+- Completed P5.1 to P5.4. Extracted 413 TSA 48 TSR candidate facts from the 2020
+  data package, 2022 discussion paper, and 2024 rationale; built the reviewed
+  overlay and source-layer recipe; transcribed the full Table 4 THLB net-down
+  ladder; and mapped all 12 model AUs to TSR-sourced OAF2, genetic-worth, and
+  regeneration constants. The exact published `tsa48_tipsy_input` workbook is
+  not available and remains the TIPSY blocker.
