@@ -55,8 +55,10 @@ python scripts/build_results_tipsy_inputs.py \
   record. It does not use `I_TOTAL_STEMS_PER_HA`, which includes natural ingress
   and is retained only as `median_total_stems` for comparison.
 - The BatchTIPSY run on the RESULTS input did not produce
-  `04_output-northisland.csv` within five minutes under Wine. The completed
-  managed/VDYP comparison remains the median-VDYP-SI variant.
+  `04_output-northisland.csv` within five minutes under Wine. A leading-species-
+  only variant also did not complete, so the blocker is the TIPSY runtime rather
+  than the species mix. The completed managed/VDYP comparison remains the
+  median-VDYP-SI variant.
 
 ## 4. Promotion gate
 

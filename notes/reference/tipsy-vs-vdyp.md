@@ -121,6 +121,9 @@ separately because `I_TOTAL_STEMS_PER_HA` includes natural ingress and is not a
 planted density.
 
 The BatchTIPSY run with the RESULTS input did not produce
-`04_output-northisland.csv` within five minutes under Wine. The completed
-managed/VDYP comparison therefore remains the median-VDYP-SI variant, and the
-RESULTS table is a candidate diagnostic rather than the accepted lane.
+`04_output-northisland.csv` within five minutes under Wine. A second run with a
+leading-species-only input (Hw, Cw, Yc, or Fd at 1,200 stems per hectare with the
+RESULTS site index) also did not complete. The failure is therefore at the
+TIPSY runtime boundary, not only in the species mix. The completed managed/VDYP
+comparison remains the median-VDYP-SI variant, and the RESULTS table is a
+candidate diagnostic rather than the accepted lane.
