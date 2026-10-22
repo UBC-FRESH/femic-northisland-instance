@@ -108,3 +108,8 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   parameters, the ws4 dataset validates, and both provisional targets are met.
   The low CWH_CW L and M and CWH_YC L gross-volume ratios remain documented
   review items for P5.6.
+
+## 2026-10-22 - Offset clock and UI geometry
+
+- Rebuilt the NICC baseline on the 0-based offset clock; both provisional targets remain met.
+- Reduced the UI polygon simplification from 100 m to 10 m.
