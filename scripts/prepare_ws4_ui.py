@@ -36,7 +36,7 @@ def prepare_ui_geometry(
     *,
     fragments: Path,
     out: Path,
-    simplify_m: float = 100.0,
+    simplify_m: float = 10.0,
     precision: int = 1,
     parts: Path | None = None,
 ) -> dict[str, object]:
@@ -102,7 +102,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--fragments", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--simplify-m", type=float, default=100.0)
+    parser.add_argument("--simplify-m", type=float, default=10.0)
     parser.add_argument("--precision", type=int, default=1)
     parser.add_argument("--parts", type=Path, default=None)
     args = parser.parse_args()
