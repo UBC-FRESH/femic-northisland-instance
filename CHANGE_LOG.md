@@ -63,3 +63,21 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   ladder; and mapped all 12 model AUs to TSR-sourced OAF2, genetic-worth, and
   regeneration constants. The exact published `tsa48_tipsy_input` workbook is
   not available and remains the TIPSY blocker.
+
+## 2026-10-22
+
+- Added the public RESULTS candidate lane for AU-wise TIPSY inputs. The fetch
+  covers `RSLT_OPENING_SVW`, `RSLT_PLANTING_SVW`, and
+  `RSLT_FOREST_COVER_INV_SVW`; the separate forest-cover-species package is
+  attribute-only and exposes no WFS resource, so the inventory species columns
+  are used instead.
+- Added `scripts/build_results_tipsy_inputs.py`, its unit tests, and
+  `runbooks/RESULTS_CANDIDATES.md`. The first run assigned 4,198 openings across
+  all 12 model AUs and wrote `config/tsr/tipsy_au_results_candidates.csv`.
+  Density comes from RESULTS planting records; the three thin AUs use a single
+  planting record and are labelled `planting_single`.
+- BatchTIPSY still did not produce `04_output-northisland.csv` within five
+  minutes under Wine with the RESULTS input. The RESULTS table remains a
+  diagnostic candidate, not the accepted managed-curve lane.
+- `python scripts/dashboard.py` is GREEN with 189 tests and 96.47 percent branch
+  coverage of `scripts/`.

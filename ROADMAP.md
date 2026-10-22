@@ -210,3 +210,8 @@ Acceptance criteria:
    managed-curve lane.
 4. Run FreshForge from the instance root with `FEMIC_EXTERNAL_DATA_ROOT` set to
    the materialized public data tree.
+5. The public RESULTS candidate lane is implemented in
+   `scripts/build_results_tipsy_inputs.py` and documented in
+   `runbooks/RESULTS_CANDIDATES.md`. It writes 12 AU rows from 4,198 openings,
+   but BatchTIPSY has not completed on the RESULTS input. Treat the candidates
+   as diagnostics until the managed/VDYP comparison completes.

@@ -57,7 +57,7 @@ Likely causes:
 1. Leading-species-only mixes (Hw 100, Cw 100, Yc 100, Fd 100) with the same
    median VDYP SI.
 2. The TSA 48 SIBEC/PSPL SI by species instead of the AU median.
-3. The unpublished `tsa48_tipsy_input` workbook, if it can be supplied.
+3. The RESULTS-derived species and density lane described below.
 
 Until one of those closes the gap, the TFL 6 adaptation should be treated as a
 diagnostic, not as the accepted managed-curve lane.
@@ -99,3 +99,28 @@ Workflow:
 
 This path is fully public and reproducible, and it matches the TSA 48 data
 package method, which states that managed-stand inputs come from RESULTS.
+
+## RESULTS candidate run
+
+The candidate workflow is implemented in
+`scripts/build_results_tipsy_inputs.py`, with the exact fetch and aggregation
+commands in `runbooks/RESULTS_CANDIDATES.md`. The first run used
+`RSLT_OPENING_SVW`, `RSLT_PLANTING_SVW`, and `RSLT_FOREST_COVER_INV_SVW`,
+fetched by `femic data bcdc-fetch` for the AOI envelope. The separate
+`RSLT_FOREST_COVER_SPECIES_SVW` package is attribute-only and exposes no WFS
+resource, so the inventory layer's `I_SPECIES_CODE_*` and
+`I_SPECIES_PERCENT_*` fields supply the free-growing species mix.
+
+The aggregate assigns an opening by leading species and by the nearest model AU
+median site index. It wrote `config/tsr/tipsy_au_results_candidates.csv` for all
+12 AUs from 4,198 openings. Three AUs are thin: CWH_CW L has 4 openings, CWH_YC
+L has 21, and CWH_YC M has 11; their density comes from a single planting record
+and is labelled `planting_single`. For the other AUs, `median_density` is the
+median planting-derived density from RESULTS. `median_total_stems` is retained
+separately because `I_TOTAL_STEMS_PER_HA` includes natural ingress and is not a
+planted density.
+
+The BatchTIPSY run with the RESULTS input did not produce
+`04_output-northisland.csv` within five minutes under Wine. The completed
+managed/VDYP comparison therefore remains the median-VDYP-SI variant, and the
+RESULTS table is a candidate diagnostic rather than the accepted lane.
