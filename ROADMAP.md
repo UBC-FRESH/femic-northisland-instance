@@ -214,6 +214,6 @@ Acceptance criteria:
    `scripts/build_results_tipsy_inputs.py` and documented in
    `runbooks/RESULTS_CANDIDATES.md`. BatchTIPSY now runs through the Linux and
    Wine lane in `runbooks/tipsy-btc-linux-wine.md`. The RESULTS species/density
-   lane rebuilt the bundle, ws4 matrix, baseline, and UI; nine of twelve AUs
-   meet or beat VDYP on gross volume. The remaining CWH_CW L and M and CWH_YC L
-   gaps are a site-index and curve-interpretation review item.
+   lane rebuilt the bundle, ws4 matrix, baseline, and UI; eight of twelve AUs
+   meet or beat VDYP on gross volume. The remaining CWH_HW L, CWH_CW L and M,
+   and CWH_YC L gaps are a site-index and curve-interpretation review item.

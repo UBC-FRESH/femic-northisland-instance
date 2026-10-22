@@ -149,11 +149,13 @@ and 120:
 | 22003 | CWH_FD M | 28.4 | 1.56 | 1.26 |
 | 23003 | CWH_FD H | 33.6 | 1.47 | 1.17 |
 
-Nine of twelve AUs meet or beat VDYP on gross volume. CWH_CW L and M and
-CWH_YC L remain below. A leading-species-only variant raises CWH_YC L from
+Eight of twelve AUs meet or beat VDYP on gross volume. CWH_HW L (0.89),
+CWH_CW L (0.46) and M (0.80), and CWH_YC L (0.71) remain below. A leading-species-only variant raises CWH_YC L from
 0.71 to 0.92 and CWH_CW M from 0.80 to 0.87, but CWH_CW L stays near 0.53. That
 points to the low CWH_CW L site index or the VDYP curve in that AU, not to the
 BatchTIPSY runtime.
 
-The ws4 bundle, matrix, baseline run, targets, and UI geometry were rebuilt from
-this lane. Both provisional targets are met.
+The AU-wise comparison is in
+`config/tsr/tipsy_au_results_vdyp_comparison.csv`. The ws4 bundle, matrix,
+baseline run, targets, and UI geometry were rebuilt from this lane. Both
+provisional targets are met.

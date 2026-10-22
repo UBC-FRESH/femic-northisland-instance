@@ -62,9 +62,9 @@ python scripts/build_results_tipsy_inputs.py \
 - The 12-AU RESULTS input completes with `exit_code=0`, 12 output rows, and zero
   error rows. The accepted candidate uses the RESULTS species and density with
   the model PSPL/VDYP site-index mapping.
-- Nine of twelve AUs meet or beat VDYP on gross volume. CWH_CW L and M and
-  CWH_YC L remain below; that is a site-index/curve interpretation gap, not a
-  runtime failure.
+- Eight of twelve AUs meet or beat VDYP on gross volume. CWH_HW L (0.89),
+  CWH_CW L (0.46) and M (0.80), and CWH_YC L (0.71) remain below; that is a
+  site-index/curve interpretation gap, not a runtime failure.
 
 ## 4. Promotion gate
 

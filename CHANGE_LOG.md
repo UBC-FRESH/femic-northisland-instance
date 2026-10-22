@@ -96,8 +96,8 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   integers. BatchTIPSY parses those columns as `Integer`; a value such as
   `416.7` raised a hidden .NET conversion dialog.
 - The 12-AU RESULTS input now completes with `exit_code=0`, 12 output rows, and
-  zero error rows. Nine of twelve AUs meet or beat VDYP on gross volume;
-  CWH_CW L and M and CWH_YC L remain below and are documented as a site-index
+  zero error rows. Eight of twelve AUs meet or beat VDYP on gross volume;
+  CWH_HW L, CWH_CW L and M, and CWH_YC L remain below and are documented as a site-index
   and curve-interpretation gap.
 - Updated `config/tipsy/northisland.yaml` to the RESULTS species and density.
   Rebuilt the model-input bundle (696 curves), ws4 matrix (56,187
