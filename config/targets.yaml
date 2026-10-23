@@ -1,13 +1,75 @@
-# Provisional demonstration targets. Replace with reviewed policy targets after
-# the baseline and the AOI yield curves are accepted.
+# NICC reference harvest targets.
+#
+# The floor is the full-TSA benchmark's NICC share: 2,145,437 m3 per decade,
+# or 214,544 m3/yr. It is applied as a floor for each decade, not a formal AAC
+# determination. The full-model NICC part and the standalone NICC model have
+# different land bases, so this is a planning reference until reviewed.
+#
+# The 5,000,000 m3 growing-stock smoke target is retained for continuity.
 targets:
   - account: product.Yield.managed.Total
     period: 1
     period_width: 10
-    minimum: 1000000
+    minimum: 2145437
     min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 2
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 3
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 4
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 5
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 6
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 7
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 8
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 9
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
+  - account: product.Yield.managed.Total
+    period: 10
+    period_width: 10
+    minimum: 2145437
+    min_weight: 1
+    notes: "NICC reference floor: 214,544 m3/yr x 10 (full-TSA NICC share)."
   - account: feature.Yield.managed.Total
     period: 5
     period_width: 10
     minimum: 5000000
     min_weight: 1
+    notes: "Growing-stock smoke target retained from the provisional set."
