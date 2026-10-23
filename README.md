@@ -2,7 +2,8 @@
 
 Public FEMIC and ws4 model instance for the North Island Timber Supply Area AOI.
 FEMIC rebuilds the inventory and yield curves from public BC data; ws4 compiles
-the resulting model and serves it in a local web UI.
+the resulting model and serves it in a local web UI. This repository is
+tracked in `femic` as the `external/femic-northisland-instance` submodule.
 
 ## Runtime lane
 
