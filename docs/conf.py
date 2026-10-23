@@ -1,9 +1,9 @@
-"""Sphinx configuration for FEMIC North Island Instance."""
+"""Sphinx configuration for FEMIC Full TSA 48 Instance."""
 
 import sys
 from pathlib import Path
 
-project = "FEMIC North Island Instance"
+project = "FEMIC Full TSA 48 Instance"
 author = "UBC-FRESH"
 copyright = "2026, UBC-FRESH"
 
@@ -23,5 +23,5 @@ napoleon_use_param = True
 napoleon_use_rtype = False
 
 html_theme = "sphinx_rtd_theme"
-html_title = "FEMIC North Island Instance"
+html_title = "FEMIC Full TSA 48 Instance"
 html_extra_path = ["llms.txt"]

@@ -1,12 +1,16 @@
-FEMIC North Island Instance
-===========================
+FEMIC Full TSA 48 Instance
+==========================
 
-Standalone FEMIC and ws4 model instance for the North Island area of interest. It rebuilds the public model inputs with FEMIC and serves the resulting model in its own ws4 web UI.
+Standalone FEMIC and ws4 model instance for the full North Island TSA 48 area
+of interest. FEMIC rebuilds the public model inputs and the Patchworks
+interchange package; ws4 compiles the full model, runs the AAC benchmark, and
+serves it in its own web UI.
 
-This site is the RTFM surface for the project. Agents read the relevant page before
-they act, and cite it in their reports. Start with the repository's ``AGENTS.md`` and
-``ROADMAP.md``, and add guides, reference contracts, and agent protocols here as the
-project grows.
+**Runtime lane:** ws4 is the primary runtime. Patchworks is reference-only.
+
+This site is the RTFM surface for the project. Agents read the relevant page
+before they act, and cite it in their reports. Start with the repository's
+``AGENTS.md`` and ``ROADMAP.md``.
 
 .. toctree::
    :maxdepth: 2

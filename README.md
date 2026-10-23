@@ -1,99 +1,125 @@
-# FEMIC North Island Instance
+# FEMIC Full TSA 48 Instance
 
-Public FEMIC and ws4 model instance for the North Island Timber Supply Area AOI.
+Public FEMIC and ws4 model instance for the full North Island TSA 48 AOI.
 FEMIC rebuilds the inventory and yield curves from public BC data; ws4 compiles
-the resulting model and serves it in a local web UI.
+the model, runs the benchmark, and serves the web UI.
+
+## Runtime lane
+
+**ws4 is the primary runtime.** The Patchworks XML/fragments package is an
+interchange input to `ws4 build`, not the runtime lane. The retained Patchworks
+model packages are reference evidence for comparison and rebuild provenance.
+
+There are two sibling models in this workspace:
+
+- **this instance** — full TSA 48 benchmark model;
+- **`../femic-northisland-instance`** — TSA 48 ∩ NICC + K3Z student model.
+
+The full model carries a `part` flag (`nicc` or `outside`) and a `k3z` flag, so
+the NICC overlap can be isolated in accounting without rebuilding a separate
+inventory.
 
 ## Status
 
-Phase 4 (baseline and web UI) is complete. The public AOI boundary, FEMIC
-upstream build, ws4 matrix, baseline run, and loopback web UI are verified.
-The managed curves are a provisional VDYP transform; accepted TIPSY curves and
-reviewed policy targets remain before release. `ROADMAP.md` is the plan of
-record, and the GitHub issues carry the live state.
+The calibrated full-model benchmark is built and served. The `aac_benchmark`
+run meets all ten decade targets at the published `1,248,100 m3/yr` AAC. The
+NICC share is computed from the same run and is the reference for the NICC
+model. Accepted TIPSY curves and reviewed policy targets remain before release.
 
 ## AOI
 
-The Basecamp email thread defines the AOI as TSA 48 clipped to the North Island
-- Central Coast Natural Resource District, with the community forest agreement
-added back. The tracked boundary is
-`data/source/aoi/northisland_aoi.gpkg` (EPSG:3005, layer `northisland_aoi`,
-1,083,003.66 ha). See `notes/reference/aoi.md` for the quote, sources, and
-review checkpoints.
+The tracked full TSA 48 boundary is `data/source/aoi/tsa48_full.gpkg`
+(EPSG:3005, 2,441,931.03 ha gross). The NICC intersection is
+`data/source/aoi/tsa48_nicc.gpkg` (1,083,012.84 ha gross), and the K3Z tenure
+is `data/source/aoi/k3z_tenure.gpkg`.
 
-## First build
+## Model
 
-- AOI: 1,083,003.66 ha (TSA 48 clipped to NICC, CFA added back).
-- FEMIC: 12 AUs across CWH_HW, CWH_CW, CWH_YC, and CWH_FD at L/M/H.
-- Export: 51,289 fragments, 49 curves.
-- ws4 matrix: 56,187 blocks/fragments, 2,156 curves, 5,930 treatments.
-- Baseline: 51,289 scheduled blocks, 100 years.
-- Targets: two provisional targets, both met.
-- UI: 51,289 blocks, MapLibre, `http://127.0.0.1:8014/`.
+| Quantity | Full TSA 48 | NICC part | Outside part |
+| --- | ---: | ---: | ---: |
+| Blocks | 110,728 | 51,292 | 59,436 |
+| Block area | 1,092,831.62 ha | 442,591.61 ha | 650,240.01 ha |
+| Managed area (THLB) | 177,505.00 ha | 38,960.29 ha | 138,544.71 ha |
 
-## Model-build chain
+The calibrated proportion scales each stand's `thlb_raw / 100` by
+`1.4461532388060396`, capped at `1.0`; the capped area is exactly
+`177,505.0 ha`. K3Z touches 253 blocks and 2,093.48 ha.
 
-```text
-public BC data (VRI, TSA, district, tenure)
-  -> femic prep validate-case / geospatial-preflight
-  -> femic run (VDYP curves, managed transform, model-input bundle)
-  -> femic export patchworks (ForestModel XML + fragments)
-  -> ws4 build + validate (canonical matrix)
-  -> ws4 baseline schedule + simulate + report
-  -> ws4 prepare UI geometry + serve
-```
+The calibrated model tree is `runtime/tsa48_full_calibrated/`:
 
-The Patchworks XML/fragments pair is an interchange artifact for ws4. Patchworks
-is not the runtime lane for this instance.
+- `matrix/` — full model;
+- `matrix_nicc/`, `matrix_outside/` — filtered part datasets;
+- `parts/block_parts.csv` — `part` and `k3z` flags;
+- `schedules/`, `runs/` — part schedules and simulations;
+- `evidence/` — calibration, part accounting and TSR benchmark reports;
+- `fragments.geojson` — exact UI geometry;
+- `land_base.geojson` — non-forest underlay.
 
-## Reproduce the build with FreshForge
+## Benchmark
 
-FreshForge is the workflow of record. Each node is a recorded command with an
-artifact path.
+`config/targets.tsa48_full.yaml` carries ten per-decade targets with a
+`12,480,000–12,481,000 m3` band around the `1,248,100 m3/yr` AAC. The
+seed-greedy `aac_benchmark` schedule meets all ten decades, with 9,335 blocks
+and 17,574 treatment events.
 
-```bash
-python -m pip install -e .
-python -m freshforge validate workflows/freshforge/northisland_model_build.yaml
-python -m freshforge plan workflows/freshforge/northisland_model_build.yaml
-export FEMIC_EXTERNAL_DATA_ROOT=/path/to/femic-public-data/data
-python -m freshforge run workflows/freshforge/northisland_model_build.yaml \
-  --workdir runtime/freshforge \
-  --namespace northisland/model-build \
-  --json
-```
+The NICC part contributes:
 
-If the inspected FEMIC bundle already exists, the downstream workflow starts at
-the XML/fragments export:
+- first-decade harvest **2,145,437 m3**;
+- **17.19%** of the full-model first-decade harvest;
+- **≈214,544 m3/yr** scaled to the published AAC, the current NICC reference.
 
-```bash
-python -m freshforge run workflows/freshforge/northisland_ws4_from_bundle.yaml \
-  --workdir runtime/freshforge \
-  --namespace northisland/ws4 \
-  --json
-```
-
-The public data root must contain `bc/tsa/FADM_TSA.gdb`,
-`bc/vri/2025/VEG_COMP_LYR_R1_POLY_2025.gdb`, and the matching VDYP input
-geodatabase. The `femic-public-data` submodule is the canonical source.
-
-VDYP7 runs under Wine on Linux. The repository carries the VDYP executable; the
-host needs `wine` and `wine32`. The first lane uses the VDYP-transform managed
-curve mode, so it does not require BatchTIPSY. Replace that lane with accepted
-TIPSY output before release.
+The benchmark is volume-only: spatial adjacency, opening-size and green-up
+constraints are not yet applied. See
+`notes/reference/two-model-tsa48-nicc.md` for the decisions and evidence.
 
 ## Web UI
 
 ```bash
-./serve_northisland.sh
+./serve_tsa48_calibrated.sh
 ```
 
-`PORT=...` overrides the default `8014`. The script passes `--crs EPSG:3005`,
-`--allow-runs`, and `--allow-agent`, with the agent working directory set to the
-instance root.
+The calibrated service listens on `http://127.0.0.1:8016/`. `PORT=...`
+overrides the default. The script passes `--crs EPSG:3005`, `--allow-runs`,
+`--allow-agent`, the exact block geometry, and the AOI land-base underlay; the
+agent's working directory is the instance root.
+
+The uncalibrated full model is served by `./serve_tsa48_full.sh` on port 8015
+when that model tree is present.
 
 The service binds loopback only. ws4 has no authentication; do not expose it
-without a trusted proxy. The geometry is EPSG:3005 and MapLibre projects it to
-WGS84 in the browser.
+without a trusted proxy. MapLibre projects the EPSG:3005 geometry to WGS84 in
+the browser.
+
+## Build
+
+The calibrated full model is rebuilt by:
+
+```bash
+MODEL_DIR=runtime/tsa48_full_calibrated \
+PATCHWORKS_OUT=output/patchworks_tsa48_full_calibrated \
+CALIBRATE_THLB=1 \
+scripts/build_full_tsa48_model.sh
+```
+
+The script exports the FEMIC inventory, compiles and validates the ws4 matrix,
+flags NICC/outside/K3Z parts, builds part datasets and schedules, simulates and
+reports each part, and generates the exact UI and land-base geometry. The
+Patchworks export is an interchange package only.
+
+The upstream data root must contain the public BC TSA, VRI and VDYP input
+surfaces. VDYP7 runs under Wine on Linux; the host needs `wine` and `wine32`.
+The first lane uses the VDYP-transform managed curve mode, so it does not
+require BatchTIPSY. Replace that lane with accepted TIPSY output before
+release.
+
+## Live benchmark watcher
+
+```bash
+scripts/watch_aac_benchmark.sh
+```
+
+This attaches `ws4 watch` to the full model in live mode. It is observational:
+it does not persist a run. `SEED_GREEDY=0` starts from an empty schedule.
 
 ## Repository map
 
@@ -102,20 +128,22 @@ WGS84 in the browser.
 | `AGENTS.md` | Agent operating contract and project-specific rules |
 | `ROADMAP.md` | Phases, tasks, and GitHub issue map |
 | `CHANGE_LOG.md` | Dated narrative of changes |
-| `config/` | FEMIC run profile, rebuild spec, TIPSY scaffold, Patchworks export config |
-| `data/source/aoi/` | Tracked public AOI boundary and review summary |
-| `src/northisland_workflow/` | FreshForge provider and ws4 command contracts |
-| `workflows/freshforge/` | The model-build workflow of record |
-| `scripts/` | AOI build, baseline schedule, UI geometry, workflow validator |
+| `config/` | FEMIC run profile, TSA targets, TIPSY scaffold, Patchworks export config |
+| `data/source/aoi/` | Tracked public AOI, NICC and K3Z boundaries |
+| `src/northisland_workflow/` | Shared FreshForge provider and ws4 command contracts |
+| `workflows/freshforge/` | The model-build workflow |
+| `scripts/` | Build, calibration, part accounting, UI and watcher scripts |
 | `docs/` | Sphinx site and RTFM surface |
-| `notes/` | AOI decision, ADRs, and close-out reports |
+| `notes/` | AOI decisions, ADRs, reference notes and reports |
 | `tests/` | Unit and contract tests |
 
 ## Public-data boundary
 
 This repository is public. Do not add raw MKRF cost or revenue spreadsheets,
-private tenure data, credentials, or machine-specific paths. The model uses
-published BC data and public cost/price bases.
+private tenure data, credentials, or machine-specific paths. The public model
+uses published BC data and public cost/price bases. The detailed financial
+overlay lives in a separate private repository linked as a submodule; it is not
+required to build or run the public model.
 
 ## License
 

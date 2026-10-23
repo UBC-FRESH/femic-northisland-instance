@@ -1,6 +1,6 @@
-# FEMIC North Island Instance
+# FEMIC Full TSA 48 Instance
 
-> Agent-facing index for FEMIC North Island Instance. Read the linked pages before you change the project.
+> Agent-facing index for the full TSA 48 model. Read the linked pages before you change the project.
 
 ## Start here
 
@@ -9,8 +9,8 @@
 
 ## Guides
 
-- [North Island AOI](aoi.html): the Basecamp AOI rule, public boundary sources, review checks, and the CFA caveat.
-- [Model build](model-build.html): the FreshForge workflow, FEMIC-to-ws4 chain, commands, and runtime boundary.
-- [Web UI](web-ui.html): the ws4 serve command, EPSG:3005 handling, and the verification checks.
+- [TSA 48 AOI](aoi.html): the full-TSA boundary, NICC intersection, and K3Z tenure sources.
+- [Model build](model-build.html): the FEMIC-to-ws4 chain, calibrated THLB, part accounting, commands, and runtime boundary.
+- [Web UI](web-ui.html): the ws4 serve command, exact geometry, land-base underlay, EPSG:3005 handling, and verification checks.
 
 - [VDYP runtime boundary](../notes/reference/vdyp-runtime.md): Wine, the batch timeout evidence, and the provisional auto-sampling workaround.

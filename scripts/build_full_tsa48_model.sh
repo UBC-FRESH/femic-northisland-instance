@@ -17,6 +17,7 @@ YEARS="${YEARS:-100}"
 CALIBRATE_THLB="${CALIBRATE_THLB:-0}"
 THLB_TARGET_HA="${THLB_TARGET_HA:-177505}"
 IFM_SOURCE_COL="${IFM_SOURCE_COL:-}"
+LAND_BASE_AOI="${LAND_BASE_AOI:-data/source/aoi/tsa48_full.gpkg}"
 
 mkdir -p "$MODEL_DIR" "$MODEL_DIR/parts" "$MODEL_DIR/schedules" "$MODEL_DIR/runs" "$MODEL_DIR/evidence"
 
@@ -95,5 +96,9 @@ python scripts/prepare_ws4_ui.py \
   --out "$MODEL_DIR/fragments.geojson" \
   --simplify-m "${UI_SIMPLIFY_M:-0}" \
   --parts "$MODEL_DIR/parts/block_parts.csv"
+
+python scripts/prepare_land_base.py \
+  --aoi "$LAND_BASE_AOI" \
+  --out "$MODEL_DIR/land_base.geojson"
 
 echo "full TSA 48 model built under $MODEL_DIR"

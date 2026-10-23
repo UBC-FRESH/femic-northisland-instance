@@ -54,11 +54,21 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
 - Merged Phase 4 as `2558f9c`. The North Island model builds end to end and the
   ws4 UI is live on `127.0.0.1:8014` with 51,289 blocks and two met targets.
 
-## 2026-10-22 - Offset clock, AAC benchmark, UI geometry and target windows
+## 2026-10-22
+
+Offset clock, AAC benchmark, UI geometry and target windows.
 
 - Rebuilt the full TSA 48 model on the single 0-based offset clock.
 - Added ten per-decade AAC targets (12.480-12.481 Mm3) and a seed-greedy schedule that meets all ten.
 - Recorded the NICC share of the benchmark: 2.145 Mm3 in the first decade, 17.19% of the TSA AAC, about 214,544 m3/yr.
-- Reduced the UI polygon simplification from 100 m to 10 m, preserving block shape at working zooms.
+- Switched the UI geometry to the exact source block polygons (no simplification).
 - The web target panel now shows one point per selected target period with min/max/achieved and a period table.
 - Added `scripts/watch_aac_benchmark.sh` for the live `ws4 watch` view.
+
+## 2026-10-23
+
+- Added the AOI land-base underlay and exact block geometry to the full-model UI; the calibrated
+  service on 8016 now passes `--land-base` and `--crs EPSG:3005`.
+- Rewrote the README and Sphinx pages for the full TSA 48 model, the calibrated THLB, the ten-decade
+  AAC benchmark, the NICC share reference, and the two-model relationship.
+- Marked ws4 as the primary runtime and the retained Patchworks packages as reference/interchange-only.
