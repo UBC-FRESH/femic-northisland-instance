@@ -84,10 +84,12 @@ harvest schedule. The full decision record is
 - `python scripts/dashboard.py`: GREEN.
 - `python -m freshforge validate` passes for the 10-node full workflow and the
   7-node downstream workflow.
-- The branch is merged to `main` through a pull request after CI is green.
-- The Docs workflow builds with warnings as errors and deploys GitHub Pages.
-- The v0.2.0 GitHub release records the version, base-model decision, and
-  evidence links.
+- PR #36 merged to `main` as `34c6f65` after CI run 39903434345 passed.
+- Docs run 39903434346 built with warnings as errors and deployed Pages after
+  Pages was enabled for GitHub Actions. Site:
+  https://ubc-fresh.github.io/femic-northisland-instance/
+- v0.2.0 release:
+  https://github.com/UBC-FRESH/femic-northisland-instance/releases/tag/v0.2.0
 
 ## 6. Commits
 

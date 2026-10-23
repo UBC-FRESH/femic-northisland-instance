@@ -137,5 +137,8 @@ Offset clock and UI geometry.
 - Bumped the instance version to 0.2.0, updated `CITATION.cff`, and added
   `RELEASE_NOTES.md`.
 - `python scripts/dashboard.py` is GREEN; both FreshForge workflows validate.
-- Merged P5 to `main`, verified CI and Pages, and published the v0.2.0 GitHub
-  release after the release checks.
+- Merged P5 to `main` as `34c6f65` through PR #36. CI run 39903434345 passed.
+  Docs run 39903434346 built and deployed GitHub Pages after Pages was enabled
+  for GitHub Actions: https://ubc-fresh.github.io/femic-northisland-instance/
+- Published the v0.2.0 GitHub release:
+  https://github.com/UBC-FRESH/femic-northisland-instance/releases/tag/v0.2.0
