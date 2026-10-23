@@ -1,0 +1,24 @@
+{
+  "policy_id": "nicc-base-retain-cw-l-yc-l-v0.2.0",
+  "description": "Retain the two lowest-yield AUs and keep harvesting the two marginal AUs with material volume.",
+  "retain_aus": [
+    "CWH_CW_L",
+    "CWH_YC_L"
+  ],
+  "harvest_aus": [
+    "CWH_HW_L",
+    "CWH_CW_M"
+  ],
+  "retained_thlb_area_ha": 1717.595892390921,
+  "remaining_thlb_area_ha": 26840.34993000007,
+  "prorated_aac_m3_per_year": 176330.2927880371,
+  "scenario_100y_average_m3_per_year": 173552.54548921317,
+  "scenario_fraction_of_prorated_aac": 0.9842469081466166,
+  "rationale": "CWH_CW_L and CWH_YC_L are the two AUs where managed TIPSY is far below VDYP and the long-run volume contribution is negligible. Retaining all four AUs would remove 32.0% of model THLB and reduce the 100-year average managed harvest to about 79% of the pro-rated AAC. Retaining only these two removes 6.0% of THLB while preserving about 98.4% of the pro-rated AAC. CWH_HW_L and CWH_CW_M remain harvestable because they carry most of the volume among the four problem AUs.",
+  "evidence": [
+    "config/tsr/tipsy_au_results_vdyp_comparison.csv",
+    "config/tsr/thlb_area_by_au.csv",
+    "notes/reference/retention-decision.md",
+    "runtime/scenario_retain_cwlyc/run/report_targets.csv"
+  ]
+}

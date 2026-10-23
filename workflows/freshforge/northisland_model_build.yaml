@@ -103,6 +103,7 @@ nodes:
       dataset: runtime/matrix
       out: runtime/baseline_schedule.csv
       target_age: "60"
+      retention_config: config/retention.json
     artifacts:
       schedule: runtime/baseline_schedule.csv
       summary: runtime/baseline_schedule.summary.json

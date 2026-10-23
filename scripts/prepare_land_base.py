@@ -15,6 +15,13 @@ import geopandas as gpd
 
 
 def main() -> None:
+    """Write the AOI polygon as a GeoJSON underlay.
+
+    Returns
+    -------
+    None
+        The GeoJSON is written to the requested output path.
+    """
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--aoi", type=Path, required=True, help="AOI polygon (GPKG or SHP)")
     parser.add_argument("--out", type=Path, required=True, help="Output GeoJSON")
