@@ -48,7 +48,7 @@ review checkpoints.
 - Baseline: 46,321 scheduled blocks after retaining `CWH_CW_L` and `CWH_YC_L`.
 - Managed harvest: 173,553 m3/yr over 100 years, 98.4% of the 176,330 m3/yr
   pro-rated AAC.
-- Targets: two provisional targets, both met.
+- Targets: ten NICC reference floors (214,544 m3/yr) plus the growing-stock smoke target; reference run meets all.
 - UI: 51,289 blocks, MapLibre, `http://127.0.0.1:8014/`.
 
 ## Model-build chain

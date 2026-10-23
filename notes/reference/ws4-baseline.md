@@ -30,7 +30,11 @@ AAC is 176,330 m3/yr; the baseline carries 98.4% of it.
 
 ## Targets
 
-`config/targets.yaml` holds two provisional targets:
+The current `config/targets.yaml` is the NICC reference set (ten 2,145,437 m3
+decade floors plus the growing-stock smoke target); see
+`notes/reference/nicc-targets.md`. The original two-target set is preserved as
+`config/targets.provisional.yaml`. The table below describes the v0.2.0
+provisional baseline:
 
 | Account | Period | Minimum | Realized | Status |
 | --- | ---: | ---: | ---: | --- |
