@@ -97,6 +97,9 @@ is in `config/tsr/tipsy_au_results_vdyp_comparison.csv`.
 ## Web UI
 
 ```bash
+python scripts/prepare_land_base.py \
+  --aoi data/source/aoi/northisland_aoi.gpkg \
+  --out runtime/land_base.geojson
 ./serve_northisland.sh
 ```
 

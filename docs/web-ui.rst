@@ -21,6 +21,14 @@ Launch
      --allow-agent \
      --port 8014
 
+Generate the land-base underlay once after the matrix build:
+
+.. code-block:: bash
+
+   python scripts/prepare_land_base.py \
+     --aoi data/source/aoi/northisland_aoi.gpkg \
+     --out runtime/land_base.geojson
+
 The North Island geometry is EPSG:3005. Pass ``--crs EPSG:3005`` so the server
 can project it for MapLibre, which renders in WGS84. The land base is the AOI
 polygon drawn under the blocks, so non-forest gaps read as land rather than as
