@@ -16,3 +16,5 @@
 - [Web UI](web-ui.html): the ws4 serve command, EPSG:3005 handling, and the verification checks.
 
 - [VDYP runtime boundary](../notes/reference/vdyp-runtime.md): Wine, the batch timeout evidence, and the provisional auto-sampling workaround.
+
+- [Related TSA 48 instance](https://github.com/UBC-FRESH/femic-tsa48-instance): the full-TSA benchmark and NICC-share reference; deliberately related but independent.

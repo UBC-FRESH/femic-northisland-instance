@@ -10,9 +10,14 @@ the resulting model and serves it in a local web UI.
 interchange input to `ws4 build`; Patchworks itself is reference-only. The
 NICC model is the student/MSFM lane for the TSA 48 ∩ NICC + K3Z area. Its
 full-TSA benchmark sibling is
-`../femic-tsa48-full-instance` (port 8016), which also carries the NICC
-intersection as a `part` flag and the current `≈214,544 m3/yr` NICC harvest
+**[`UBC-FRESH/femic-tsa48-instance`](https://github.com/UBC-FRESH/femic-tsa48-instance)**
+(port 8016). That repository carries the full-TSA benchmark, the NICC
+intersection as a `part` flag, and the current `≈214,544 m3/yr` NICC harvest
 reference.
+
+The two repositories are deliberately related but **independent datasets and
+runtimes**. Either can be used alone. See
+`notes/reference/related-instances.md` for the shared-input and scope contract.
 
 ## Status
 

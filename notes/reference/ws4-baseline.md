@@ -62,3 +62,9 @@ Verification:
   realized values.
 - The map uses exact block geometry and the NICC land-base underlay. If WebGL
   is unavailable, the **SVG (fallback)** map engine renders the same blocks.
+
+## Related dataset
+
+The full TSA 48 benchmark is a separate instance in
+`UBC-FRESH/femic-tsa48-instance`. It provides the NICC share reference and is
+not required to run this model. See `notes/reference/related-instances.md`.

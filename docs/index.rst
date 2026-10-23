@@ -4,7 +4,9 @@ FEMIC North Island Instance
 Standalone FEMIC and ws4 model instance for the North Island area of interest. It rebuilds the public model inputs with FEMIC and serves the resulting model in its own ws4 web UI.
 
 **Runtime lane:** ws4 is the primary runtime. Patchworks is reference-only. The
-full-TSA benchmark sibling is ``../femic-tsa48-full-instance``.
+full-TSA benchmark sibling is
+`UBC-FRESH/femic-tsa48-instance <https://github.com/UBC-FRESH/femic-tsa48-instance>`_.
+The two are deliberately related but independent; either can be used alone.
 
 This site is the RTFM surface for the project. Agents read the relevant page before
 they act, and cite it in their reports. Start with the repository's ``AGENTS.md`` and
