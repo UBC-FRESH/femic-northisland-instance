@@ -12,6 +12,7 @@ from northisland_workflow import (
     NorthIslandWs4Provider,
     _build_dataset_command,
     _build_post_tipsy_command,
+    _build_schedule_command,
     _build_simulate_command,
     provider_factory,
 )
@@ -72,6 +73,25 @@ def test_simulate_command_includes_optional_topology(tmp_path: Path) -> None:
     assert command[-2:] == ("--topology", "runtime/topology.csv")
     assert "--years" in command
     assert "100" in command
+
+
+def test_schedule_command_includes_retention_policy(tmp_path: Path) -> None:
+    """The schedule node passes the retention policy when configured."""
+    node = _FakeNode(
+        id="schedule",
+        parameters={
+            "instance_root": str(tmp_path),
+            "dataset": "runtime/matrix",
+            "out": "runtime/baseline_schedule.csv",
+            "target_age": 60,
+            "retention_config": "config/retention.json",
+        },
+    )
+
+    command, cwd = _build_schedule_command(node)
+
+    assert cwd == tmp_path
+    assert command[-2:] == ("--retention-config", "config/retention.json")
 
 
 def test_post_tipsy_command_uses_the_instance_run_config(tmp_path: Path) -> None:

@@ -1,0 +1,13 @@
+feature_id,stratum_code,si_level,si_m,mean_mv_ratio,mean_gross_ratio,age100_mv_ratio,age100_gross_ratio,status
+23001,CWH_CW,H,18.3,1.015,1.151,1.049,1.181,met_or_beat
+21001,CWH_CW,L,7.9,0.227,0.462,0.307,0.494,below_vdyp
+22001,CWH_CW,M,12.0,0.649,0.796,0.717,0.849,below_vdyp
+23003,CWH_FD,H,33.6,1.17,1.473,1.08,1.405,met_or_beat
+21003,CWH_FD,L,23.0,1.719,2.124,1.763,2.186,met_or_beat
+22003,CWH_FD,M,28.4,1.264,1.556,1.2,1.505,met_or_beat
+23000,CWH_HW,H,27.6,1.228,1.383,1.203,1.367,met_or_beat
+21000,CWH_HW,L,11.6,0.698,0.888,0.803,0.965,below_vdyp
+22000,CWH_HW,M,18.4,0.996,1.134,1.039,1.173,met_or_beat
+23002,CWH_YC,H,13.0,1.088,1.301,1.24,1.447,met_or_beat
+21002,CWH_YC,L,7.0,0.266,0.706,0.352,0.733,below_vdyp
+22002,CWH_YC,M,9.7,0.824,1.181,1.054,1.35,met_or_beat

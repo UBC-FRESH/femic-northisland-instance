@@ -19,7 +19,7 @@ from pathlib import Path
 from typing import Any
 
 PROVIDER_ID = "northisland.ws4"
-PROVIDER_VERSION = "0.1.0"
+PROVIDER_VERSION = "0.2.0"
 
 CommandRunner = Callable[[tuple[str, ...], Path], subprocess.CompletedProcess[str]]
 
@@ -71,7 +71,7 @@ _NODE_CONTRACTS: tuple[_NodeContract, ...] = (
         ),
         inputs=("validated_dataset",),
         outputs=("schedule",),
-        parameters=("instance_root", "dataset", "out", "target_age"),
+        parameters=("instance_root", "dataset", "out", "target_age", "retention_config"),
         artifacts=("schedule", "summary"),
     ),
     _NodeContract(
@@ -335,8 +335,8 @@ def _build_validate_command(node: Any) -> tuple[tuple[str, ...], Path]:
 
 
 def _build_schedule_command(node: Any) -> tuple[tuple[str, ...], Path]:
-    return (
-        _python(
+    command = [
+        *_python(
             "scripts/build_baseline_schedule.py",
             "--dataset",
             _parameter(node, "dataset"),
@@ -344,9 +344,10 @@ def _build_schedule_command(node: Any) -> tuple[tuple[str, ...], Path]:
             _parameter(node, "out"),
             "--target-age",
             _parameter(node, "target_age"),
-        ),
-        _instance_root(node),
-    )
+        )
+    ]
+    _append_option(command, node, "retention_config", "--retention-config")
+    return tuple(command), _instance_root(node)
 
 
 def _build_simulate_command(node: Any) -> tuple[tuple[str, ...], Path]:

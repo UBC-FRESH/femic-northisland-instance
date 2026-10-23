@@ -53,3 +53,89 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   verified with 51,289 blocks on loopback port 8014.
 - Merged Phase 4 as `2558f9c`. The North Island model builds end to end and the
   ws4 UI is live on `127.0.0.1:8014` with 51,289 blocks and two met targets.
+- Launched Phase 5 on `feature/p5-tsr-metadata` with parent #29 and tasks #30 to
+  #35. The phase uses the FEMIC TSR document-metadata workflows to extract the
+  TSA 48 data-package structure, the full THLB net-down ladder, and AU-wise
+  TIPSY parameters.
+- Completed P5.1 to P5.4. Extracted 413 TSA 48 TSR candidate facts from the 2020
+  data package, 2022 discussion paper, and 2024 rationale; built the reviewed
+  overlay and source-layer recipe; transcribed the full Table 4 THLB net-down
+  ladder; and mapped all 12 model AUs to TSR-sourced OAF2, genetic-worth, and
+  regeneration constants. The exact published `tsa48_tipsy_input` workbook is
+  not available and remains the TIPSY blocker.
+
+## 2026-10-22
+
+- Added the public RESULTS candidate lane for AU-wise TIPSY inputs. The fetch
+  covers `RSLT_OPENING_SVW`, `RSLT_PLANTING_SVW`, and
+  `RSLT_FOREST_COVER_INV_SVW`; the separate forest-cover-species package is
+  attribute-only and exposes no WFS resource, so the inventory species columns
+  are used instead.
+- Added `scripts/build_results_tipsy_inputs.py`, its unit tests, and
+  `runbooks/RESULTS_CANDIDATES.md`. The first run assigned 4,198 openings across
+  all 12 model AUs and wrote `config/tsr/tipsy_au_results_candidates.csv`.
+  Density comes from RESULTS planting records; the three thin AUs use a single
+  planting record and are labelled `planting_single`.
+- BatchTIPSY still did not produce `04_output-northisland.csv` within five
+  minutes under Wine with the RESULTS input. The RESULTS table remains a
+  diagnostic candidate, not the accepted managed-curve lane.
+- `python scripts/dashboard.py` is GREEN with 189 tests and 96.47 percent branch
+  coverage of `scripts/`.
+
+## 2026-10-22
+
+- Corrected the earlier P5.5 conclusion. BatchTIPSY does run under Wine on this
+  host through the documented `tsa29mini` lane: a scratch Wine prefix with Wine
+  Mono 9.0.0, a userspace Xvfb patched to `/tmp/xkb`, and a direct
+  `wine TIPSYbtc.exe /TSR` call. The earlier failures came from the system
+  `xvfb-run`/legacy prefix path, not from TIPSY itself.
+- Added `runbooks/tipsy-btc-linux-wine.md` and
+  `scripts/tipsybtc-wine.sh` with the working recipe and the FEMIC wrapper
+  contract.
+- Fixed `scripts/build_results_tipsy_inputs.py` so planted densities are
+  integers. BatchTIPSY parses those columns as `Integer`; a value such as
+  `416.7` raised a hidden .NET conversion dialog.
+- The 12-AU RESULTS input now completes with `exit_code=0`, 12 output rows, and
+  zero error rows. Eight of twelve AUs meet or beat VDYP on gross volume;
+  CWH_HW L, CWH_CW L and M, and CWH_YC L remain below and are documented as a site-index
+  and curve-interpretation gap.
+- Updated `config/tipsy/northisland.yaml` to the RESULTS species and density.
+  Rebuilt the model-input bundle (696 curves), ws4 matrix (56,187
+  blocks/fragments), baseline run, target report, and UI geometry. Both
+  provisional targets are met.
+- `python scripts/dashboard.py` is GREEN.
+- Marked P5.5 complete: the managed-curve lane now carries the reviewed RESULTS
+  parameters, the ws4 dataset validates, and both provisional targets are met.
+  The low CWH_CW L and M and CWH_YC L gross-volume ratios remain documented
+  review items for P5.6.
+
+## 2026-10-22
+
+Offset clock and UI geometry.
+
+- Rebuilt the NICC baseline on the 0-based offset clock; both provisional targets remain met.
+- Switched the UI geometry to the exact source block polygons (no simplification).
+
+## 2026-10-23
+
+- Added the AOI land-base underlay and exact block geometry to the NICC UI; the 8014 service now
+  passes `--land-base` and `--crs EPSG:3005`.
+- Marked ws4 as the primary North Island runtime and Patchworks as reference-only; linked the full
+  TSA 48 benchmark sibling and its NICC share reference.
+
+## 2026-10-23
+
+- Added the v0.2.0 retention policy: retain `CWH_CW_L` and `CWH_YC_L`, keep
+  `CWH_HW_L` and `CWH_CW_M` harvestable. The policy is in
+  `config/retention.json`, the schedule builder supports
+  `--retention-config`, and both FreshForge workflows pass it.
+- Rebuilt the baseline with 46,321 scheduled blocks. Model THLB falls from
+  28,557.9 to 26,840.3 ha (6.0%); the 100-year average managed harvest is
+  173,553 m3/yr, or 98.4% of the 176,330 m3/yr pro-rated AAC.
+- Added the decision record, retention analysis, P5 closeout report, and Sphinx
+  pages under `notes/` and `docs/`.
+- Bumped the instance version to 0.2.0, updated `CITATION.cff`, and added
+  `RELEASE_NOTES.md`.
+- `python scripts/dashboard.py` is GREEN; both FreshForge workflows validate.
+- Merged P5 to `main`, verified CI and Pages, and published the v0.2.0 GitHub
+  release after the release checks.

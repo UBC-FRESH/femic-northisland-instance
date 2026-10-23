@@ -4,13 +4,25 @@ Public FEMIC and ws4 model instance for the North Island Timber Supply Area AOI.
 FEMIC rebuilds the inventory and yield curves from public BC data; ws4 compiles
 the resulting model and serves it in a local web UI.
 
+## Runtime lane
+
+**ws4 is the primary runtime.** The Patchworks XML/fragments pair is an
+interchange input to `ws4 build`; Patchworks itself is reference-only. The
+NICC model is the student/MSFM lane for the TSA 48 ∩ NICC + K3Z area. Its
+full-TSA benchmark sibling is
+`../femic-tsa48-full-instance` (port 8016), which also carries the NICC
+intersection as a `part` flag and the current `≈214,544 m3/yr` NICC harvest
+reference.
+
 ## Status
 
-Phase 4 (baseline and web UI) is complete. The public AOI boundary, FEMIC
-upstream build, ws4 matrix, baseline run, and loopback web UI are verified.
-The managed curves are a provisional VDYP transform; accepted TIPSY curves and
-reviewed policy targets remain before release. `ROADMAP.md` is the plan of
-record, and the GitHub issues carry the live state.
+v0.2.0 is the locked NICC base model. The public AOI boundary, FEMIC upstream
+build, BatchTIPSY managed curves, ws4 matrix, retention schedule, baseline run,
+and loopback web UI are verified. The baseline retains `CWH_CW_L` and
+`CWH_YC_L` and keeps the other ten AUs harvestable; the 100-year average carries
+98.4% of the pro-rated AAC. `ROADMAP.md` is the plan of record, and the GitHub
+issues carry the live state. See `docs/retention-policy.rst` and
+`notes/reference/retention-decision.md`.
 
 ## AOI
 
@@ -25,9 +37,11 @@ review checkpoints.
 
 - AOI: 1,083,003.66 ha (TSA 48 clipped to NICC, CFA added back).
 - FEMIC: 12 AUs across CWH_HW, CWH_CW, CWH_YC, and CWH_FD at L/M/H.
-- Export: 51,289 fragments, 49 curves.
-- ws4 matrix: 56,187 blocks/fragments, 2,156 curves, 5,930 treatments.
-- Baseline: 51,289 scheduled blocks, 100 years.
+- Export: 51,289 fragments, 696 curves.
+- ws4 matrix: 56,187 blocks/fragments, 5,930 treatments.
+- Baseline: 46,321 scheduled blocks after retaining `CWH_CW_L` and `CWH_YC_L`.
+- Managed harvest: 173,553 m3/yr over 100 years, 98.4% of the 176,330 m3/yr
+  pro-rated AAC.
 - Targets: two provisional targets, both met.
 - UI: 51,289 blocks, MapLibre, `http://127.0.0.1:8014/`.
 
@@ -44,7 +58,8 @@ public BC data (VRI, TSA, district, tenure)
 ```
 
 The Patchworks XML/fragments pair is an interchange artifact for ws4. Patchworks
-is not the runtime lane for this instance.
+is not the runtime lane for this instance and is retained only as reference
+evidence for comparison and rebuild provenance.
 
 ## Reproduce the build with FreshForge
 
@@ -77,19 +92,24 @@ The public data root must contain `bc/tsa/FADM_TSA.gdb`,
 geodatabase. The `femic-public-data` submodule is the canonical source.
 
 VDYP7 runs under Wine on Linux. The repository carries the VDYP executable; the
-host needs `wine` and `wine32`. The first lane uses the VDYP-transform managed
-curve mode, so it does not require BatchTIPSY. Replace that lane with accepted
-TIPSY output before release.
+host needs `wine` and `wine32`. BatchTIPSY also runs under Wine through the
+scratch-prefix, Wine Mono, and userspace-Xvfb lane in
+`runbooks/tipsy-btc-linux-wine.md`. The accepted managed lane uses public RESULTS
+species and density with the model PSPL/VDYP site index; the AU-wise comparison
+is in `config/tsr/tipsy_au_results_vdyp_comparison.csv`.
 
 ## Web UI
 
 ```bash
+python scripts/prepare_land_base.py \
+  --aoi data/source/aoi/northisland_aoi.gpkg \
+  --out runtime/land_base.geojson
 ./serve_northisland.sh
 ```
 
 `PORT=...` overrides the default `8014`. The script passes `--crs EPSG:3005`,
-`--allow-runs`, and `--allow-agent`, with the agent working directory set to the
-instance root.
+the exact block geometry, the AOI land-base underlay, `--allow-runs`, and
+`--allow-agent`, with the agent working directory set to the instance root.
 
 The service binds loopback only. ws4 has no authentication; do not expose it
 without a trusted proxy. The geometry is EPSG:3005 and MapLibre projects it to

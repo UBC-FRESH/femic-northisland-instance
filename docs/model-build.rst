@@ -18,6 +18,7 @@ Chain
      -> northisland.ws4.build_dataset
      -> northisland.ws4.validate_dataset
      -> northisland.ws4.build_baseline_schedule
+        (retention_config: config/retention.json)
      -> northisland.ws4.simulate
      -> northisland.ws4.report
      -> northisland.ws4.prepare_ui
@@ -28,8 +29,11 @@ carry the full AOI. The Patchworks export gives ws4 a ForestModel XML recipe and
 fragment inventory. ws4 compiles the canonical matrix and runs the baseline
 simulation.
 
-The first North Island run produced 12 AUs across CWH_HW, CWH_CW, CWH_YC, and
-CWH_FD, 51,289 fragments, and 49 curves.
+The accepted North Island run produces 12 AUs across CWH_HW, CWH_CW, CWH_YC,
+and CWH_FD. The managed lane uses public RESULTS species/density with the model
+PSPL/VDYP site index and the TSA 48 OAF rules. The baseline applies the
+retention policy in :doc:`retention-policy`: ``CWH_CW_L`` and ``CWH_YC_L`` are
+retained, and the other ten AUs remain harvestable.
 
 Commands
 --------
@@ -58,7 +62,7 @@ loader. The first lane sets ``vdyp_sampling_mode: auto`` because the larger
 sampling fits from fewer stands, so it is a provisional workaround; raise the
 timeout and rerun in ``all`` mode before release.
 
-The first lane also sets ``managed_curve_mode: vdyp_transform`` and therefore
-does not need BatchTIPSY. That transform is a provisional managed curve lane, not
-accepted TIPSY yield curves. Replace it before release. See
-``notes/reference/vdyp-runtime.md`` for the timeout evidence.
+The accepted lane uses real BatchTIPSY managed curves. On Linux, BatchTIPSY runs
+through the scratch Wine prefix, Wine Mono, and userspace Xvfb recipe in
+``runbooks/tipsy-btc-linux-wine.md``. The managed curves are compared with VDYP
+in ``notes/reference/tipsy-vs-vdyp.md`` and ``docs/retention-policy.rst``.
