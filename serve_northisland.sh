@@ -7,6 +7,7 @@ PORT="${PORT:-8014}"
 DATASET="${DATASET:-$INSTANCE_ROOT/runtime/matrix}"
 RUNS="${RUNS:-$INSTANCE_ROOT/runtime}"
 GEOMETRY="${GEOMETRY:-$INSTANCE_ROOT/runtime/fragments.geojson}"
+LAND_BASE="${LAND_BASE:-$INSTANCE_ROOT/runtime/land_base.geojson}"
 TARGETS="${TARGETS:-$INSTANCE_ROOT/config/targets.yaml}"
 
 cd "$INSTANCE_ROOT"
@@ -14,6 +15,7 @@ exec python -m ws4.cli serve \
   --dataset "$DATASET" \
   --runs "$RUNS" \
   --geometry "$GEOMETRY" \
+  --land-base "$LAND_BASE" \
   --targets "$TARGETS" \
   --crs EPSG:3005 \
   --allow-runs \

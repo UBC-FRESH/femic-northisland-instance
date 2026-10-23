@@ -14,6 +14,7 @@ Launch
      --dataset runtime/matrix \
      --runs runtime \
      --geometry runtime/fragments.geojson \
+     --land-base runtime/land_base.geojson \
      --targets config/targets.yaml \
      --crs EPSG:3005 \
      --allow-runs \
@@ -21,14 +22,15 @@ Launch
      --port 8014
 
 The North Island geometry is EPSG:3005. Pass ``--crs EPSG:3005`` so the server
-can project it for MapLibre, which renders in WGS84. The block layer still
-renders if the OpenStreetMap basemap tiles are unavailable.
+can project it for MapLibre, which renders in WGS84. The land base is the AOI
+polygon drawn under the blocks, so non-forest gaps read as land rather than as
+missing data. The block layer still renders if the OpenStreetMap basemap tiles
+are unavailable.
 
-The first North Island map contains 51,289 polygons. ``prepare_ws4_ui.py``
-simplifies them at 100 m and rounds coordinates; the uncompressed map response
-drops from about 114 MB to 20 MB, and the ws4 gzip middleware serves it at about
-5 MB. If MapLibre still cannot create a WebGL context, switch **Map engine** to
-**SVG (fallback)**.
+The first North Island map contains 51,289 polygons. ``prepare_ws4_ui.py`` now
+keeps every source vertex (``--simplify-m 0``); the uncompressed response is
+about 61 MB and the ws4 gzip middleware compresses it in transit. If MapLibre
+cannot create a WebGL context, switch **Map engine** to **SVG (fallback)**.
 
 Checks
 ------

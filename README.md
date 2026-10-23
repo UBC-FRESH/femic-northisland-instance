@@ -4,6 +4,16 @@ Public FEMIC and ws4 model instance for the North Island Timber Supply Area AOI.
 FEMIC rebuilds the inventory and yield curves from public BC data; ws4 compiles
 the resulting model and serves it in a local web UI.
 
+## Runtime lane
+
+**ws4 is the primary runtime.** The Patchworks XML/fragments pair is an
+interchange input to `ws4 build`; Patchworks itself is reference-only. The
+NICC model is the student/MSFM lane for the TSA 48 ∩ NICC + K3Z area. Its
+full-TSA benchmark sibling is
+`../femic-tsa48-full-instance` (port 8016), which also carries the NICC
+intersection as a `part` flag and the current `≈214,544 m3/yr` NICC harvest
+reference.
+
 ## Status
 
 Phase 4 (baseline and web UI) is complete. The public AOI boundary, FEMIC
@@ -44,7 +54,8 @@ public BC data (VRI, TSA, district, tenure)
 ```
 
 The Patchworks XML/fragments pair is an interchange artifact for ws4. Patchworks
-is not the runtime lane for this instance.
+is not the runtime lane for this instance and is retained only as reference
+evidence for comparison and rebuild provenance.
 
 ## Reproduce the build with FreshForge
 
@@ -90,8 +101,8 @@ is in `config/tsr/tipsy_au_results_vdyp_comparison.csv`.
 ```
 
 `PORT=...` overrides the default `8014`. The script passes `--crs EPSG:3005`,
-`--allow-runs`, and `--allow-agent`, with the agent working directory set to the
-instance root.
+the exact block geometry, the AOI land-base underlay, `--allow-runs`, and
+`--allow-agent`, with the agent working directory set to the instance root.
 
 The service binds loopback only. ws4 has no authentication; do not expose it
 without a trusted proxy. The geometry is EPSG:3005 and MapLibre projects it to

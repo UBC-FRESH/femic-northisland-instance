@@ -109,7 +109,16 @@ Newest entries last. Each milestone gets a dated entry that matches the roadmap 
   The low CWH_CW L and M and CWH_YC L gross-volume ratios remain documented
   review items for P5.6.
 
-## 2026-10-22 - Offset clock and UI geometry
+## 2026-10-22
+
+Offset clock and UI geometry.
 
 - Rebuilt the NICC baseline on the 0-based offset clock; both provisional targets remain met.
-- Reduced the UI polygon simplification from 100 m to 10 m.
+- Switched the UI geometry to the exact source block polygons (no simplification).
+
+## 2026-10-23
+
+- Added the AOI land-base underlay and exact block geometry to the NICC UI; the 8014 service now
+  passes `--land-base` and `--crs EPSG:3005`.
+- Marked ws4 as the primary North Island runtime and Patchworks as reference-only; linked the full
+  TSA 48 benchmark sibling and its NICC share reference.
