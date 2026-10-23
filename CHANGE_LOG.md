@@ -122,3 +122,20 @@ Offset clock and UI geometry.
   passes `--land-base` and `--crs EPSG:3005`.
 - Marked ws4 as the primary North Island runtime and Patchworks as reference-only; linked the full
   TSA 48 benchmark sibling and its NICC share reference.
+
+## 2026-10-23
+
+- Added the v0.2.0 retention policy: retain `CWH_CW_L` and `CWH_YC_L`, keep
+  `CWH_HW_L` and `CWH_CW_M` harvestable. The policy is in
+  `config/retention.json`, the schedule builder supports
+  `--retention-config`, and both FreshForge workflows pass it.
+- Rebuilt the baseline with 46,321 scheduled blocks. Model THLB falls from
+  28,557.9 to 26,840.3 ha (6.0%); the 100-year average managed harvest is
+  173,553 m3/yr, or 98.4% of the 176,330 m3/yr pro-rated AAC.
+- Added the decision record, retention analysis, P5 closeout report, and Sphinx
+  pages under `notes/` and `docs/`.
+- Bumped the instance version to 0.2.0, updated `CITATION.cff`, and added
+  `RELEASE_NOTES.md`.
+- `python scripts/dashboard.py` is GREEN; both FreshForge workflows validate.
+- Merged P5 to `main`, verified CI and Pages, and published the v0.2.0 GitHub
+  release after the release checks.

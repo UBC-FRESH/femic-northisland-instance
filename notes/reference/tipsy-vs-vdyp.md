@@ -172,3 +172,12 @@ problem AUs cover 9,142 ha of the 28,558 ha model-flagged THLB (32.0%). For
 context, they cover 165,368 ha of the 442,452 ha compiled model stand area
 (37.4%). The model THLB flag is narrower than the TSR Table 4 current THLB
 benchmark; the two denominators should not be mixed.
+
+## Base-model retention decision
+
+The v0.2.0 base model retains `CWH_CW_L` and `CWH_YC_L` and keeps harvesting
+`CWH_HW_L` and `CWH_CW_M`. The two retained AUs are the weakest managed curves
+and contribute negligible long-run volume; retaining all four would remove
+32.0% of model THLB and reduce the 100-year average to 79.3% of the pro-rated
+AAC. The accepted policy and scenario evidence are in
+`notes/reference/retention-decision.md` and `notes/adr/0001-retain-low-yield-aus.md`.

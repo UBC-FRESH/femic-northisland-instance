@@ -17,7 +17,7 @@ after its parent issue exists and the maintainer approves it.
 | P2 FEMIC upstream build | #12 | `feature/p2-femic-upstream` | complete |
 | P3 ws4 model build | #18 | `feature/p3-ws4-model` | complete |
 | P4 Baseline, targets, and web UI | #23 | `feature/p4-baseline-ui` | complete |
-| P5 TSR metadata and TIPSY parameters | #29 | `feature/p5-tsr-metadata` | active |
+| P5 TSR metadata and TIPSY parameters | #29 | `feature/p5-tsr-metadata` | complete |
 | P6 Verify and release | TBD | `feature/p6-verify-release` | planned |
 | P7 Operate and maintain | TBD | `feature/p7-operate` | planned |
 
@@ -142,7 +142,7 @@ Acceptance criteria:
 
 Parent issue: #29
 Branch: `feature/p5-tsr-metadata`
-Status: active
+Status: complete
 
 Goal: use the FEMIC TSR document-metadata workflows to extract the North Island
 data-package structure, the full THLB net-down ladder, and AU-wise TIPSY input
@@ -153,7 +153,7 @@ parameters mapped to this model's AUs.
 - [x] P5.3 Build the full THLB net-down recipe (#32)
 - [x] P5.4 Extract TIPSY AU-wise parameters and map them to the model AUs (#33)
 - [x] P5.5 Rebuild the managed-curve lane from the reviewed parameters (#34)
-- [ ] P5.6 Verify and record the TSR and TIPSY evidence (#35)
+- [x] P5.6 Verify and record the TSR and TIPSY evidence (#35)
 
 Acceptance criteria:
 
@@ -201,19 +201,26 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. Phases P0 to P4 are complete. P5 is active on `feature/p5-tsr-metadata`,
-   parent issue #29, with tasks #30 to #35.
+1. Phases P0 to P5 are complete. P6 is planned for clean-checkout verification
+   and release follow-up. The v0.2.0 base-model release is cut from the P5
+   branch after merge.
 2. The AOI is TSA 48 clipped to the NICC district, with the community forest
    agreement added back. See `notes/reference/aoi.md`.
-3. The current model uses `managed_curve_mode: vdyp_transform`. P5 replaces the
-   provisional TIPSY rules with reviewed AU-wise TSA 48 values and rebuilds the
-   managed-curve lane.
+3. The accepted model uses BatchTIPSY managed curves from public RESULTS
+   species/density and the model PSPL/VDYP site index. The baseline retains
+   `CWH_CW_L` and `CWH_YC_L` and keeps the other ten AUs harvestable. The
+   100-year average carries 98.4% of the pro-rated AAC. See
+   `notes/reference/retention-decision.md`.
 4. Run FreshForge from the instance root with `FEMIC_EXTERNAL_DATA_ROOT` set to
    the materialized public data tree.
 5. The public RESULTS candidate lane is implemented in
    `scripts/build_results_tipsy_inputs.py` and documented in
-   `runbooks/RESULTS_CANDIDATES.md`. BatchTIPSY now runs through the Linux and
-   Wine lane in `runbooks/tipsy-btc-linux-wine.md`. The RESULTS species/density
-   lane rebuilt the bundle, ws4 matrix, baseline, and UI; eight of twelve AUs
-   meet or beat VDYP on gross volume. The remaining CWH_HW L, CWH_CW L and M,
-   and CWH_YC L gaps are a site-index and curve-interpretation review item.
+   `runbooks/RESULTS_CANDIDATES.md`. BatchTIPSY runs through the Linux and Wine
+   lane in `runbooks/tipsy-btc-linux-wine.md`. Eight of twelve AUs meet or beat
+   VDYP on gross volume. The v0.2.0 base model retains the two weakest AUs
+   (`CWH_CW_L`, `CWH_YC_L`) and keeps `CWH_HW_L` and `CWH_CW_M` harvestable. The
+   retained AUs remove 6.0% of model THLB and preserve 98.4% of the pro-rated
+   AAC.
+6. The v0.2.0 GitHub release records the base-model version, retention decision,
+   and evidence. P6 remains for a clean-checkout rebuild and any release
+   follow-up after the merge.

@@ -17,6 +17,8 @@ project grows.
 
    aoi
    model-build
+   retention-policy
+   release-notes
    web-ui
 
 .. toctree::

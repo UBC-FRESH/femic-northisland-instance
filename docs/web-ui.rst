@@ -35,10 +35,14 @@ polygon drawn under the blocks, so non-forest gaps read as land rather than as
 missing data. The block layer still renders if the OpenStreetMap basemap tiles
 are unavailable.
 
-The first North Island map contains 51,289 polygons. ``prepare_ws4_ui.py`` now
+The North Island map contains 51,289 compiled block polygons. ``prepare_ws4_ui.py``
 keeps every source vertex (``--simplify-m 0``); the uncompressed response is
 about 61 MB and the ws4 gzip middleware compresses it in transit. If MapLibre
 cannot create a WebGL context, switch **Map engine** to **SVG (fallback)**.
+
+In the v0.2.0 base model, ``CWH_CW_L`` and ``CWH_YC_L`` are retained. Their
+blocks remain visible in the map but are absent from the harvest schedule. The
+baseline schedule has 46,321 blocks and the remaining model THLB is 26,840.3 ha.
 
 Checks
 ------
@@ -49,9 +53,9 @@ Checks
 - The target table shows the configured targets and their realized values.
 - The UI can switch runs without a server restart.
 
-The first North Island smoke rendered 51,289 blocks, showed 4,746 treated in
-period 2, and displayed both provisional targets as `met`. See
-``notes/reference/ws4-baseline.md``.
+The v0.2.0 smoke renders 51,289 blocks, applies the retention schedule, and
+displays both provisional targets as `met`. See
+``notes/reference/ws4-baseline.md`` and :doc:`retention-policy`.
 
 Do not use ``--allow-remote`` on an untrusted network. Put the service behind a
 trusted proxy if it must be reachable from another host.

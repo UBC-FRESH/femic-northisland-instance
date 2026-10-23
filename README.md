@@ -16,11 +16,13 @@ reference.
 
 ## Status
 
-Phase 4 (baseline and web UI) is complete. The public AOI boundary, FEMIC
-upstream build, ws4 matrix, baseline run, and loopback web UI are verified.
-The managed curves are a provisional VDYP transform; accepted TIPSY curves and
-reviewed policy targets remain before release. `ROADMAP.md` is the plan of
-record, and the GitHub issues carry the live state.
+v0.2.0 is the locked NICC base model. The public AOI boundary, FEMIC upstream
+build, BatchTIPSY managed curves, ws4 matrix, retention schedule, baseline run,
+and loopback web UI are verified. The baseline retains `CWH_CW_L` and
+`CWH_YC_L` and keeps the other ten AUs harvestable; the 100-year average carries
+98.4% of the pro-rated AAC. `ROADMAP.md` is the plan of record, and the GitHub
+issues carry the live state. See `docs/retention-policy.rst` and
+`notes/reference/retention-decision.md`.
 
 ## AOI
 
@@ -35,9 +37,11 @@ review checkpoints.
 
 - AOI: 1,083,003.66 ha (TSA 48 clipped to NICC, CFA added back).
 - FEMIC: 12 AUs across CWH_HW, CWH_CW, CWH_YC, and CWH_FD at L/M/H.
-- Export: 51,289 fragments, 49 curves.
-- ws4 matrix: 56,187 blocks/fragments, 2,156 curves, 5,930 treatments.
-- Baseline: 51,289 scheduled blocks, 100 years.
+- Export: 51,289 fragments, 696 curves.
+- ws4 matrix: 56,187 blocks/fragments, 5,930 treatments.
+- Baseline: 46,321 scheduled blocks after retaining `CWH_CW_L` and `CWH_YC_L`.
+- Managed harvest: 173,553 m3/yr over 100 years, 98.4% of the 176,330 m3/yr
+  pro-rated AAC.
 - Targets: two provisional targets, both met.
 - UI: 51,289 blocks, MapLibre, `http://127.0.0.1:8014/`.
 
