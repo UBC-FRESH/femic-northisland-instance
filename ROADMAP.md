@@ -18,7 +18,7 @@ after its parent issue exists and the maintainer approves it.
 | P3 ws4 model build | #18 | `feature/p3-ws4-model` | complete |
 | P4 Baseline, targets, and web UI | #23 | `feature/p4-baseline-ui` | complete |
 | P5 TSR metadata and TIPSY parameters | #29 | `feature/p5-tsr-metadata` | complete |
-| P6 Verify and release | TBD | `feature/p6-verify-release` | planned |
+| P6 Verify and release | #37 | `feature/p6-clean-checkout` | active |
 | P7 Operate and maintain | TBD | `feature/p7-operate` | planned |
 
 ## Lifecycle Map
@@ -165,20 +165,22 @@ Acceptance criteria:
 
 ## Phase 6: Verify and release
 
-Parent issue: TBD
-Branch: `feature/p6-verify-release`
-Status: planned
+Parent issue: #37
+Branch: `feature/p6-clean-checkout`
+Status: active
 
 Goal: verify the full workflow from a clean checkout and publish the reviewed
 instance artifacts.
 
-- [ ] P6.1 Run the full workflow from a clean checkout
-- [ ] P6.2 Record the release notes and known gaps
-- [ ] P6.3 Tag and publish after approval
+- [x] P6.1 Verify the clean-checkout downstream build (#38)
+- [ ] P6.2 Verify the full public-data upstream rebuild (blocked on materialized data root)
+- [x] P6.3 Record the release notes and known gaps
+- [x] P6.4 Tag and publish after approval
 
 Acceptance criteria:
 
-- A clean checkout reproduces the matrix and baseline run.
+- A clean checkout reproduces the matrix and baseline from the recorded FEMIC bundle.
+- The full public-data upstream lane is reproduced or recorded as a deferred gap.
 - The release names the exact commit, data root, and runtime versions.
 - No private data or generated model output is tracked.
 
@@ -201,8 +203,9 @@ Acceptance criteria:
 
 ## Detailed Next Steps Notes
 
-1. Phases P0 to P5 are complete. P6 is planned for clean-checkout verification
-   and release follow-up. The v0.2.0 base-model release is cut from the P5
+1. Phases P0 to P5 are complete. P6.1 clean-checkout downstream verification
+   passed; P6.2 full public-data upstream verification remains blocked on a
+   materialized data root. The v0.2.0 base-model release is cut from the P5
    branch after merge.
 2. The AOI is TSA 48 clipped to the NICC district, with the community forest
    agreement added back. See `notes/reference/aoi.md`.
