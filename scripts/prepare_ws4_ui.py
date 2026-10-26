@@ -68,6 +68,13 @@ def prepare_ui_geometry(
     if simplify_m > 0:
         blocks["geometry"] = blocks.geometry.simplify(simplify_m, preserve_topology=True)
     collection = blocks[["block_id", "geometry"]].__geo_interface__
+    # GeoJSON readers otherwise default to WGS84. The UI is served in the native
+    # FEMIC CRS, so record it explicitly; the ws4 serve command also receives it.
+    if frame.crs is not None and frame.crs.to_string() != "EPSG:4326":
+        collection["crs"] = {
+            "type": "name",
+            "properties": {"name": frame.crs.to_string()},
+        }
     for feature in collection["features"]:
         feature["geometry"]["coordinates"] = _round_coordinates(
             feature["geometry"]["coordinates"], precision

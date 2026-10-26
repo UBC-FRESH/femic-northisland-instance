@@ -30,7 +30,7 @@ def test_prepare_ui_geometry_dissolves_fragments_to_blocks(tmp_path: Path) -> No
     result = gpd.read_file(out)
     assert summary["block_count"] == 2
     assert sorted(result["block_id"].tolist()) == [7, 8]
-    assert result.crs is not None
+    assert result.crs == "EPSG:3005"
 
 
 def test_prepare_ui_geometry_rejects_unknown_block_column(tmp_path: Path) -> None:
